@@ -5,3 +5,7 @@ nix shell github:fossi-foundation/nix-eda#[ENTER_TOOL_HERE]
 for example: 
 
 nix shell github:fossi-foundation/nix-eda#xschem for XSchem
+
+then can boot into environment with command such as:
+
+xschem 
