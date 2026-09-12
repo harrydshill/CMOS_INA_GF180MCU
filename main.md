@@ -107,3 +107,5 @@ All measured parameters must fall within the Min/Typ/Max ranges given in the des
 - https://ieeexplore.ieee.org/document/8868504
 - https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10692516
 - https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5372080
+
+- https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/openfasoc#1#1
