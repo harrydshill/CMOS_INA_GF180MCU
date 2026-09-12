@@ -102,10 +102,12 @@ All measured parameters must fall within the Min/Typ/Max ranges given in the des
 2. Author(s). “Title.” Publication, year.
 3. ...
 
-- https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10363609
-- https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9234770
-- https://ieeexplore.ieee.org/document/8868504
-- https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10692516
-- https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5372080
-
-- https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/openfasoc#1#1
+[1] https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10363609
+[2] https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9234770
+[3] https://ieeexplore.ieee.org/document/8868504
+[4] https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10692516
+[5] https://www.sciencedirect.com/science/article/pii/S0167926023000287
+[6] https://www.sbmicro.org.br/jics/html/artigos/vol5no1/04.pdf
+[7] https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP/tree/main/designs/libs/core_analog/instramp_cmos5l
+[8] https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP
+[9] https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/openfasoc#1#1
