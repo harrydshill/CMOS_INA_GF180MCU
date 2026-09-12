@@ -107,7 +107,6 @@ All measured parameters must fall within the Min/Typ/Max ranges given in the des
 - https://ieeexplore.ieee.org/document/8868504
 - https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10692516
 - https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5372080
-<<<<<<< HEAD
 - https://www.sciencedirect.com/science/article/pii/S0167926023000287
 - https://www.sbmicro.org.br/jics/html/artigos/vol5no1/04.pdf
 - https://ieeexplore.ieee.org/document/10363609?denied=
