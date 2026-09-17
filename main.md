@@ -8,21 +8,38 @@ Bruno, Harry
 Crap
 
 ### Target Specifications
+## Instrumentation Amplifier
 
 | Parameter | Min | Typ | Max | Unit | Notes |
 |---|---:|---:|---:|---|---|
 | Bandwidth | — | 10 | — | MHz | UGF |
 | Phase margin | 45 | 60 | — | ° | — |
-| Gain | — | 40 | — | dB | Maximum gain setting |
+| Gain | — | 80 | — | dB | Maximum gain setting |
 | Gain step size | — | 2.5 | — | dB | Step size |
 | CMRR | 80 | 100 | — | dB | — |
 | CMR | 1 | — | 4 | V | SOA verified |
-| Input Impedance | 5 | 10 | — | impedance |  |
+| Input Impedance | 5 | 10 | — | impedance, big |  |
 | Input-referred wideband noise | 50 | 100 | — | µV/√Hz | Thermal noise (above 1/f corner) |
 | Input offset voltage (uncalibrated) | — | 5 | 10 | mV | Digital calibration register available |
 | Slew rate | 5 | 10 | — | V/µs |  |
 | Supply voltage range | — | 5 | — | V | — |
-| Quiescent current | — | 500 | 1000 | µA | — |
+| Quiescent current | — | 5 | 10 | µA | — |
+
+## Sallen-Key AA Filter
+
+TBD
+
+Must have fine gain function
+
+Must have variable fc
+
+## Variable Resistor
+
+2.5dB steps (so 80dB/32steps)
+
+Max e_n = 2uV/root(Hz)
+
+Max Iq = 2uA (flexible)
 
 ### Pin List
 
@@ -34,14 +51,15 @@ Crap
 | $V_{OUT-}$ | Differential output − | Output |
 | $V_{DD}$ | Positive supply | Power |
 | $V_{SS}$ | Ground | Power |
-| `Gain<0:3>` | Programmable gain bus | Power |
+| `Coarse_Gain<0:4>` | Coarse gain bus | Power |
+| `Fine_Gain<0:2>` | Fine gain bus | Power |
 | `Offset<0:3>` | Offset trim bus | Power |
 | `Test<0:3>` | Analogue DFT mux (for internal nodes) | Power |
 
 ### Key Features
 
 - High input impedance
-- 4-bit linear-in-dB programmable gain
+- 5-bit linear-in-dB programmable gain
 - Excellent CMRR
 - Low input offset voltage (digital register trim)
 - Low quiescent current (<10 mA)
@@ -102,15 +120,12 @@ All measured parameters must fall within the Min/Typ/Max ranges given in the des
 2. Author(s). “Title.” Publication, year.
 3. ...
 
-- https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10363609
-- https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9234770
-- https://ieeexplore.ieee.org/document/8868504
-- https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10692516
-- https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5372080
-- https://www.sciencedirect.com/science/article/pii/S0167926023000287
-- https://www.sbmicro.org.br/jics/html/artigos/vol5no1/04.pdf
-- https://ieeexplore.ieee.org/document/10363609?denied=
-- https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP/tree/main/designs/libs/core_analog/instramp_cmos5l
-- https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP
-- https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/openfasoc#1#1
-
+[1] https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10363609
+[2] https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9234770
+[3] https://ieeexplore.ieee.org/document/8868504
+[4] https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10692516
+[5] https://www.sciencedirect.com/science/article/pii/S0167926023000287
+[6] https://www.sbmicro.org.br/jics/html/artigos/vol5no1/04.pdf
+[7] https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP/tree/main/designs/libs/core_analog/instramp_cmos5l
+[8] https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP
+[9] https://www.crowdsupply.com/wafer-space/gf180mcu-run-1/updates/openfasoc#1#1

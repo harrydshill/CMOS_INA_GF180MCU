@@ -1,8 +1,7 @@
-{ pkgs ? import /nix/store/byjzdjpvrh042l85fmnvrd3c9hlqaygf-source {} }:
+{ pkgs ? import <nixpkgs> {} }:
 
 let
-  # Local copy of nix-eda — no network fetch
-  nix-eda = builtins.getFlake "path:/home/harry/nix-eda";
+  nix-eda = builtins.getFlake "github:fossi-foundation/nix-eda";
   pkgs' = import nix-eda.inputs.nixpkgs {
     inherit (pkgs.stdenv) system;
     overlays = [ nix-eda.overlays.default ];

@@ -1,0 +1,49 @@
+{
+  description = "A local flake for offline nix-eda usage";
+
+  inputs = {
+    # Point to your local nixpkgs clone
+    nixpkgs.url = "path:/absolute/path/to/nixpkgs";
+    
+    # Point to your local nix-eda clone
+    nix-eda = {
+      url = "path:/absolute/path/to/nix-eda";
+      inputs.nixpkgs.follows = "nixpkgs"; # Ensure it uses your local nixpkgs
+    };
+  };
+
+  outputs = { self, nixpkgs, nix-eda }:
+    let
+      # Define the systems you want to support
+      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+    in
+    {
+      # Example: Expose the tools via legacyPackages
+      legacyPackages = forAllSystems (system:
+        import nixpkgs {
+          inherit system;
+          # Apply the nix-eda overlay to get the tools
+          overlays = [ nix-eda.overlays.default ];
+        }
+      );
+
+      # Example: Create a dev shell with common EDA tools
+      devShells = forAllSystems (system:
+        let
+          pkgs = self.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              magic
+              klayout
+              yosys
+              xschem
+              # Add other tools you need
+            ];
+          };
+        }
+      );
+    };
+}
