@@ -1,0 +1,28 @@
+# Set default PDK_ROOT
+if { ![info exists env(PDK_ROOT)] } {
+	puts stderr "Warning: PDK_ROOT env. var. not found or empty, trying to find an open-pdks install"
+	if {[file isdir /usr/share/pdk]} {set ::env(PDK_ROOT) /usr/share/pdk
+	} elseif {[file isdir /usr/local/share/pdk]} {set ::env(PDK_ROOT) /usr/local/share/pdk
+	} elseif {[file isdir $env(HOME)/share/pdk]} {set ::env(PDK_ROOT) $env(HOME)/share/pdk
+	} elseif {[file isdir $env(HOME)/.ciel]} {set ::env(PDK_ROOT) $env(HOME)/.ciel
+	} else {
+		puts stderr {No open-pdks installation found, set PDK_ROOT env. var. and restart xschem}
+	}
+}
+
+	    # Set default PDK
+	    if { ![info exists env(PDK)] } {
+	      set ::env(PDK) gf180mcuD
+	    }
+
+	    # Source the PDK xschemrc file
+	    if {![info exists PDK]} {
+	        source $env(PDK_ROOT)/$env(PDK)/libs.tech/xschem/xschemrc
+	    }
+
+	    # Add current directory to xschem library path
+	    append XSCHEM_LIBRARY_PATH :[file dirname [info script]]/lib
+
+	    # Source the dependencies (example)
+	    # source [file dirname [info script]]/../ip/project_name/xschem/xschemrc
+	   

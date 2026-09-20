@@ -1,0 +1,1 @@
+To use XSCHEM with the new xschemrc, start a nix shell with xschem, magic, xterm and ngspice and cd into xschem/. run xschem, and the xschemrc file will find the PDK from the default installation locations. Make sure that you ran sudo make install after building the PDK, so that it is copied to /usr/share/pdk.
