@@ -1,0 +1,72 @@
+** sch_path: /home/harry/Git/CMOS_INA_GF180MCU/xschem/tb/tb_aux_opamp.sch
+**.subckt tb_aux_opamp
+V1 PSUP GND {VDD}
+V2 net4 GND {VDD/2}
+V3 net3 GND {VDD/2}
+V4 net2 GND {VDD/2}
+V5 net1 net2 AC
+V6 net5 GND {VDD/2}
+V7 PSUP_PSRR PSUP AC
+x1 PSUP Vo1 net4 Vo1 net6 GND net7 aux_amp
+x2 PSUP Vo2 net3 net3 net8 GND net9 aux_amp
+x3 PSUP Vo3 net1 net2 net10 GND net11 aux_amp
+x4 PSUP_PSRR Vo4 net5 net5 net12 GND net13 aux_amp
+* noconn #net7
+* noconn #net9
+* noconn #net11
+* noconn #net13
+* noconn #net6
+* noconn #net8
+* noconn #net10
+* noconn #net12
+**** begin user architecture code
+
+.include /home/harry/open-pdks/gf180mcu/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /home/harry/open-pdks/gf180mcu/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+.lib /home/harry/open-pdks/gf180mcu/gf180mcuD/libs.tech/ngspice/sm141064.ngspice res_typical
+.lib /home/harry/open-pdks/gf180mcu/gf180mcuD/libs.tech/ngspice/sm141064.ngspice moscap_typical
+.lib /home/harry/open-pdks/gf180mcu/gf180mcuD/libs.tech/ngspice/sm141064.ngspice diode_typical
+* .lib /home/harry/open-pdks/gf180mcu/gf180mcuD/libs.tech/ngspice/sm141064.ngspice res_statistical
+
+
+
+.param VDD=5
+echo 1
+.control
+echo 1
+save all
+echo 1
+write /home/harry/Git/CMOS_INA_GF180MCU/xschem/results tb_aux_opamp.raw
+echo 1
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  lib/aux_amp.sym # of pins=7
+** sym_path: /home/harry/Git/CMOS_INA_GF180MCU/xschem/lib/aux_amp.sym
+** sch_path: /home/harry/Git/CMOS_INA_GF180MCU/xschem/lib/aux_amp.sch
+.subckt aux_amp PSUP Vo V+ V- N_EN NSUP EN
+*.ipin PSUP
+*.ipin NSUP
+*.ipin N_EN
+*.ipin EN
+*.ipin V+
+*.ipin V-
+*.opin Vo
+XM1 Vo V- net2 NSUP nfet_06v0 L=0.5u W=2u nf=4 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=4
+XM2 net1 V+ net2 NSUP nfet_06v0 L=0.5u W=2u nf=4 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=4
+XM5 net1 net1 PSUP PSUP pfet_06v0 L=2u W=2u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+XM6 Vo net1 PSUP PSUP pfet_06v0 L=2u W=2u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m=1
+I0 net2 NSUP 5u
+* noconn N_EN
+* noconn EN
+.ends
+
+.GLOBAL GND
+.end

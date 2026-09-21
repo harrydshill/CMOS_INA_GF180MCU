@@ -23,6 +23,8 @@ if { ![info exists env(PDK_ROOT)] } {
 	    # Add current directory to xschem library path
 	    append XSCHEM_LIBRARY_PATH :[file dirname [info script]]/lib
 
+	    # Set editor to gedit instead of gvim
+	    set editor {gedit}
+
 	    # Source the dependencies (example)
 	    # source [file dirname [info script]]/../ip/project_name/xschem/xschemrc
-	   

@@ -4,92 +4,133 @@ K {}
 V {}
 S {}
 E {}
-T {OFFSET} 40.00000000000008 -70.00000000000014 0 0 0.2 0.2 {}
-T {vdd needs to become a variable to sweep
-} -370.0000000000007 -40.00000000000008 0 0 0.2 0.2 {}
-T {EN} 40.00000000000008 200.0000000000004 0 0 0.2 0.2 {}
-T {UGF/Aol} 40.00000000000008 490.0000000000009 0 0 0.2 0.2 {}
-T {PSRR} 40.00000000000008 800.0000000000016 0 0 0.2 0.2 {}
-N -380.0000000000007 -10.00000000000004 -380.0000000000007 -10.00000000000003 {lab=PSUP}
-N -20.00000000000004 90.00000000000017 -20.00000000000004 120.0000000000002 {lab=#net1}
-N -20.00000000000004 120.0000000000002 -20.00000000000004 140.0000000000003 {lab=#net1}
-N -110.0000000000002 70.00000000000014 -90.00000000000017 70.00000000000014 {lab=Vo1}
-N 50.00000000000011 40.00000000000009 70.00000000000014 40.00000000000009 {lab=Vo1}
-N -180.0000000000004 90.00000000000017 -180.0000000000004 110.0000000000002 {lab=#net2}
-N -20.00000000000004 360.0000000000007 -20.00000000000004 390.0000000000008 {lab=#net3}
-N -20.00000000000004 390.0000000000008 -20.00000000000004 410.0000000000009 {lab=#net3}
-N 50.00000000000011 310.0000000000007 70.00000000000014 310.0000000000007 {lab=#net4}
-N -180.0000000000003 420.0000000000009 -180.0000000000003 440.0000000000009 {lab=#net5}
-N -20.00000000000006 530.000000000001 -20.00000000000006 550.000000000001 {lab=#net6}
-N -20.00000000000004 650.0000000000011 -20.00000000000004 680.0000000000014 {lab=#net7}
-N -20.00000000000004 680.0000000000014 -20.00000000000004 700.0000000000014 {lab=#net7}
-N -20.00000000000004 510.000000000001 -20.00000000000004 530.000000000001 {lab=#net8}
-N -180.0000000000003 750.0000000000014 -180.0000000000003 770.0000000000014 {lab=#net9}
-N -180.0000000000003 570.0000000000011 -180.0000000000003 590.0000000000013 {lab=#net10}
-N -180.0000000000003 570.0000000000011 -90.00000000000017 570.0000000000011 {lab=#net10}
-N -180.0000000000003 650.0000000000013 -180.0000000000003 690.0000000000014 {lab=#net11}
-N -130.0000000000003 630.0000000000013 -90.00000000000017 630.0000000000013 {lab=#net11}
-N -180.0000000000003 670.0000000000014 -130.0000000000003 670.0000000000014 {lab=#net11}
-N -130.0000000000003 630.0000000000013 -130.0000000000003 670.0000000000014 {lab=#net11}
-N -180.0000000000003 1020.000000000002 -180.0000000000003 1040.000000000002 {lab=#net12}
-N -260.0000000000005 1020.000000000002 -260.0000000000005 1040.000000000002 {lab=#net13}
-N -100 260 -90 260 {lab=#net14}
-N -180 280 -90 280 {lab=#net15}
-N -180.0000000000003 360.0000000000008 -180 360 {lab=#net15}
-N -180 280 -180 360 {lab=#net15}
-N -180 340 -90 340 {lab=#net15}
-N -180 10 -90 10 {lab=#net16}
-N -180 10 -180 30 {lab=#net16}
-N -260 940 -260 960 {lab=#net17}
-N -180 880 -90 880 {lab=#net18}
-N -180 880 -180 960 {lab=#net18}
-N -180 940 -90 940 {lab=#net18}
-N -20 230 -20 260 {lab=#net19}
-N -360 70 -360 110 {lab=#net20}
-N -380 90 -360 90 {lab=#net20}
-N -360 -10 -360 10 {lab=#net21}
-N -20 -50 -20 -10 {lab=#net22}
-N -380 -10 -360 -10 {lab=#net21}
-N -20 960 -20 1010 {lab=#net23}
-N -20 820 -20 860 {lab=#net24}
-C {gnd.sym} -360.0000000000007 110.0000000000002 0 0 {name=l1 lab=GND}
-C {vsource.sym} -360.0000000000007 40.00000000000006 0 0 {name=V1 value=5 savecurrent=false}
-C {lab_wire.sym} -380.0000000000007 -10.00000000000003 0 0 {name=p1 sig_type=std_logic lab=PSUP}
-C {lab_wire.sym} -380.0000000000009 90.00000000000016 0 0 {name=p2 sig_type=std_logic lab=NSUP}
-C {lab_wire.sym} -20.00000000000001 -50.0000000000001 0 0 {name=p3 sig_type=std_logic lab=PSUP}
-C {lab_wire.sym} -20.00000000000023 140.0000000000003 0 0 {name=p4 sig_type=std_logic lab=NSUP}
-C {lab_wire.sym} -90.0000000000004 70.00000000000014 0 0 {name=p5 sig_type=std_logic lab=Vo1}
-C {lab_wire.sym} 69.99999999999994 40.00000000000009 2 0 {name=p6 sig_type=std_logic lab=Vo1}
-C {vsource.sym} -180.0000000000004 60.0000000000001 0 0 {name=V2 value=vdd/2 savecurrent=false}
-C {lab_wire.sym} -180.0000000000005 110.0000000000002 0 0 {name=p7 sig_type=std_logic lab=NSUP}
-C {lab_wire.sym} -20.00000000000023 410.0000000000009 0 0 {name=p9 sig_type=std_logic lab=NSUP}
-C {lab_wire.sym} 49.99999999999994 310.0000000000007 2 0 {name=p11 sig_type=std_logic lab=Vo2
+B 2 140 -220 940 180 {flags=graph
+y1=0.006544961
+y2=0.046901286
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=2.8645626
+x2=6.6544183
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+dataset=-1
+unitx=1
+logx=0
+logy=0
+autoload=1
+color=4
+node="\\"Offset;Vo1 vcom -\\""}
+T {OFFSET} 40 -70 0 0 0.2 0.2 {}
+T {EN} 40 200 0 0 0.2 0.2 {}
+T {UGF/Aol} 40 490 0 0 0.2 0.2 {}
+T {PSRR} 40 800 0 0 0.2 0.2 {}
+N -110 60 -90 60 {lab=Vo1}
+N 50 40 70 40 {lab=Vo1}
+N 50 310 70 310 {lab=Vo2}
+N -20 530 -20 550 {lab=PSUP}
+N -20 510 -20 530 {lab=PSUP}
+N -180 580 -90 580 {lab=#net1}
+N -180 650 -180 690 {lab=#net2}
+N -130 620 -90 620 {lab=#net2}
+N -180 670 -130 670 {lab=#net2}
+N -130 630 -130 670 {lab=#net2}
+N -180 290 -90 290 {lab=#net3}
+N -180 330 -90 330 {lab=#net3}
+N -180 20 -90 20 {lab=#net4}
+N -360 -110 -360 -90 {lab=PSUP_PSRR}
+N -180 890 -90 890 {lab=#net5}
+N -180 890 -180 960 {lab=#net5}
+N -180 930 -90 930 {lab=#net5}
+N -20 230 -20 260 {lab=PSUP}
+N -360 70 -360 110 {lab=GND}
+N -360 -10 -360 10 {lab=PSUP}
+N -20 -50 -20 -10 {lab=PSUP}
+N -20 820 -20 860 {lab=PSUP_PSRR}
+N -180 20 -180 30 {lab=#net4}
+N -180 290 -180 360 {lab=#net3}
+N -130 620 -130 630 {lab=#net2}
+N -180 580 -180 590 {lab=#net1}
+N 50 600 70 600 {lab=Vo3}
+N 50 910 70 910 {lab=Vo4}
+N -360 -30 -360 -10 {lab=PSUP}
+N -20 90 -20 120 {lab=GND}
+N -20 360 -20 390 {lab=GND}
+N -20 650 -20 680 {lab=GND}
+N -20 650 -20 680 {lab=GND}
+N -20 960 -20 990 {lab=GND}
+N -20 960 -20 990 {lab=GND}
+N -180 420 -180 450 {lab=GND}
+N -180 90 -180 120 {lab=GND}
+N -180 750 -180 780 {lab=GND}
+N -180 750 -180 780 {lab=GND}
+N -180 1020 -180 1050 {lab=GND}
+N -180 1020 -180 1050 {lab=GND}
+C {vsource.sym} -360 40 0 0 {name=V1 value=\{VDD\} savecurrent=false}
+C {lab_wire.sym} -360 -0 0 0 {name=p1 sig_type=std_logic lab=PSUP}
+C {lab_wire.sym} -20 -50 0 0 {name=p3 sig_type=std_logic lab=PSUP}
+C {lab_wire.sym} -90 60 0 0 {name=p5 sig_type=std_logic lab=Vo1}
+C {lab_wire.sym} 70 40 2 0 {name=p6 sig_type=std_logic lab=Vo1}
+C {vsource.sym} -180 60 0 0 {name=V2 value=\{VDD/2\} savecurrent=false}
+C {lab_wire.sym} 50 310 2 0 {name=p11 sig_type=std_logic lab=Vo2
 }
-C {vsource.sym} -180.0000000000003 390.0000000000008 0 0 {name=V3 value=vdd/2 savecurrent=false}
-C {lab_wire.sym} -180.0000000000005 440.0000000000009 0 0 {name=p12 sig_type=std_logic lab=NSUP}
-C {lab_wire.sym} -20.00000000000001 510.000000000001 0 0 {name=p10 sig_type=std_logic lab=PSUP}
-C {lab_wire.sym} -20.00000000000023 700.0000000000014 0 0 {name=p13 sig_type=std_logic lab=NSUP}
-C {vsource.sym} -180.0000000000003 720.0000000000014 0 0 {name=V4 value=vdd/2 savecurrent=false}
-C {lab_wire.sym} -180.0000000000005 770.0000000000014 0 0 {name=p15 sig_type=std_logic lab=NSUP}
-C {vsource.sym} -180.0000000000003 620.0000000000013 0 0 {name=V5 value=AC savecurrent=false}
-C {lab_wire.sym} -20.00000000000001 820.0000000000016 0 0 {name=p16 sig_type=std_logic lab=PSUP_PSRR}
-C {lab_wire.sym} -20.00000000000023 1010.000000000002 0 0 {name=p17 sig_type=std_logic lab=NSUP}
-C {vsource.sym} -180.0000000000003 990.0000000000019 0 0 {name=V6 value=vdd/2 savecurrent=false}
-C {lab_wire.sym} -180.0000000000005 1040.000000000002 0 0 {name=p19 sig_type=std_logic lab=NSUP}
-C {lab_wire.sym} -260.0000000000005 940.0000000000018 0 0 {name=p20 sig_type=std_logic lab=PSUP_PSRR}
-C {vsource.sym} -260.0000000000005 990.0000000000019 0 0 {name=V7 value=vdd/2+AC savecurrent=false}
-C {lab_wire.sym} -260.0000000000007 1040.000000000002 0 0 {name=p21 sig_type=std_logic lab=NSUP
-value=vdd/2+AC}
+C {vsource.sym} -180 390 0 0 {name=V3 value=\{VDD/2\} savecurrent=false}
+C {lab_wire.sym} -20 510 0 0 {name=p10 sig_type=std_logic lab=PSUP}
+C {vsource.sym} -180 720 0 0 {name=V4 value=\{VDD/2\} savecurrent=false}
+C {vsource.sym} -180 620 0 0 {name=V5 value=AC 0 AC 1 savecurrent=false}
+C {lab_wire.sym} -20 820 0 0 {name=p16 sig_type=std_logic lab=PSUP_PSRR}
+C {vsource.sym} -180 990 0 0 {name=V6 value=\{VDD/2\} savecurrent=false}
+C {lab_wire.sym} -360 -110 0 0 {name=p20 sig_type=std_logic lab=PSUP_PSRR}
+C {vsource.sym} -360 -60 0 0 {name=V7 value=AC savecurrent=false}
 C {lib/aux_amp.sym} -10 30 0 0 {name=x1}
 C {lib/aux_amp.sym} -10 300 0 0 {name=x2}
 C {lib/aux_amp.sym} -10 590 0 0 {name=x3}
 C {lib/aux_amp.sym} -10 900 0 0 {name=x4}
-C {noconn.sym} -90 -10 0 0 {name=l2}
 C {noconn.sym} -90 90 0 0 {name=l3}
-C {noconn.sym} -90 260 0 0 {name=l4}
 C {noconn.sym} -90 360 0 0 {name=l5}
-C {noconn.sym} -90 550 0 0 {name=l6}
 C {noconn.sym} -90 650 0 0 {name=l7}
-C {noconn.sym} -90 860 0 0 {name=l8}
 C {noconn.sym} -90 960 0 0 {name=l9}
-C {lab_wire.sym} -20.00000000000001 230.000000000001 0 0 {name=p8 sig_type=std_logic lab=PSUP}
+C {lab_wire.sym} -20 230 0 0 {name=p8 sig_type=std_logic lab=PSUP}
+C {noconn.sym} -90 80 0 0 {name=l2}
+C {noconn.sym} -90 350 0 0 {name=l4}
+C {noconn.sym} -90 640 0 0 {name=l10}
+C {lab_wire.sym} 50 600 2 0 {name=p14 sig_type=std_logic lab=Vo3
+}
+C {lab_wire.sym} 50 910 2 0 {name=p18 sig_type=std_logic lab=Vo4
+}
+C {noconn.sym} -90 950 0 0 {name=l6}
+C {devices/code_shown.sym} -840 190 0 0 {name=MODELS only_toplevel=true
+format="tcleval( @value )"
+value="
+.include $::180MCU_MODELS/design.ngspice
+.lib $::180MCU_MODELS/sm141064.ngspice typical
+.lib $::180MCU_MODELS/sm141064.ngspice res_typical
+.lib $::180MCU_MODELS/sm141064.ngspice moscap_typical
+.lib $::180MCU_MODELS/sm141064.ngspice diode_typical
+* .lib $::180MCU_MODELS/sm141064.ngspice res_statistical
+"}
+C {code_shown.sym} -840 370 0 0 {name=NGSPICE only_toplevel=true
+value="
+.param VDD=5
+echo "1"
+.control
+echo "1"
+save all
+echo "1"
+write /home/harry/Git/CMOS_INA_GF180MCU/xschem/results tb_aux_opamp.raw
+echo "1"
+.endc
+"}
+C {gnd.sym} -360 110 0 0 {name=l8 lab=GND}
+C {gnd.sym} -20 120 0 0 {name=l11 lab=GND}
+C {gnd.sym} -20 390 0 0 {name=l12 lab=GND}
+C {gnd.sym} -20 680 0 0 {name=l14 lab=GND}
+C {gnd.sym} -20 990 0 0 {name=l16 lab=GND}
+C {gnd.sym} -180 450 0 0 {name=l17 lab=GND}
+C {gnd.sym} -180 120 0 0 {name=l18 lab=GND}
+C {gnd.sym} -180 780 0 0 {name=l20 lab=GND}
+C {gnd.sym} -180 1050 0 0 {name=l22 lab=GND}

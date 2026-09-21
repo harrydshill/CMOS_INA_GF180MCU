@@ -1,0 +1,11 @@
+Hello everyone, here are the corners we want to aim for as from the pdk
+
+DO NOT USE MIN LENGTH, use min length of 500nm 
+
+Temp: -20, 85. This is typical for medical, although -40, 120 is more typical for industrial
+
+Voltage: 5V+-10%
+
+Corners: ss ff sf fs + typ. max and min temperature. typ should be at 25degrees
+
+
