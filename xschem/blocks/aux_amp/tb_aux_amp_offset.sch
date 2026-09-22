@@ -5,15 +5,15 @@ V {}
 S {}
 E {}
 B 2 270 -690 1070 -290 {flags=graph
-y1=0.006544961
-y2=0.046901286
+y1=-0.0038121209
+y2=0.01910292
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=2.8645626
-x2=6.6544183
+x1=2.038771
+x2=4.5748362
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -40,7 +40,6 @@ N -190 50 -190 90 {lab=NSUP}
 N -190 -20 -160 -20 {lab=VCOM}
 N -190 -20 -190 -0 {lab=VCOM}
 C {gnd.sym} -300.0000000000007 70.0000000000002 0 0 {name=l4 lab=GND}
-C {lib/aux_amp.sym} 10 -10 0 0 {name=x1}
 C {lab_wire.sym} 0 -90 0 0 {name=p1 sig_type=std_logic lab=PSUP
 }
 C {lab_wire.sym} -320 -50 0 0 {name=p2 sig_type=std_logic lab=PSUP
@@ -59,7 +58,7 @@ C {lab_wire.sym} 70 0 0 1 {name=p6 sig_type=std_logic lab=Vo1
 }
 C {lab_wire.sym} -70 20 0 0 {name=p7 sig_type=std_logic lab=Vo1
 }
-C {devices/code_shown.sym} 170 -130 0 0 {name=MODELS only_toplevel=true
+C {devices/code_shown.sym} 170 -140 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
 .include $::180MCU_MODELS/design.ngspice
@@ -69,13 +68,13 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice diode_typical
 * .lib $::180MCU_MODELS/sm141064.ngspice res_statistical
 "}
-C {code_shown.sym} 160 40 0 0 {name=NGSPICE only_toplevel=true
+C {code_shown.sym} 160 30 0 0 {name=NGSPICE only_toplevel=true
 value="
-.param VDDVAL=4
+.param VDD=4
 .control
 save all
 dc VDD 4 6 0.1
-write tb_aux_opamp_offset_only.raw
+write 
 .endc
 "
 
@@ -83,3 +82,4 @@ write tb_aux_opamp_offset_only.raw
 C {lab_wire.sym} -70 -20 0 0 {name=p8 sig_type=std_logic lab=VCOM}
 C {noconn.sym} -70 50 0 0 {name=l1}
 C {noconn.sym} -70 40 0 0 {name=l2}
+C {blocks/aux_amp/aux_amp.sym} 10 -10 0 0 {name=x1}

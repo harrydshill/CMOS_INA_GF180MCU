@@ -10,21 +10,59 @@ if { ![info exists env(PDK_ROOT)] } {
 	}
 }
 
-	    # Set default PDK
-	    if { ![info exists env(PDK)] } {
-	      set ::env(PDK) gf180mcuD
-	    }
+# Set default PDK
+if { ![info exists env(PDK)] } {
+	set ::env(PDK) gf180mcuD
+}
 
-	    # Source the PDK xschemrc file
-	    if {![info exists PDK]} {
-	        source $env(PDK_ROOT)/$env(PDK)/libs.tech/xschem/xschemrc
-	    }
+# Source the PDK xschemrc file
+if {![info exists PDK]} {
+	source $env(PDK_ROOT)/$env(PDK)/libs.tech/xschem/xschemrc
+}
 
-	    # Add current directory to xschem library path
-	    append XSCHEM_LIBRARY_PATH :[file dirname [info script]]/lib
+# This file's directory is the project Xschem root, independent of $HOME.
+set PROJECT_DIR [file dirname [file normalize [info script]]]
 
-	    # Set editor to gedit instead of gvim
-	    set editor {gedit}
 
-	    # Source the dependencies (example)
-	    # source [file dirname [info script]]/../ip/project_name/xschem/xschemrc
+# -----------------------------------------------------------------------------
+# Project symbol / hierarchical-schematic libraries
+# -----------------------------------------------------------------------------
+# XSCHEM_LIBRARY_PATH is a COLON-delimited string, not a Tcl list.  Use
+# 'append ... :path' rather than 'lappend'.  The text after '|' is a library
+# alias: it makes a visible, stable name in the Xschem library browser and
+# creates portable references such as 'ota/ota.sym'.
+if {![info exists XSCHEM_LIBRARY_PATH]} {
+  	set XSCHEM_LIBRARY_PATH {}
+}
+
+# Optional project-wide helpers.  References become common/<symbol>.sym.
+set shared_symbols [file join $PROJECT_DIR common symbols]
+if {[file isdirectory $shared_symbols]} {
+#  	append XSCHEM_LIBRARY_PATH ":${shared_symbols}"
+#}
+
+# Every immediate blocks/<block-name>/ directory is an individual visible
+# Xschem library.  A directory such as blocks/ota/ containing ota.sym and
+# ota.sch therefore appears as library alias 'ota' in the component browser.
+set blocks_dir [file join $PROJECT_DIR blocks]
+if {[file isdirectory $blocks_dir]} {
+	foreach block_dir [lsort [glob -nocomplain -types d [file join $blocks_dir *]]] {
+		set block_name [file tail $block_dir]
+		append XSCHEM_LIBRARY_PATH ":[file normalize $block_dir]"
+	}
+}
+
+# Optional integration-level symbols.  References become top/<symbol>.sym.
+#set top_dir [file join $PROJECT_DIR top]
+#if {[file isdirectory $top_dir]} {
+#  	append XSCHEM_LIBRARY_PATH ":${top_dir}"
+#}
+
+# Diagnostic: visible in the terminal from which Xschem was launched.
+puts "Project Xschem libraries: $XSCHEM_LIBRARY_PATH"
+
+# Set netlist output directory
+set local_netlist_dir 1
+
+# Set editor to gedit instead of gvim
+set editor {gedit}
