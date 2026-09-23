@@ -23,7 +23,9 @@ N -190 -0 -190 20 {lab=INP}
 N -190 20 -100 20 {lab=INP}
 N -190 20 -190 40 {lab=INP}
 N 70 -0 90 0 {lab=OUT}
-C {gnd.sym} -300.0000000000007 70.0000000000002 0 0 {name=l4 lab=GND}
+N -330 90 -300 90 {lab=NSUP}
+N -300 70 -300 90 {lab=NSUP}
+C {gnd.sym} -320.0000000000007 90.0000000000002 0 0 {name=l4 lab=GND}
 C {lab_wire.sym} 0 -90 0 0 {name=p1 sig_type=std_logic lab=PSUP
 }
 C {lab_wire.sym} -320 -50 0 0 {name=p2 sig_type=std_logic lab=PSUP
@@ -38,15 +40,24 @@ C {lab_wire.sym} -190 130 0 0 {name=p5 sig_type=std_logic lab=NSUP
 }
 C {vsource.sym} -300 0 0 0 {name=VDD value=\{vdd\} savecurrent=false}
 C {vsource.sym} -190 70 0 0 {name=VCM value=\{vcm\} savecurrent=false}
-C {code_shown.sym} 230 200 0 0 {name=NGSPICE only_toplevel=true
+C {code_shown.sym} 240 200 0 0 {name=NGSPICE only_toplevel=true
 value="
-.op
+.control
+op
+show all
+write tb_aux_amp_dc.raw
+.endc
 "}
 C {noconn.sym} -70 50 0 0 {name=l1}
 C {noconn.sym} -70 40 0 0 {name=l2}
 C {blocks/aux_amp/aux_amp.sym} 10 -10 0 0 {name=x1}
-C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=false value=
-"
+C {lab_wire.sym} -90 -20 0 0 {name=p7 sig_type=std_logic lab=INP
+}
+C {lab_wire.sym} 80 0 0 1 {name=p6 sig_type=std_logic lab=OUT
+}
+C {code_shown.sym} 230 -220 0 0 {name=MODELS only_toplevel=true
+format="tcleval( @value )"
+value="
 .include $::180MCU_MODELS/design.ngspice
 
 .lib $::180MCU_MODELS/sm141064.ngspice typical
@@ -64,7 +75,3 @@ C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=false value=
 .param sw_stat_mismatch=0
 
 "}
-C {lab_wire.sym} -90 -20 0 0 {name=p7 sig_type=std_logic lab=INP
-}
-C {lab_wire.sym} 80 0 0 1 {name=p6 sig_type=std_logic lab=OUT
-}
