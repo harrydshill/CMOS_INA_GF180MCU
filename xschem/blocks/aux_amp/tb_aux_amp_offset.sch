@@ -19,10 +19,12 @@ N -190 50 -190 90 {lab=NSUP}
 N -190 -20 -160 -20 {lab=INP}
 N -190 -20 -190 -0 {lab=INP}
 N 30 140 70 140 {lab=#net1}
-N 70 0 70 140 {lab=#net1}
+N 110 0 110 140 {lab=#net1}
 N -100 20 -70 20 {lab=INM}
 N -100 20 -100 140 {lab=INM}
 N -100 140 -30 140 {lab=INM}
+N 70 140 110 140 {lab=#net1}
+N 70 -0 110 -0 {lab=#net1}
 C {gnd.sym} -300.0000000000007 70.0000000000002 0 0 {name=l4 lab=GND}
 C {lab_wire.sym} 0 -90 0 0 {name=p1 sig_type=std_logic lab=PSUP
 }
