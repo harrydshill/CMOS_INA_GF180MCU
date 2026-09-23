@@ -58,9 +58,6 @@ if {[file isdirectory $blocks_dir]} {
 #  	append XSCHEM_LIBRARY_PATH ":${top_dir}"
 #}
 
-# Diagnostic: visible in the terminal from which Xschem was launched.
-puts "Project Xschem libraries: $XSCHEM_LIBRARY_PATH"
-
 # Set netlist output directory
 set local_netlist_dir 1
 

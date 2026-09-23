@@ -1,0 +1,6 @@
+MOS,RES,BJT,TEMP,VDD
+typical,res_typical,bjt_typical,25,3.3
+ss,res_ss,bjt_ss,125,2.97
+ff,res_ff,bjt_ff,-40,3.63
+fs,res_fs,bjt_fs,125,2.97
+sf,res_sf,bjt_sf,-40,3.63
