@@ -45,7 +45,7 @@ value="
 .control
 op
 show all
-write tb_aux_amp_dc.raw
+write blocks/aux_amp/simulation/tb_aux_amp_dc.raw
 .endc
 "}
 C {noconn.sym} -70 50 0 0 {name=l1}
