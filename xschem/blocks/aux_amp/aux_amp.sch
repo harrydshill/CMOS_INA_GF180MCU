@@ -76,8 +76,8 @@ C {ipin.sym} 160 90 0 1 {name=p3 lab=V-
 C {opin.sym} 160 10 0 0 {name=p4 lab=Vo}
 C {lab_pin.sym} 10 90 0 0 {name=p6 sig_type=std_logic lab=NSUP}
 C {symbols/nfet_06v0_nvt.sym} 120 90 0 1 {name=M1
-L=1.80u
-W=2.00u
+L=2u
+W=2u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -90,8 +90,8 @@ model=nfet_06v0
 spiceprefix=X
 }
 C {symbols/nfet_06v0_nvt.sym} -110 90 0 0 {name=M2
-L=1.80u
-W=2.00u
+L=2u
+W=2u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
