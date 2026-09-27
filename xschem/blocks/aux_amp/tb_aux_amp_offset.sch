@@ -4,47 +4,68 @@ K {}
 V {}
 S {}
 E {}
+B 2 200 -660 1000 -260 {flags=graph
+y1=-0.03035077
+y2=0.033103329
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-0.01679415
+x2=0.016633738
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node="inp out -"
+color=4
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
 P 4 1 10 -0 {}
 T {vdd needs to become a variable to sweep
 } -420.0000000000007 -120.0000000000001 0 0 0.2 0.2 {}
 N -160 -20 -70 -20 {lab=INP}
 N 0 -90 0 -50 {lab=PSUP}
-N -0 50 0 90 {lab=NSUP}
+N -0 50 0 90 {lab=0}
 N -320 -50 -300 -50 {lab=PSUP}
 N -300 -50 -300 -30 {lab=PSUP}
-N -320 50 -300 50 {lab=NSUP}
-N -300 30 -300 50 {lab=NSUP}
-N -300 50 -300 70 {lab=NSUP}
-N -190 50 -190 90 {lab=NSUP}
+N -320 50 -300 50 {lab=0}
+N -300 30 -300 50 {lab=0}
+N -190 50 -190 90 {lab=0}
 N -190 -20 -160 -20 {lab=INP}
 N -190 -20 -190 -0 {lab=INP}
-N 30 140 70 140 {lab=#net1}
-N 110 0 110 140 {lab=#net1}
+N 30 140 70 140 {lab=OUT}
+N 110 0 110 140 {lab=OUT}
 N -100 20 -70 20 {lab=INM}
 N -100 20 -100 140 {lab=INM}
 N -100 140 -30 140 {lab=INM}
-N 70 140 110 140 {lab=#net1}
-N 70 -0 110 -0 {lab=#net1}
-C {gnd.sym} -300.0000000000007 70.0000000000002 0 0 {name=l4 lab=GND}
+N 70 140 110 140 {lab=OUT}
+N 70 -0 110 -0 {lab=OUT}
 C {lab_wire.sym} 0 -90 0 0 {name=p1 sig_type=std_logic lab=PSUP
 }
 C {lab_wire.sym} -320 -50 0 0 {name=p2 sig_type=std_logic lab=PSUP
 
 
 }
-C {lab_wire.sym} -320 50 0 0 {name=p3 sig_type=std_logic lab=NSUP
+C {lab_wire.sym} -320 50 0 0 {name=p3 sig_type=std_logic lab=0
 }
-C {lab_wire.sym} 0 90 0 0 {name=p4 sig_type=std_logic lab=NSUP
+C {lab_wire.sym} 0 90 0 0 {name=p4 sig_type=std_logic lab=0
 }
-C {lab_wire.sym} -190 90 0 0 {name=p5 sig_type=std_logic lab=NSUP
+C {lab_wire.sym} -190 90 0 0 {name=p5 sig_type=std_logic lab=0
 }
 C {vsource.sym} -300 0 0 0 {name=VDD value=\{vdd\} savecurrent=false}
 C {vsource.sym} -190 30 0 0 {name=VCM value=\{vcm\} savecurrent=false}
 C {code_shown.sym} 230 200 0 0 {name=NGSPICE only_toplevel=true
 value="
-.dc VOS -100m 100m 1m
-.plot dc v(inm)-v(inp)
-.meas dc vos when v(inp)=v(inm) cross=1
+.control
+dc VOS -10m 10m 1u
+meas dc vos when v(inp)=v(out) cross=1
+write tb_aux_amp_offset.raw
+.endc
 "}
 C {noconn.sym} -70 50 0 0 {name=l1}
 C {noconn.sym} -70 40 0 0 {name=l2}
@@ -59,18 +80,20 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice bjt_typical
 .lib $::180MCU_MODELS/sm141064.ngspice mimcap_typical
 
-.temp @TEMP@
+* .temp @TEMP@
 
-.param vcm=@VCM@
-.param vdd=@VDD@
+.param vcm=2.5
+.param vdd=5
 
 * Deterministic PVT: disable random global/mismatch variation.
 .param sw_stat_global=0
 .param sw_stat_mismatch=0
 
 "}
-C {vsource.sym} 0 140 1 0 {name=VOS value=0 savecurrent=false}
+C {vsource.sym} 0 140 3 0 {name=VOS value=0 savecurrent=false}
 C {lab_wire.sym} -90 20 0 0 {name=p6 sig_type=std_logic lab=INM
 }
 C {lab_wire.sym} -90 -20 0 0 {name=p7 sig_type=std_logic lab=INP
+}
+C {lab_wire.sym} 100 0 0 1 {name=p8 sig_type=std_logic lab=OUT
 }

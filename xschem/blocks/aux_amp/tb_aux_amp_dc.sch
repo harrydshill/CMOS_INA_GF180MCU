@@ -9,40 +9,36 @@ T {vdd needs to become a variable to sweep
 } -420.0000000000007 -120.0000000000001 0 0 0.2 0.2 {}
 N -160 -20 -70 -20 {lab=INP}
 N 0 -90 0 -50 {lab=PSUP}
-N -0 50 0 90 {lab=NSUP}
+N -0 50 0 90 {lab=0}
 N -320 -50 -300 -50 {lab=PSUP}
 N -300 -50 -300 -30 {lab=PSUP}
-N -320 50 -300 50 {lab=NSUP}
-N -300 30 -300 50 {lab=NSUP}
-N -300 50 -300 70 {lab=NSUP}
-N -190 90 -190 130 {lab=NSUP}
+N -320 50 -300 50 {lab=0}
+N -300 30 -300 50 {lab=0}
+N -190 90 -190 130 {lab=0}
 N -190 -20 -160 -20 {lab=INP}
 N -190 -20 -190 -0 {lab=INP}
-N -100 20 -70 20 {lab=INP}
 N -190 -0 -190 20 {lab=INP}
-N -190 20 -100 20 {lab=INP}
 N -190 20 -190 40 {lab=INP}
 N 70 -0 90 0 {lab=OUT}
-N -330 90 -300 90 {lab=NSUP}
-N -300 70 -300 90 {lab=NSUP}
-C {gnd.sym} -320.0000000000007 90.0000000000002 0 0 {name=l4 lab=GND}
+N -190 20 -70 20 {lab=INP}
 C {lab_wire.sym} 0 -90 0 0 {name=p1 sig_type=std_logic lab=PSUP
 }
 C {lab_wire.sym} -320 -50 0 0 {name=p2 sig_type=std_logic lab=PSUP
 
 
 }
-C {lab_wire.sym} -320 50 0 0 {name=p3 sig_type=std_logic lab=NSUP
+C {lab_wire.sym} -320 50 0 0 {name=p3 sig_type=std_logic lab=0
 }
-C {lab_wire.sym} 0 90 0 0 {name=p4 sig_type=std_logic lab=NSUP
+C {lab_wire.sym} 0 90 0 0 {name=p4 sig_type=std_logic lab=0
 }
-C {lab_wire.sym} -190 130 0 0 {name=p5 sig_type=std_logic lab=NSUP
+C {lab_wire.sym} -190 130 0 0 {name=p5 sig_type=std_logic lab=0
 }
 C {vsource.sym} -300 0 0 0 {name=VDD value=\{vdd\} savecurrent=false}
 C {vsource.sym} -190 70 0 0 {name=VCM value=\{vcm\} savecurrent=false}
 C {code_shown.sym} 240 200 0 0 {name=NGSPICE only_toplevel=true
 value="
 .control
+save all
 op
 show all
 write blocks/aux_amp/simulation/tb_aux_amp_dc.raw
