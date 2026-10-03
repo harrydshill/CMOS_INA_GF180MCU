@@ -20,7 +20,8 @@ N -190 -20 -190 -0 {lab=INP}
 N -190 -0 -190 20 {lab=INP}
 N -190 20 -190 40 {lab=INP}
 N 70 -0 90 0 {lab=OUT}
-N -190 20 -70 20 {lab=INP}
+N -130 20 -70 20 {lab=INP}
+N -190 20 -130 20 {lab=INP}
 C {lab_wire.sym} 0 -90 0 0 {name=p1 sig_type=std_logic lab=PSUP
 }
 C {lab_wire.sym} -320 -50 0 0 {name=p2 sig_type=std_logic lab=PSUP
