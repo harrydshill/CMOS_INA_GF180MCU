@@ -72,8 +72,8 @@ N 350 -480 370 -480 {lab=Vn+}
 N 60 -480 80 -480 {lab=Vn-}
 N 120 -240 150 -240 {lab=Vo+}
 N -150 -240 -120 -240 {lab=Vo-}
-N -630 -600 -570 -600 {lab=vb1}
-N -570 -650 -570 -600 {lab=vb1}
+N -580 -650 -580 -580 {lab=vb1}
+N -630 -580 -580 -580 {lab=vb1}
 C {noconn.sym} -750 -60 0 1 {name=l1}
 C {noconn.sym} -750 -30 0 1 {name=l2}
 C {ipin.sym} -750 -730 0 0 {name=p19 lab=PSUP
@@ -235,3 +235,4 @@ C {ipin.sym} 60 -480 0 0 {name=p26 lab=Vn-
 }
 C {opin.sym} 150 -240 0 0 {name=p27 lab=Vo+}
 C {opin.sym} -150 -240 0 1 {name=p2 lab=Vo-}
+C {noconn.sym} -750 -90 0 1 {name=l3}
