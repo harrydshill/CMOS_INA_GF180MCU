@@ -42,7 +42,7 @@ N 200 -410 200 -320 {lab=PSUP}
 N 10 140 200 140 {lab=NSUP}
 N 10 200 110 200 {lab=AA5}
 N 50 -320 70 -320 {lab=vb1}
-N 200 -160 200 -20 {lab=Vo+}
+N 200 -160 200 -20 {lab=Vo-}
 N -300 -410 -100 -410 {lab=PSUP}
 N -300 450 -170 450 {lab=NSUP}
 N -130 340 70 340 {lab=mirror}
@@ -92,7 +92,7 @@ N 10 100 10 110 {lab=AA3}
 N -200 -100 -200 -40 {lab=vb2}
 N -200 -130 -140 -130 {lab=vb2}
 N -10 -90 10 -90 {lab=Vo+}
-N 200 -90 220 -90 {lab=Vo+}
+N 200 -90 220 -90 {lab=Vo-}
 N -200 -40 -200 90 {lab=vb2}
 C {symbols/pfet_06v0.sym} 30 -320 0 1 {name=M5
 L=4u
@@ -139,23 +139,9 @@ C {ipin.sym} -50 140 0 0 {name=p1 lab=V+
 C {ipin.sym} 260 140 0 1 {name=p3 lab=V-
 
 }
-C {opin.sym} 220 -90 0 0 {name=p4 lab=Vo+}
+C {opin.sym} 220 -90 0 0 {name=p4 lab=Vo-}
 C {lab_pin.sym} 110 140 0 0 {name=p6 sig_type=std_logic lab=NSUP}
 C {symbols/nfet_06v0_nvt.sym} 220 140 0 1 {name=M1
-L=2u
-W=4u
-nf=5
-m=4
-ad="'int((nf+1)/2) * W/nf * 0.18u'"
-pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
-as="'int((nf+2)/2) * W/nf * 0.18u'"
-ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
-nrd="'0.18u / W'" nrs="'0.18u / W'"
-sa=0 sb=0 sd=0
-model=nfet_06v0
-spiceprefix=X
-}
-C {symbols/nfet_06v0_nvt.sym} -10 140 0 0 {name=M2
 L=2u
 W=4u
 nf=5
@@ -270,7 +256,7 @@ C {lab_pin.sym} 10 50 0 0 {name=p19 sig_type=std_logic lab=AA3}
 C {lab_pin.sym} 80 10 2 0 {name=p20 sig_type=std_logic lab=vb2
 }
 C {lab_pin.sym} 200 50 0 0 {name=p22 sig_type=std_logic lab=AA4}
-C {symbols/nfet_06v0_nvt.sym} -10 140 0 0 {name=M13
+C {symbols/nfet_06v0_nvt.sym} -10 140 0 0 {name=M2
 L=2u
 W=4u
 nf=5

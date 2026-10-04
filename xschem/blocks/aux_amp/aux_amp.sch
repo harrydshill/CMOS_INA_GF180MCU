@@ -33,8 +33,8 @@ N -100 -170 -20 -170 {lab=PSUP}
 N -170 410 80 410 {lab=NSUP}
 N -20 130 -20 160 {lab=AA2}
 N 170 130 170 160 {lab=AA2}
-N 210 100 230 100 {lab=V-}
-N -80 100 -60 100 {lab=V+}
+N 210 100 230 100 {lab=#net1}
+N -80 100 -60 100 {lab=V-}
 N -20 -30 -20 60 {lab=AA1
 }
 N 170 10 170 60 {lab=AA3}
@@ -76,7 +76,7 @@ N 210 0 290 0 {lab=AA3}
 N 300 -80 370 -80 {lab=AA3}
 N -200 110 -200 220 {lab=mirror}
 N -140 190 -140 250 {lab=mirror}
-N 350 0 350 20 {lab=#net1}
+N 350 0 350 20 {lab=#net2}
 N -200 30 -200 50 {lab=PSUP}
 N -200 30 -200 50 {lab=PSUP}
 N 290 -80 300 -80 {lab=AA3}
@@ -129,12 +129,6 @@ C {ipin.sym} -300 350 0 0 {name=p5 lab=N_EN
 
 }
 C {ipin.sym} -300 380 0 0 {name=p7 lab=EN
-}
-C {ipin.sym} -80 100 0 0 {name=p1 lab=V+
-
-}
-C {ipin.sym} 230 100 0 1 {name=p3 lab=V-
-
 }
 C {opin.sym} 470 100 0 0 {name=p4 lab=Vo}
 C {lab_pin.sym} 80 100 0 0 {name=p6 sig_type=std_logic lab=NSUP}
@@ -246,3 +240,9 @@ model=ppolyf_u_3k
 spiceprefix=X
 m=1}
 C {lab_pin.sym} 330 50 0 0 {name=p11 sig_type=std_logic lab=NSUP}
+C {ipin.sym} 230 100 0 1 {name=p1 lab=V+
+
+}
+C {ipin.sym} -80 100 0 0 {name=p3 lab=V-
+
+}
