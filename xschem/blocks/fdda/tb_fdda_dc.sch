@@ -36,7 +36,7 @@ value="
 save all
 op
 show all
-write tb_aux_amp_dc.raw
+write tb_fdda_dc.raw
 .endc
 "}
 C {code_shown.sym} 540 -470 0 0 {name=MODELS only_toplevel=true
