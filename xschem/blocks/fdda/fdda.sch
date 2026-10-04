@@ -59,7 +59,7 @@ N -120 0 120 -0 {lab=NSUP}
 N -210 -670 -210 -650 {lab=#net3}
 N 220 -680 220 -650 {lab=PSUP}
 N -630 -670 -630 -650 {lab=#net4}
-N -630 -620 -630 -450 {lab=#net5}
+N -630 -620 -630 -450 {lab=vb1}
 N -630 -730 -630 -680 {lab=PSUP}
 N -630 -390 -630 -0 {lab=NSUP}
 N -590 -650 -570 -650 {lab=vb1}
@@ -68,10 +68,12 @@ N 160 -650 180 -650 {lab=vb1}
 N -140 -730 220 -730 {lab=PSUP}
 N -80 -480 -60 -480 {lab=Vp+}
 N -370 -480 -350 -480 {lab=Vp-}
-N 350 -480 370 -480 {lab=V+}
+N 350 -480 370 -480 {lab=Vn+}
 N 60 -480 80 -480 {lab=Vn-}
 N 120 -240 150 -240 {lab=Vo+}
 N -150 -240 -120 -240 {lab=Vo-}
+N -580 -650 -580 -580 {lab=vb1}
+N -630 -580 -580 -580 {lab=vb1}
 C {noconn.sym} -750 -60 0 1 {name=l1}
 C {noconn.sym} -750 -30 0 1 {name=l2}
 C {ipin.sym} -750 -730 0 0 {name=p19 lab=PSUP
@@ -233,3 +235,4 @@ C {ipin.sym} 60 -480 0 0 {name=p26 lab=Vn-
 }
 C {opin.sym} 150 -240 0 0 {name=p27 lab=Vo+}
 C {opin.sym} -150 -240 0 1 {name=p2 lab=Vo-}
+C {noconn.sym} -750 -90 0 1 {name=l3}
