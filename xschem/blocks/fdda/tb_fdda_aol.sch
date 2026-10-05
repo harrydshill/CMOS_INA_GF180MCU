@@ -43,6 +43,7 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice res_typical
 .lib $::180MCU_MODELS/sm141064.ngspice bjt_typical
 .lib $::180MCU_MODELS/sm141064.ngspice mimcap_typical
+.lib $::180MCU_MODELS/sm141064.ngspice cap_mim
 
 * .temp @TEMP@
 
@@ -84,7 +85,7 @@ device="ceramic capacitor"
 C {blocks/fdda/fdda.sym} -360 160 0 0 {name=x2}
 C {lab_pin.sym} -290 230 0 0 {name=p9 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} -440 80 0 0 {name=p13 sig_type=std_logic lab=VCM}
-C {noconn.sym} -230 110 0 0 {name=l3}
+C {noconn.sym} -230 110 1 0 {name=l3}
 C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP}
 C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {noconn.sym} -240 310 3 0 {name=l4}
@@ -110,3 +111,4 @@ C {vsource.sym} -420 130 0 1 {name=VDM1 value="DC 0 AC 0.5" savecurrent=false}
 C {lab_pin.sym} -420 250 0 0 {name=p3 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -380 190 0 0 {name=p6 sig_type=std_logic lab=INM
 }
+C {noconn.sym} -250 110 1 0 {name=l1}
