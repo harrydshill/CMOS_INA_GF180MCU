@@ -62,7 +62,7 @@ C {lab_wire.sym} -100 230 0 1 {name=p4 sig_type=std_logic lab=Von
 C {code_shown.sym} 220 190 0 0 {name=NGSPICE only_toplevel=true value="
 .control
 save all
-tran 10n 200u
+tran 10p 10u
 write tb_fdda_cmfb_stab.raw
 .endc
 "}
@@ -80,7 +80,7 @@ C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP}
 C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {noconn.sym} -240 310 3 0 {name=l4}
 C {noconn.sym} -220 310 3 0 {name=l5}
-C {vsource.sym} -660 350 0 0 {name=V1 value="PWL(0 0 1u 0 11u \{vdd\})" savecurrent=false}
+C {vsource.sym} -660 350 0 0 {name=V1 value=5 savecurrent=false}
 C {lab_pin.sym} -640 400 2 0 {name=p16 sig_type=std_logic lab=0}
 C {lab_pin.sym} -640 300 2 0 {name=p17 sig_type=std_logic lab=PSUP}
 C {lab_pin.sym} -720 400 2 0 {name=p18 sig_type=std_logic lab=0}
@@ -110,4 +110,4 @@ C {lab_pin.sym} -450 310 2 0 {name=p9 sig_type=std_logic lab=INM
 C {lab_pin.sym} -250 110 2 1 {name=p10 sig_type=std_logic lab=IPROBE}
 C {lab_pin.sym} -830 300 2 0 {name=p12 sig_type=std_logic lab=IPROBE}
 C {lab_pin.sym} -830 400 2 0 {name=p20 sig_type=std_logic lab=0}
-C {isource.sym} -850 350 0 0 {name=I0 value="PULSE(0 1u 50u 1n 1n 1u)"}
+C {isource.sym} -850 350 0 0 {name=I0 value="PULSE(0 1u 10n 1n 1n 1n)"}
