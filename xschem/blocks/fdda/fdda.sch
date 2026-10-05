@@ -183,6 +183,10 @@ N -260 -730 -10 -730 {lab=PSUP}
 N 780 -380 800 -380 {lab=Vo+}
 N 590 -380 610 -380 {lab=Vo-}
 N 1430 -180 1480 -180 {lab=CMFB_PROBE}
+N 1700 -340 1710 -340 {lab=n4}
+N 1770 -340 1780 -340 {lab=Vcm}
+N 1780 -340 1790 -340 {lab=Vcm}
+N 1850 -340 1860 -340 {lab=n5}
 C {noconn.sym} -670 -60 0 1 {name=l1}
 C {noconn.sym} -670 -30 0 1 {name=l2}
 C {ipin.sym} -670 -730 0 0 {name=p19 lab=PSUP
@@ -651,3 +655,15 @@ C {ipin.sym} 1430 -180 0 0 {name=p2 lab=CMFB_PROBE
 
 
 }
+C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 1740 -340 1 0 {name=C1
+W=10e-6
+L=10e-6
+model=cap_mim_2f0fF
+spiceprefix=X
+m=1}
+C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 1820 -340 1 0 {name=C2
+W=10e-6
+L=10e-6
+model=cap_mim_2f0fF
+spiceprefix=X
+m=1}
