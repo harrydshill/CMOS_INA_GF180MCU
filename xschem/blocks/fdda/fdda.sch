@@ -107,44 +107,44 @@ N -550 -170 -550 -150 {lab=vb3}
 N -10 -730 1480 -730 {lab=PSUP}
 N 80 -210 780 -210 {lab=sum_n}
 N 240 -170 610 -170 {lab=sum_p}
-N 1410 -260 1410 -230 {lab=#net1}
-N 1550 -260 1550 -230 {lab=#net1}
+N 1410 -260 1410 -230 {lab=CMFB_PROBE}
+N 1550 -260 1550 -230 {lab=CMFB_PROBE}
 N 1410 -440 1410 -350 {lab=Vcmfb
 }
-N 1550 -400 1550 -350 {lab=#net2}
-N 1550 -460 1550 -400 {lab=#net2}
+N 1550 -400 1550 -350 {lab=#net1}
+N 1550 -460 1550 -400 {lab=#net1}
 N 1480 -80 1480 -20 {lab=NSUP}
 N 1480 -20 1480 0 {lab=NSUP}
 N 1480 -110 1480 -80 {lab=NSUP}
-N 1550 -330 1550 -320 {lab=#net2}
+N 1550 -330 1550 -320 {lab=#net1}
 N 1410 -330 1410 -320 {lab=Vcmfb}
 N 1420 -290 1540 -290 {lab=NSUP}
-N 1420 -230 1540 -230 {lab=#net1}
+N 1420 -230 1540 -230 {lab=CMFB_PROBE}
 N 1450 -650 1460 -650 {lab=Vcmfb}
 N 1410 -600 1460 -600 {lab=Vcmfb}
-N 1500 -650 1510 -650 {lab=#net2}
-N 1500 -600 1550 -600 {lab=#net2}
+N 1500 -650 1510 -650 {lab=#net1}
+N 1500 -600 1550 -600 {lab=#net1}
 N 1460 -650 1470 -650 {lab=Vcmfb}
 N 1470 -650 1470 -600 {lab=Vcmfb}
 N 1460 -600 1470 -600 {lab=Vcmfb}
-N 1490 -650 1500 -650 {lab=#net2}
-N 1490 -650 1490 -600 {lab=#net2}
-N 1490 -600 1500 -600 {lab=#net2}
+N 1490 -650 1500 -650 {lab=#net1}
+N 1490 -650 1490 -600 {lab=#net1}
+N 1490 -600 1500 -600 {lab=#net1}
 N 1410 -290 1420 -290 {lab=NSUP}
 N 1540 -290 1550 -290 {lab=NSUP}
-N 1410 -230 1420 -230 {lab=#net1}
-N 1540 -230 1550 -230 {lab=#net1}
-N 1550 -610 1550 -460 {lab=#net2}
+N 1410 -230 1420 -230 {lab=CMFB_PROBE}
+N 1540 -230 1550 -230 {lab=CMFB_PROBE}
+N 1550 -610 1550 -460 {lab=#net1}
 N 1410 -610 1410 -470 {lab=Vcmfb}
 N 1410 -470 1410 -440 {lab=Vcmfb}
 N 1550 -730 1550 -650 {lab=PSUP}
 N 1410 -730 1410 -650 {lab=PSUP}
 N 1410 -620 1410 -610 {lab=Vcmfb}
-N 1550 -620 1550 -610 {lab=#net2}
+N 1550 -620 1550 -610 {lab=#net1}
 N 1420 -110 1440 -110 {lab=vb3}
 N 1410 -350 1410 -330 {lab=Vcmfb}
-N 1550 -350 1550 -330 {lab=#net2}
-N 1480 -230 1480 -140 {lab=#net1}
+N 1550 -350 1550 -330 {lab=#net1}
+N 1480 -230 1480 -140 {lab=CMFB_PROBE}
 N 1640 -110 1660 -110 {lab=Vo+}
 N 1640 -110 1660 -110 {lab=Vo+}
 N 1900 -110 1920 -110 {lab=Vo-}
@@ -182,6 +182,7 @@ N 730 0 980 0 {lab=NSUP}
 N -260 -730 -10 -730 {lab=PSUP}
 N 780 -380 800 -380 {lab=Vo+}
 N 590 -380 610 -380 {lab=Vo-}
+N 1430 -180 1480 -180 {lab=CMFB_PROBE}
 C {noconn.sym} -670 -60 0 1 {name=l1}
 C {noconn.sym} -670 -30 0 1 {name=l2}
 C {ipin.sym} -670 -730 0 0 {name=p19 lab=PSUP
@@ -646,3 +647,7 @@ device=resistor
 m=1}
 C {opin.sym} 800 -380 0 0 {name=p13 lab=Vo+}
 C {opin.sym} 590 -380 0 1 {name=p27 lab=Vo-}
+C {ipin.sym} 1430 -180 0 0 {name=p2 lab=CMFB_PROBE
+
+
+}
