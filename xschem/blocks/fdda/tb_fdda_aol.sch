@@ -10,7 +10,7 @@ good practive to include
 it here with the expected
 parasitic capacitance for 
 stability check } 80 180 0 0 0.2 0.2 {}
-N -100 310 -100 330 {lab=NSUP}
+N -100 310 -100 330 {lab=0}
 N -100 230 -100 250 {lab=Von}
 N -570 400 -550 400 {lab=0}
 N -570 380 -570 400 {lab=0}
@@ -22,7 +22,7 @@ N -650 300 -650 320 {lab=VCM}
 N -650 300 -630 300 {lab=VCM}
 N -140 190 -100 190 {lab=Vop}
 N -140 230 -100 230 {lab=Von}
-N -40 310 -40 330 {lab=NSUP}
+N -40 310 -40 330 {lab=0}
 N -40 230 -40 250 {lab=Vop}
 N -40 190 -40 230 {lab=Vop}
 N -100 190 -40 190 {lab=Vop}
@@ -74,7 +74,7 @@ write tb_fdda_aol.raw frequency v(Vop) v(Von) v(Vo) aol gain_db phase_deg
 
 .endc
 "}
-C {lab_pin.sym} -100 330 0 0 {name=p11 sig_type=std_logic lab=NSUP}
+C {lab_pin.sym} -100 330 0 0 {name=p11 sig_type=std_logic lab=0}
 C {capa.sym} -100 280 0 0 {name=C1
 m=1
 value=1p
@@ -96,7 +96,7 @@ C {lab_pin.sym} -630 400 2 0 {name=p18 sig_type=std_logic lab=0}
 C {lab_pin.sym} -630 300 2 0 {name=p19 sig_type=std_logic lab=VCM}
 C {lab_wire.sym} -40 190 0 1 {name=p1 sig_type=std_logic lab=Vop
 }
-C {lab_pin.sym} -40 330 0 0 {name=p5 sig_type=std_logic lab=NSUP}
+C {lab_pin.sym} -40 330 0 0 {name=p5 sig_type=std_logic lab=0}
 C {capa.sym} -40 280 0 0 {name=C2
 m=1
 value=1p
