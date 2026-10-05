@@ -19,9 +19,9 @@ N -190 -20 -160 -20 {lab=INP}
 N -190 -20 -190 -0 {lab=INP}
 N -190 -0 -190 20 {lab=INP}
 N -190 20 -190 40 {lab=INP}
-N 50 -20 70 -20 {lab=OUTP}
-N -190 20 -70 20 {lab=INP}
-N 50 20 70 20 {lab=OUTN}
+N 70 -0 90 0 {lab=OUT}
+N -130 20 -70 20 {lab=INP}
+N -190 20 -130 20 {lab=INP}
 C {lab_wire.sym} 0 -90 0 0 {name=p1 sig_type=std_logic lab=PSUP
 }
 C {lab_wire.sym} -320 -50 0 0 {name=p2 sig_type=std_logic lab=PSUP
@@ -42,14 +42,15 @@ value="
 save all
 op
 show all
-write tb_error_amp_dc.raw
+write tb_aux_amp_dc.raw
 .endc
 "}
 C {noconn.sym} -70 50 0 0 {name=l1}
 C {noconn.sym} -70 40 0 0 {name=l2}
+C {blocks/aux_amp/aux_amp.sym} 10 -10 0 0 {name=x1}
 C {lab_wire.sym} -90 -20 0 0 {name=p7 sig_type=std_logic lab=INP
 }
-C {lab_wire.sym} 60 -20 0 1 {name=p6 sig_type=std_logic lab=OUTP
+C {lab_wire.sym} 80 0 0 1 {name=p6 sig_type=std_logic lab=OUT
 }
 C {code_shown.sym} 230 -220 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
@@ -71,6 +72,3 @@ value="
 .param sw_stat_mismatch=0
 
 "}
-C {blocks/error_amp/error_amp.sym} 10 -10 0 0 {name=x1}
-C {lab_wire.sym} 60 20 0 1 {name=p8 sig_type=std_logic lab=OUTN
-}
