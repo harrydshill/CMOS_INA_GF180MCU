@@ -33,6 +33,7 @@ N -470 110 -450 110 {lab=INP}
 N -470 110 -470 130 {lab=INP}
 N -470 310 -450 310 {lab=INM}
 N -470 290 -470 310 {lab=INM}
+N -230 100 -230 110 {lab=#net1}
 C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -46,7 +47,7 @@ value="
 
 * .temp @TEMP@
 
-.param vcm=2.5
+.param vcm=1.8
 .param vdd=3.3
 
 * Deterministic PVT: disable random global/mismatch variation.
@@ -71,7 +72,7 @@ device="ceramic capacitor"
 }
 C {blocks/fdda_lv/fdda_lv.sym} -360 160 0 0 {name=x2}
 C {lab_pin.sym} -490 210 0 0 {name=p13 sig_type=std_logic lab=VCM}
-C {noconn.sym} -230 110 0 0 {name=l3}
+C {noconn.sym} -230 100 0 0 {name=l3}
 C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {noconn.sym} -240 310 3 0 {name=l4}
@@ -103,3 +104,4 @@ C {lab_wire.sym} -290 230 0 0 {name=p7 sig_type=std_logic lab=Von
 C {lab_pin.sym} -450 110 2 0 {name=p8 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -450 310 2 0 {name=p9 sig_type=std_logic lab=INM
 }
+C {noconn.sym} -250 110 0 0 {name=l1}

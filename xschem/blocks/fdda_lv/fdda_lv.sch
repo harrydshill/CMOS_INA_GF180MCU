@@ -77,7 +77,6 @@ N 840 -620 840 -510 {lab=n7}
 N 840 -450 840 -320 {lab=Vo+}
 N 670 -260 670 -140 {lab=sum_p}
 N 840 -260 840 -140 {lab=sum_n}
-N -550 -390 -550 -240 {lab=vb3}
 N -490 -650 -490 -600 {lab=vb1}
 N -550 -620 -550 -600 {lab=vb1}
 N -550 -500 -490 -500 {lab=vb2}
@@ -184,6 +183,8 @@ N 610 -170 670 -170 {lab=sum_p}
 N -550 -240 -550 -150 {lab=vb3}
 N -550 -150 -490 -150 {lab=vb3}
 N 730 -480 730 -290 {lab=vb2}
+N -550 -450 -550 -390 {lab=vb2}
+N -550 -330 -550 -240 {lab=vb3}
 C {noconn.sym} -670 -60 0 1 {name=l1}
 C {noconn.sym} -670 -30 0 1 {name=l2}
 C {ipin.sym} -670 -730 0 0 {name=p19 lab=PSUP_LV
@@ -199,7 +200,6 @@ C {ipin.sym} -670 -90 0 0 {name=p9 lab=IBIAS
 
 
 }
-C {isource.sym} -550 -420 0 0 {name=I0 value=1u}
 C {symbols/pfet_03v3.sym} -530 -650 0 1 {name=M7
 L=4u
 W=2u
@@ -647,3 +647,8 @@ spiceprefix=X
 m=1}
 C {lab_pin.sym} 750 -480 2 0 {name=p4 sig_type=std_logic lab=vb2}
 C {lab_pin.sym} -490 -550 2 0 {name=p5 sig_type=std_logic lab=vb2}
+C {res.sym} -550 -360 0 0 {name=R4
+value=300k
+footprint=1206
+device=resistor
+m=1}
