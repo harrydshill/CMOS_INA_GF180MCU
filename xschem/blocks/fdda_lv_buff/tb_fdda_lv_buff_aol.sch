@@ -10,7 +10,7 @@ good practive to include
 it here with the expected
 parasitic capacitance for 
 stability check } 80 180 0 0 0.2 0.2 {}
-N -100 420 -100 440 {lab=0}
+N -100 310 -100 330 {lab=0}
 N -100 230 -100 250 {lab=Von}
 N -570 400 -550 400 {lab=0}
 N -570 380 -570 400 {lab=0}
@@ -22,8 +22,9 @@ N -650 300 -650 320 {lab=VCM}
 N -650 300 -630 300 {lab=VCM}
 N -140 190 -100 190 {lab=Vop}
 N -140 230 -100 230 {lab=Von}
-N 20 420 20 440 {lab=0}
-N 20 190 20 230 {lab=Vop}
+N -40 310 -40 330 {lab=0}
+N -40 230 -40 250 {lab=Vop}
+N -40 190 -40 230 {lab=Vop}
 N -100 190 -40 190 {lab=Vop}
 N -420 80 -420 100 {lab=VCM}
 N -440 80 -420 80 {lab=VCM}
@@ -33,16 +34,6 @@ N -380 160 -380 190 {lab=INM}
 N -380 190 -290 190 {lab=INM}
 N -420 160 -420 250 {lab=INP}
 N -420 250 -290 250 {lab=INP}
-N -100 250 -100 360 {lab=Von}
-N 20 250 20 360 {lab=Vop}
-N -40 420 -40 440 {lab=0}
-N 80 420 80 440 {lab=0}
-N -100 330 -40 330 {lab=Von}
-N 20 230 20 250 {lab=Vop}
-N -40 190 20 190 {lab=Vop}
-N 20 330 80 330 {lab=Vop}
-N -40 330 -40 360 {lab=Von}
-N 80 330 80 360 {lab=Vop}
 C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -80,18 +71,18 @@ let phase_deg = cph(aol)
 meas ac UGF when gain_db=0
 meas ac phase_margin find phase_deg when gain_db=0
 
-write tb_fdda_lv_aol.raw frequency v(Vop) v(Von) v(Vo) aol gain_db phase_deg
+write tb_fdda_lv_buff_aol.raw frequency v(Vop) v(Von) v(Vo) aol gain_db phase_deg
 
 .endc
 "}
-C {lab_pin.sym} -100 440 0 0 {name=p11 sig_type=std_logic lab=0}
-C {capa.sym} -100 390 0 0 {name=C1
+C {lab_pin.sym} -100 330 0 0 {name=p11 sig_type=std_logic lab=0}
+C {capa.sym} -100 280 0 0 {name=C1
 m=1
-value=100f
+value=10p
 footprint=1206
 device="ceramic capacitor"
 }
-C {blocks/fdda_lv/fdda_lv.sym} -360 160 0 0 {name=x2}
+C {blocks/fdda_lv_buff/fdda_lv_buff.sym} -360 160 0 0 {name=x2}
 C {lab_pin.sym} -290 230 0 0 {name=p9 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} -440 80 0 0 {name=p13 sig_type=std_logic lab=VCM}
 C {noconn.sym} -230 110 1 0 {name=l3}
@@ -104,12 +95,12 @@ C {lab_pin.sym} -550 400 2 0 {name=p16 sig_type=std_logic lab=0}
 C {lab_pin.sym} -550 300 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -630 400 2 0 {name=p18 sig_type=std_logic lab=0}
 C {lab_pin.sym} -630 300 2 0 {name=p19 sig_type=std_logic lab=VCM}
-C {lab_wire.sym} 20 190 0 1 {name=p1 sig_type=std_logic lab=Vop
+C {lab_wire.sym} -40 190 0 1 {name=p1 sig_type=std_logic lab=Vop
 }
-C {lab_pin.sym} 20 440 0 0 {name=p5 sig_type=std_logic lab=0}
-C {capa.sym} 20 390 0 0 {name=C2
+C {lab_pin.sym} -40 330 0 0 {name=p5 sig_type=std_logic lab=0}
+C {capa.sym} -40 280 0 0 {name=C2
 m=1
-value=100f
+value=10p
 footprint=1206
 device="ceramic capacitor"
 }
@@ -121,15 +112,3 @@ C {lab_pin.sym} -420 250 0 0 {name=p3 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -380 190 0 0 {name=p6 sig_type=std_logic lab=INM
 }
 C {noconn.sym} -250 110 1 0 {name=l1}
-C {res.sym} 80 390 0 0 {name=R1
-value=1Meg
-footprint=1206
-device=resistor
-m=1}
-C {res.sym} -40 390 0 0 {name=R2
-value=1Meg
-footprint=1206
-device=resistor
-m=1}
-C {lab_pin.sym} -40 440 0 0 {name=p7 sig_type=std_logic lab=0}
-C {lab_pin.sym} 80 440 0 0 {name=p8 sig_type=std_logic lab=0}
