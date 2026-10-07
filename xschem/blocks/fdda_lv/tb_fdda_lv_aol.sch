@@ -41,8 +41,6 @@ N -100 330 -40 330 {lab=Von}
 N 20 230 20 250 {lab=Vop}
 N -40 190 20 190 {lab=Vop}
 N 20 330 80 330 {lab=Vop}
-N -40 330 -40 360 {lab=Von}
-N 80 330 80 360 {lab=Vop}
 C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -112,7 +110,7 @@ m=1
 value=100f
 footprint=1206
 device="ceramic capacitor"
-spice_ignore=true}
+}
 C {vsource.sym} -650 350 0 0 {name=VCM2 value=\{vcm\} savecurrent=false}
 C {lab_pin.sym} -290 170 0 0 {name=p2 sig_type=std_logic lab=VCM}
 C {vsource.sym} -380 130 2 1 {name=VDM2 value="DC 0 AC 0.5" savecurrent=false}

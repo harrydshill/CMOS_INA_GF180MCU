@@ -62,7 +62,7 @@ C {lab_wire.sym} -100 230 0 1 {name=p4 sig_type=std_logic lab=Von
 C {code_shown.sym} 220 190 0 0 {name=NGSPICE only_toplevel=true value="
 .control
 save all
-tran 10p 10u
+tran 100p 10u
 write tb_fdda_lv_cmfb_stab.raw
 .endc
 "}

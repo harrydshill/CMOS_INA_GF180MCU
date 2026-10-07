@@ -13,7 +13,7 @@ T {2u} 800 -610 0 0 0.4 0.4 {}
 T {gain boosting if time?
 } 710 -260 0 0 0.2 0.2 {}
 T {1u} 1430 -60 0 0 0.4 0.4 {}
-T {FDFCDA} 200 -150 0 0 0.4 0.4 {}
+T {FCDDA} 200 -150 0 0 0.4 0.4 {}
 T {1u} 1660 -620 0 0 0.4 0.4 {}
 T {1u} 1810 -620 0 0 0.4 0.4 {}
 T {4u} 1270 -560 0 0 0.4 0.4 {}
@@ -159,10 +159,9 @@ N 1550 0 1860 0 {lab=NSUP}
 N 1590 -290 1780 -290 {lab=Vcm}
 N 1780 -460 1780 -290 {lab=Vcm}
 N 1480 -730 1860 -730 {lab=PSUP_LV}
-N -430 -420 -430 -400 {lab=Vref}
-N -430 -520 -430 -480 {lab=vb1}
-N -430 -600 -430 -520 {lab=vb1}
-N -490 -600 -430 -600 {lab=vb1}
+N -670 -380 -670 -360 {lab=Vref}
+N -670 -480 -670 -440 {lab=vb1}
+N -670 -560 -670 -480 {lab=vb1}
 N 730 0 980 0 {lab=NSUP}
 N -260 -730 -10 -730 {lab=PSUP_LV}
 N 1430 -180 1480 -180 {lab=CMFB_PROBE}
@@ -219,6 +218,28 @@ N 1130 -450 1190 -450 {lab=n8}
 N 1170 -550 1190 -550 {lab=vb1}
 N 1170 -310 1190 -310 {lab=vb1}
 N 1700 -730 1700 -650 {lab=PSUP_LV}
+N -670 -600 -550 -600 {lab=vb1}
+N -670 -600 -670 -560 {lab=vb1}
+N -330 -150 -330 -100 {lab=#net2}
+N -390 -150 -390 -130 {lab=#net2}
+N -350 -100 -330 -100 {lab=#net2}
+N -390 -100 -390 -80 {lab=#net3}
+N -390 -150 -330 -150 {lab=#net2}
+N -330 -250 -330 -200 {lab=#net4}
+N -390 -250 -390 -230 {lab=#net4}
+N -350 -200 -330 -200 {lab=#net4}
+N -390 -250 -330 -250 {lab=#net4}
+N -390 -170 -390 -150 {lab=#net2}
+N -390 -70 -390 -0 {lab=NSUP}
+N -390 -680 -390 -650 {lab=PSUP_LV}
+N -390 -600 -330 -600 {lab=#net5}
+N -350 -650 -330 -650 {lab=#net5}
+N -330 -650 -330 -600 {lab=#net5}
+N -390 -620 -390 -600 {lab=#net5}
+N -390 -600 -390 -580 {lab=#net5}
+N -390 -330 -390 -250 {lab=#net4}
+N -390 -580 -390 -390 {lab=#net5}
+N -390 -730 -390 -680 {lab=PSUP_LV}
 C {noconn.sym} -670 -60 0 1 {name=l1}
 C {noconn.sym} -670 -30 0 1 {name=l2}
 C {ipin.sym} -670 -730 0 0 {name=p19 lab=PSUP_LV
@@ -638,8 +659,8 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {lab_pin.sym} 1800 -650 0 0 {name=p58 sig_type=std_logic lab=vb1}
-C {lab_pin.sym} -430 -400 0 0 {name=p3 sig_type=std_logic lab=Vref}
-C {res.sym} -430 -450 0 0 {name=R3
+C {lab_pin.sym} -670 -360 0 0 {name=p3 sig_type=std_logic lab=Vref}
+C {res.sym} -670 -410 0 0 {name=R3
 value=1
 footprint=1206
 device=resistor
@@ -818,3 +839,51 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
+C {symbols/nfet_03v3.sym} -370 -100 0 1 {name=M35
+L=4u
+W=2u
+nf=1
+m=4
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=nfet_03v3
+spiceprefix=X
+}
+C {symbols/nfet_03v3.sym} -370 -200 0 1 {name=M36
+L=4u
+W=2u
+nf=1
+m=4
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=nfet_03v3
+spiceprefix=X
+}
+C {symbols/pfet_03v3.sym} -370 -650 0 1 {name=M37
+L=4u
+W=2u
+nf=1
+m=4
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=pfet_03v3
+spiceprefix=X
+}
+C {res.sym} -390 -360 0 0 {name=R5
+value=300k
+footprint=1206
+device=resistor
+m=1}
+C {lab_pin.sym} -390 -200 2 1 {name=p68 sig_type=std_logic lab=NSUP}
