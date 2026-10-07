@@ -1,0 +1,47 @@
+{
+  "profiles": {
+    "gf180": {
+      "description": "FDDA and FDDA-LV testbenches using GF180 selectors and a PSUP supply.",
+      "substitutions": [
+        {
+          "column": "MOS",
+          "pattern": "(?im)^(\\s*\\.lib\\s+\\S*sm141064\\.ngspice\\s+)typical(\\s*(?:\\*.*)?$)",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        },
+        {
+          "column": "RES",
+          "pattern": "(?im)^(\\s*\\.lib\\s+\\S*sm141064\\.ngspice\\s+)res_[A-Za-z0-9_]+(\\s*(?:\\*.*)?$)",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        },
+        {
+          "column": "BJT",
+          "pattern": "(?im)^(\\s*\\.lib\\s+\\S*sm141064\\.ngspice\\s+)bjt_[A-Za-z0-9_]+(\\s*(?:\\*.*)?$)",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        },
+        {
+          "column": "VDD",
+          "pattern": "(?im)^(\\s*V\\S+\\s+PSUP(?:_LV)?\\s+0\\s+)\\S+(.*)$",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        },
+        {
+          "column": "VDD",
+          "pattern": "(?im)^(\\s*\\.param\\s+vdd\\s*=\\s*)[^\\s]+(.*)$",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        }
+      ],
+      "directives": [
+        {
+          "column": "TEMP",
+          "pattern": "(?im)^\\s*\\*?\\s*\\.temp\\s+[^\\r\\n]*$",
+          "replacement": ".temp {value}",
+          "insert_before": "(?im)^\\s*\\.control\\b"
+        }
+      ]
+    }
+  }
+}

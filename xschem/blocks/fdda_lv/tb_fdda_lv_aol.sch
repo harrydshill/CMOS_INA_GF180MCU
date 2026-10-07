@@ -56,7 +56,7 @@ value="
 
 * .temp @TEMP@
 
-.param vcm=2.5
+.param vcm=1.8
 .param vdd=3.3
 
 * Deterministic PVT: disable random global/mismatch variation.
@@ -99,7 +99,7 @@ C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {noconn.sym} -240 310 3 0 {name=l4}
 C {noconn.sym} -220 310 3 0 {name=l5}
-C {vsource.sym} -570 350 0 0 {name=V1 value=3.3 savecurrent=false}
+C {vsource.sym} -570 350 0 0 {name=VDD value=\{vdd\} savecurrent=false}
 C {lab_pin.sym} -550 400 2 0 {name=p16 sig_type=std_logic lab=0}
 C {lab_pin.sym} -550 300 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -630 400 2 0 {name=p18 sig_type=std_logic lab=0}
@@ -112,8 +112,8 @@ m=1
 value=100f
 footprint=1206
 device="ceramic capacitor"
-}
-C {vsource.sym} -650 350 0 0 {name=VCM2 value=1.8 savecurrent=false}
+spice_ignore=true}
+C {vsource.sym} -650 350 0 0 {name=VCM2 value=\{vcm\} savecurrent=false}
 C {lab_pin.sym} -290 170 0 0 {name=p2 sig_type=std_logic lab=VCM}
 C {vsource.sym} -380 130 2 1 {name=VDM2 value="DC 0 AC 0.5" savecurrent=false}
 C {vsource.sym} -420 130 0 1 {name=VDM1 value="DC 0 AC 0.5" savecurrent=false}

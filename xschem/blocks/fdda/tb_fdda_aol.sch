@@ -45,7 +45,7 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice mimcap_typical
 .lib $::180MCU_MODELS/sm141064.ngspice cap_mim
 
-* .temp @TEMP@
+.temp 25
 
 .param vcm=2.5
 .param vdd=5

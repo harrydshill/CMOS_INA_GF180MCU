@@ -6,3 +6,7 @@ Contains each design block in a directory with the name of the block. Within thi
 Testbenches should also exist in this directory and be named tb_[block name]_[parameter].sch, with one test bench for each parameter.
 
 Simulations and netlists from the testbenches go in the simulation directory of each block. Xschem is configured to do this automatically in the xschemrc file.
+
+## PVT sweeps
+
+See [PVT_SWEEPS.md](PVT_SWEEPS.md) for how to prepare the testbench and cases CSV, run the sweep, and find its outputs. By default, results go beside the input deck under `results/<deck-name>`; detected measurements are written to `measurements.csv`, and the combined raw filename lists its corner cases. Each individual raw filename and title identifies its case. GAW is opened when installed, while each case's raw is retained. A populated output directory prompts before cleanup; use `--clean-output` to confirm automatically. Use `--no-metrics-csv`, `--no-overlay-raw`, or `--no-open-gaw` to disable those defaults.
