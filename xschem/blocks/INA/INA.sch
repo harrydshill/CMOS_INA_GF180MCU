@@ -25,12 +25,12 @@ N -10 -120 -10 -100 {lab=IBIAS}
 N 210 -140 250 -140 {lab=IBIAS}
 N -50 -120 -10 -120 {lab=IBIAS}
 N 210 -220 250 -220 {lab=PSUP_LV}
-N 210 -120 250 -120 {lab=CONF0}
+N 210 -120 250 -120 {lab=GAIN0}
 N 210 -100 250 -100 {lab=CONF1}
 N -60 120 -40 120 {lab=EN}
 N -60 140 -40 140 {lab=N_EN}
 N -320 80 -300 80 {lab=CONF1}
-N -320 60 -300 60 {lab=CONF0}
+N -320 60 -300 60 {lab=GAIN0}
 N -200 -170 -200 -140 {lab=VO+}
 N -200 -180 -200 -170 {lab=VO+}
 N -200 140 -200 180 {lab=VO-}
@@ -55,12 +55,12 @@ C {ipin.sym} 250 -220 2 0 {name=p21 lab=PSUP_LV}
 C {lab_wire.sym} 230 -220 0 0 {name=p22 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} -300 -80 0 0 {name=p23 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} -300 -60 0 0 {name=p24 sig_type=std_logic lab=NSUP}
-C {ipin.sym} 250 -120 2 0 {name=p25 lab=CONF0}
-C {lab_wire.sym} 230 -120 0 0 {name=p26 sig_type=std_logic lab=CONF0}
-C {ipin.sym} 250 -100 2 0 {name=p27 lab=CONF1}
-C {lab_wire.sym} 230 -100 0 0 {name=p28 sig_type=std_logic lab=CONF1}
-C {lab_wire.sym} -320 60 0 0 {name=p31 sig_type=std_logic lab=CONF0}
-C {lab_wire.sym} -320 80 0 0 {name=p32 sig_type=std_logic lab=CONF1}
+C {ipin.sym} 250 -120 2 0 {name=p25 lab=GAIN0}
+C {lab_wire.sym} 230 -120 0 0 {name=p26 sig_type=std_logic lab=GAIN0}
+C {ipin.sym} 250 -100 2 0 {name=p27 lab=GAIN1}
+C {lab_wire.sym} 230 -100 0 0 {name=p28 sig_type=std_logic lab=GAIN1}
+C {lab_wire.sym} -320 60 0 0 {name=p31 sig_type=std_logic lab=GAIN0}
+C {lab_wire.sym} -320 80 0 0 {name=p32 sig_type=std_logic lab=GAIN1}
 C {opin.sym} 120 0 0 0 {name=p34 lab=VOCM
 }
 C {lab_wire.sym} 30 -120 0 1 {name=p7 sig_type=std_logic lab=PSUP_LV}

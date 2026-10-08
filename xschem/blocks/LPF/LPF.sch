@@ -50,6 +50,14 @@ N 220 -480 220 -320 {lab=VO+}
 N -420 150 -420 480 {lab=VO-}
 N -420 480 220 480 {lab=VO-}
 N 220 320 220 480 {lab=VO-}
+N -580 90 -580 90 {lab=NSUP}
+N -580 -280 -580 -280 {lab=FREQ0}
+N -580 70 -580 70 {lab=FREQ1}
+N -580 -50 -580 -50 {lab=FREQ0}
+N -580 -320 -580 -320 {lab=GAIN0}
+N -580 -300 -580 -300 {lab=FREQ1}
+N -580 70 -580 70 {lab=FREQ1}
+N -580 -70 -580 -70 {lab=FREQ1}
 C {lab_wire.sym} 40 120 0 1 {name=p5 sig_type=std_logic lab=NSUP}
 C {ipin.sym} -580 -440 2 1 {name=p9 lab=NSUP}
 C {ipin.sym} -580 -420 2 1 {name=p11 lab=EN}
@@ -85,8 +93,8 @@ C {ipin.sym} -580 -20 2 1 {name=p39 lab=IN+}
 C {ipin.sym} -580 20 2 1 {name=p40 lab=IN-}
 C {ipin.sym} -580 -340 2 1 {name=p41 lab=GAIN1}
 C {ipin.sym} -580 -320 2 1 {name=p42 lab=GAIN0}
-C {ipin.sym} -580 -300 2 1 {name=p48 lab=LPF1}
-C {ipin.sym} -580 -280 2 1 {name=p49 lab=LPF0}
+C {ipin.sym} -580 -300 2 1 {name=p48 lab=FREQ1}
+C {ipin.sym} -580 -280 2 1 {name=p49 lab=FREQ0}
 C {lab_wire.sym} -580 -90 0 0 {name=p54 sig_type=std_logic lab=NSUP}
 C {lab_wire.sym} -580 90 2 1 {name=p55 sig_type=std_logic lab=NSUP}
 C {lab_wire.sym} -580 -110 0 0 {name=p56 sig_type=std_logic lab=PSUP_LV}
@@ -94,18 +102,18 @@ C {lab_wire.sym} -580 110 2 1 {name=p57 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} -580 -360 0 1 {name=p4 sig_type=std_logic lab=GAIN2}
 C {lab_wire.sym} -580 -340 0 1 {name=p24 sig_type=std_logic lab=GAIN1}
 C {lab_wire.sym} -580 -320 0 1 {name=p20 sig_type=std_logic lab=GAIN0}
-C {lab_wire.sym} -580 -300 0 1 {name=p1 sig_type=std_logic lab=LPF1}
-C {lab_wire.sym} -580 -280 0 1 {name=p44 sig_type=std_logic lab=LPF0}
+C {lab_wire.sym} -580 -300 0 1 {name=p1 sig_type=std_logic lab=FREQ1}
+C {lab_wire.sym} -580 -280 0 1 {name=p44 sig_type=std_logic lab=FREQ0}
 C {lab_wire.sym} -100 -280 0 0 {name=p2 sig_type=std_logic lab=GAIN2}
 C {lab_wire.sym} -100 -260 0 0 {name=p28 sig_type=std_logic lab=GAIN1}
 C {lab_wire.sym} -100 -240 0 0 {name=p29 sig_type=std_logic lab=GAIN0}
 C {lab_wire.sym} -100 280 2 1 {name=p33 sig_type=std_logic lab=GAIN2}
 C {lab_wire.sym} -100 260 2 1 {name=p34 sig_type=std_logic lab=GAIN1}
 C {lab_wire.sym} -100 240 2 1 {name=p35 sig_type=std_logic lab=GAIN0}
-C {lab_wire.sym} -580 70 2 1 {name=p46 sig_type=std_logic lab=LPF1}
-C {lab_wire.sym} -580 50 2 1 {name=p47 sig_type=std_logic lab=LPF0}
-C {lab_wire.sym} -580 -70 0 0 {name=p50 sig_type=std_logic lab=LPF1}
-C {lab_wire.sym} -580 -50 0 0 {name=p51 sig_type=std_logic lab=LPF0}
+C {lab_wire.sym} -580 70 2 1 {name=p46 sig_type=std_logic lab=FREQ1}
+C {lab_wire.sym} -580 50 2 1 {name=p47 sig_type=std_logic lab=FREQ0}
+C {lab_wire.sym} -580 -70 0 0 {name=p50 sig_type=std_logic lab=FREQ1}
+C {lab_wire.sym} -580 -50 0 0 {name=p51 sig_type=std_logic lab=FREQ0}
 C {blocks/LPF_freq_fb/LPF_freq_fb.sym} -420 0 0 0 {name=x2}
 C {blocks/LPF_freq_fb/LPF_freq_fb.sym} -420 0 2 1 {name=x3}
 C {blocks/LPF_gain_fb/LPF_gain_fb.sym} 0 -320 0 0 {name=x4}
