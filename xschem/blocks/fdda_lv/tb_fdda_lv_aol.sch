@@ -20,7 +20,6 @@ N -890 340 -890 360 {lab=0}
 N -890 260 -890 280 {lab=VCM}
 N -890 260 -870 260 {lab=VCM}
 N -40 310 -40 330 {lab=0}
-N -40 230 -40 250 {lab=Vop}
 N -440 190 -290 190 {lab=INP}
 N -440 250 -290 250 {lab=INM}
 N -600 220 -580 220 {lab=VCM}
@@ -34,7 +33,7 @@ N -140 190 -100 190 {lab=Vop}
 N -140 230 -100 230 {lab=Von}
 N -100 190 -40 190 {lab=Vop}
 N -100 230 -100 250 {lab=Von}
-N -40 190 -40 230 {lab=Vop}
+N -40 190 -40 250 {lab=Vop}
 C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -80,7 +79,7 @@ write tb_fdda_lv_aol.raw
 C {lab_pin.sym} -100 330 0 0 {name=p11 sig_type=std_logic lab=0}
 C {capa.sym} -100 280 0 0 {name=C1
 m=1
-value=1p
+value=25p
 footprint=1206
 device="ceramic capacitor"
 }
@@ -102,7 +101,7 @@ C {lab_wire.sym} -40 190 0 1 {name=p1 sig_type=std_logic lab=Vop
 C {lab_pin.sym} -40 330 0 0 {name=p5 sig_type=std_logic lab=0}
 C {capa.sym} -40 280 0 0 {name=C2
 m=1
-value=1p
+value=25p
 footprint=1206
 device="ceramic capacitor"
 }

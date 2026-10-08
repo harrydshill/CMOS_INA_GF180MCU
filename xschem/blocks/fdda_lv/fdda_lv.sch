@@ -8,13 +8,13 @@ T {1u} -620 -650 0 0 0.4 0.4 {}
 T {2u} -80 -620 0 0 0.4 0.4 {}
 T {2u} 320 -620 0 0 0.4 0.4 {}
 T {CMFB -->} 1500 -410 0 0 0.4 0.4 {}
-T {4u} 630 -610 0 0 0.4 0.4 {}
-T {4u} 800 -610 0 0 0.4 0.4 {}
+T {4u} 630 -620 0 0 0.4 0.4 {}
+T {4u} 800 -620 0 0 0.4 0.4 {}
 T {1u} 1540 -50 0 0 0.4 0.4 {}
 T {FDFCDA} 120 -640 0 0 0.4 0.4 {}
 T {1u} -460 -650 0 0 0.4 0.4 {}
-T {~10u max} 1040 -610 0 0 0.4 0.4 {}
-T {~10u max} 1360 -610 0 0 0.4 0.4 {}
+T {~10u max} 1040 -620 0 0 0.4 0.4 {}
+T {~10u max} 1360 -620 0 0 0.4 0.4 {}
 N -660 -730 -260 -730 {lab=PSUP_LV}
 N -670 -730 -660 -730 {lab=PSUP_LV}
 N -550 -680 -550 -650 {lab=PSUP_LV}
@@ -287,6 +287,18 @@ N 30 -730 80 -730 {lab=PSUP_LV}
 N 1470 20 1470 40 {lab=#net3}
 N 1470 -590 1470 -40 {lab=Vo+}
 N 1150 20 1150 40 {lab=#net4}
+N 1040 -70 1070 -70 {lab=#net5}
+N 960 -70 980 -70 {lab=Vofcp}
+N 1130 -70 1150 -70 {lab=Vo-}
+N 1360 -70 1390 -70 {lab=#net6}
+N 1280 -70 1300 -70 {lab=Vofcn}
+N 1450 -70 1470 -70 {lab=Vo+}
+N 1040 -490 1070 -490 {lab=#net7}
+N 960 -490 980 -490 {lab=n10}
+N 1130 -490 1150 -490 {lab=Vo-}
+N 1360 -490 1390 -490 {lab=#net8}
+N 1280 -490 1300 -490 {lab=n9}
+N 1450 -490 1470 -490 {lab=Vo+}
 C {noconn.sym} -670 90 0 1 {name=l1}
 C {noconn.sym} -670 120 0 1 {name=l2}
 C {ipin.sym} -670 -730 0 0 {name=p19 lab=PSUP_LV
@@ -672,11 +684,6 @@ m=1
 }
 C {lab_pin.sym} 750 -480 2 0 {name=p4 sig_type=std_logic lab=vb2}
 C {lab_pin.sym} -490 -500 2 0 {name=p5 sig_type=std_logic lab=vb2}
-C {res.sym} -550 -360 0 0 {name=R4
-value=300k
-footprint=1206
-device=resistor
-m=1}
 C {symbols/pfet_03v3.sym} -370 -650 0 1 {name=M10
 L=4u
 W=2u
@@ -705,11 +712,6 @@ sa=0 sb=0 sd=0
 model=nfet_03v3
 spiceprefix=X
 }
-C {res.sym} -390 -360 0 0 {name=R5
-value=300k
-footprint=1206
-device=resistor
-m=1}
 C {symbols/nfet_03v3.sym} -370 -30 0 1 {name=M18
 L=4u
 W=2u
@@ -730,7 +732,7 @@ C {lab_pin.sym} 750 -90 2 0 {name=p31 sig_type=std_logic lab=vb4}
 C {lab_pin.sym} 620 -320 2 1 {name=p30 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} 700 -260 2 1 {name=p44 sig_type=std_logic lab=NSUP}
 C {symbols/pfet_03v3.sym} 640 -320 0 1 {name=M30
-L=14u
+L=4u
 W=2u
 nf=1
 m=2
@@ -744,7 +746,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 720 -260 0 1 {name=M32
-L=14u
+L=4u
 W=2u
 nf=1
 m=2
@@ -760,7 +762,7 @@ spiceprefix=X
 C {lab_pin.sym} 890 -320 2 0 {name=p59 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} 810 -260 2 0 {name=p60 sig_type=std_logic lab=NSUP}
 C {symbols/pfet_03v3.sym} 870 -320 0 0 {name=M35
-L=14u
+L=4u
 W=2u
 nf=1
 m=2
@@ -774,7 +776,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 790 -260 0 0 {name=M36
-L=14u
+L=4u
 W=2u
 nf=1
 m=2
@@ -790,7 +792,7 @@ spiceprefix=X
 C {lab_pin.sym} 770 -320 0 0 {name=p45 sig_type=std_logic lab=vb2}
 C {lab_pin.sym} 770 -260 0 0 {name=p47 sig_type=std_logic lab=vb4}
 C {symbols/nfet_03v3.sym} 1130 70 0 0 {name=M14
-L=1u
+L=0.5u
 W=2u
 nf=4
 m=4
@@ -804,7 +806,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 1450 70 0 0 {name=M37
-L=1u
+L=0.5u
 W=2u
 nf=4
 m=4
@@ -818,7 +820,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 1130 -650 0 0 {name=M33
-L=1u
+L=0.5u
 W=2u
 nf=4
 m=10
@@ -832,7 +834,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 1450 -650 0 0 {name=M34
-L=1u
+L=0.5u
 W=2u
 nf=4
 m=10
@@ -849,18 +851,6 @@ C {opin.sym} 1130 -430 0 1 {name=p27 lab=Vo-
 }
 C {lab_pin.sym} 960 -430 0 1 {name=p42 sig_type=std_logic lab=n10}
 C {lab_pin.sym} -330 -650 2 0 {name=p49 sig_type=std_logic lab=n11}
-C {capa.sym} 1090 -70 3 0 {name=C3
-m=1
-value=200f
-footprint=1206
-device="ceramic capacitor"
-spice_ignore=true}
-C {res.sym} 1010 -70 1 0 {name=R6
-value=45k
-footprint=1206
-device=resistor
-m=1
-spice_ignore=true}
 C {lab_pin.sym} 960 -150 2 0 {name=p66 sig_type=std_logic lab=Vofcp}
 C {lab_pin.sym} 1280 -150 2 0 {name=p67 sig_type=std_logic lab=Vofcn}
 C {opin.sym} 1490 -430 0 0 {name=p7 lab=Vo+
@@ -901,39 +891,85 @@ C {lab_pin.sym} 1690 -30 0 1 {name=p12 sig_type=std_logic lab=NSUP}
 C {lab_pin.sym} 1280 -430 0 1 {name=p40 sig_type=std_logic lab=n9}
 C {ammeter.sym} 1470 -10 0 0 {name=Vmeas savecurrent=true spice_ignore=0}
 C {ammeter.sym} 1150 -10 0 0 {name=Vmeas1 savecurrent=true spice_ignore=0}
-C {capa.sym} 1090 -510 3 0 {name=C4
+C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 1100 -70 3 1 {name=C4
+W=10e-6
+L=10e-6
+model=cap_mim_2f0fF
+spiceprefix=X
 m=1
-value=200f
-footprint=1206
-device="ceramic capacitor"
-spice_ignore=true}
-C {res.sym} 1010 -510 1 0 {name=R7
-value=45k
-footprint=1206
-device=resistor
+}
+C {symbols/ppolyf_u_3k.sym} -390 -360 2 1 {name=R6
+W=1e-6
+L=100e-6
+model=ppolyf_u_3k
+spiceprefix=X
 m=1
-spice_ignore=true}
-C {capa.sym} 1410 -70 3 0 {name=C5
+}
+C {lab_pin.sym} -410 -360 2 1 {name=p54 sig_type=std_logic lab=PSUP_LV
+L=100e-6}
+C {symbols/ppolyf_u_3k.sym} -550 -360 2 1 {name=R4
+W=1e-6
+L=100e-6
+model=ppolyf_u_3k
+spiceprefix=X
 m=1
-value=200f
-footprint=1206
-device="ceramic capacitor"
-spice_ignore=true}
-C {res.sym} 1330 -70 1 0 {name=R8
-value=45k
-footprint=1206
-device=resistor
+}
+C {lab_pin.sym} -570 -360 2 1 {name=p55 sig_type=std_logic lab=PSUP_LV
+L=100e-6}
+C {lab_pin.sym} 1010 -90 0 1 {name=p56 sig_type=std_logic lab=PSUP_LV
+L=100e-6}
+C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 1420 -70 3 1 {name=C6
+W=10e-6
+L=10e-6
+model=cap_mim_2f0fF
+spiceprefix=X
 m=1
-spice_ignore=true}
-C {capa.sym} 1410 -510 3 0 {name=C6
+}
+C {lab_pin.sym} 1330 -90 0 1 {name=p57 sig_type=std_logic lab=PSUP_LV
+L=100e-6}
+C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 1100 -490 3 1 {name=C3
+W=10e-6
+L=10e-6
+model=cap_mim_2f0fF
+spiceprefix=X
 m=1
-value=200f
-footprint=1206
-device="ceramic capacitor"
-spice_ignore=true}
-C {res.sym} 1330 -510 1 0 {name=R9
-value=45k
-footprint=1206
-device=resistor
+}
+C {lab_pin.sym} 1010 -510 0 1 {name=p58 sig_type=std_logic lab=PSUP_LV
+L=100e-6}
+C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 1420 -490 3 1 {name=C5
+W=10e-6
+L=10e-6
+model=cap_mim_2f0fF
+spiceprefix=X
 m=1
-spice_ignore=true}
+}
+C {lab_pin.sym} 1330 -510 0 1 {name=p61 sig_type=std_logic lab=PSUP_LV
+L=100e-6}
+C {symbols/ppolyf_u_3k.sym} 1010 -70 3 1 {name=R8
+W=1e-6
+L=24e-6
+model=ppolyf_u_3k
+spiceprefix=X
+m=1
+}
+C {symbols/ppolyf_u_3k.sym} 1330 -70 3 1 {name=R5
+W=1e-6
+L=24e-6
+model=ppolyf_u_3k
+spiceprefix=X
+m=1
+}
+C {symbols/ppolyf_u_3k.sym} 1330 -490 3 1 {name=R7
+W=1e-6
+L=24e-6
+model=ppolyf_u_3k
+spiceprefix=X
+m=1
+}
+C {symbols/ppolyf_u_3k.sym} 1010 -490 3 1 {name=R9
+W=1e-6
+L=24e-6
+model=ppolyf_u_3k
+spiceprefix=X
+m=1
+}
