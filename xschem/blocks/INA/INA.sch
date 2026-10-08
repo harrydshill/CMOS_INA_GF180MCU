@@ -63,7 +63,6 @@ C {lab_wire.sym} -320 60 0 0 {name=p31 sig_type=std_logic lab=CONF0}
 C {lab_wire.sym} -320 80 0 0 {name=p32 sig_type=std_logic lab=CONF1}
 C {opin.sym} 120 0 0 0 {name=p34 lab=VOCM
 }
-C {blocks/rdiv_0_84_12db/rdiv_0_84_12db.sym} -200 0 0 0 {name=x2}
 C {lab_wire.sym} 30 -120 0 1 {name=p7 sig_type=std_logic lab=PSUP_LV}
 C {noconn.sym} 120 0 0 0 {name=l1}
 C {noconn.sym} -30 -100 0 0 {name=l2}
@@ -72,3 +71,4 @@ C {lab_wire.sym} -140 -40 0 0 {name=p6 sig_type=std_logic lab=R+}
 C {lab_wire.sym} -140 40 0 0 {name=p8 sig_type=std_logic lab=R-}
 C {lab_wire.sym} -70 20 0 1 {name=p20 sig_type=std_logic lab=R-}
 C {lab_wire.sym} -70 40 0 1 {name=p29 sig_type=std_logic lab=R+}
+C {blocks/INA_gain_fb/INA_gain_fb.sym} -200 0 0 0 {}

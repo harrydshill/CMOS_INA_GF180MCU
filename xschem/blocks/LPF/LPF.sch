@@ -70,10 +70,8 @@ C {lab_wire.sym} -580 -400 0 1 {name=p14 sig_type=std_logic lab=N_EN}
 C {lab_wire.sym} -580 -380 0 1 {name=p18 sig_type=std_logic lab=IBIAS}
 C {lab_wire.sym} -580 -460 0 1 {name=p22 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} -20 -180 0 0 {name=p3 sig_type=std_logic lab=NSUP}
-C {blocks/rdiv_0_9_3db/rdiv_0_9_3db.sym} 0 -320 0 0 {name=x2}
 C {lab_wire.sym} -100 -360 0 0 {name=p6 sig_type=std_logic lab=NSUP}
 C {lab_wire.sym} -100 -380 0 0 {name=p8 sig_type=std_logic lab=PSUP_LV}
-C {blocks/rdiv_0_9_3db/rdiv_0_9_3db.sym} 0 320 2 1 {name=x3}
 C {lab_wire.sym} -20 180 2 1 {name=p30 sig_type=std_logic lab=NSUP}
 C {lab_wire.sym} -100 360 2 1 {name=p31 sig_type=std_logic lab=NSUP}
 C {lab_wire.sym} -100 380 2 1 {name=p32 sig_type=std_logic lab=PSUP_LV}
@@ -83,8 +81,6 @@ C {opin.sym} 270 20 0 0 {name=p37 lab=VO-}
 C {ipin.sym} 220 0 0 1 {name=p38 lab=VOCM
 }
 C {noconn.sym} 220 0 0 0 {name=l1}
-C {blocks/sk_fb/sk_fb.sym} -420 0 0 0 {name=x4}
-C {blocks/sk_fb/sk_fb.sym} -420 0 2 1 {name=x5}
 C {ipin.sym} -580 -20 2 1 {name=p39 lab=IN+}
 C {ipin.sym} -580 20 2 1 {name=p40 lab=IN-}
 C {ipin.sym} -580 -340 2 1 {name=p41 lab=GAIN1}
@@ -110,3 +106,7 @@ C {lab_wire.sym} -580 70 2 1 {name=p46 sig_type=std_logic lab=LPF1}
 C {lab_wire.sym} -580 50 2 1 {name=p47 sig_type=std_logic lab=LPF0}
 C {lab_wire.sym} -580 -70 0 0 {name=p50 sig_type=std_logic lab=LPF1}
 C {lab_wire.sym} -580 -50 0 0 {name=p51 sig_type=std_logic lab=LPF0}
+C {blocks/LPF_freq_fb/LPF_freq_fb.sym} -420 0 0 0 {name=x2}
+C {blocks/LPF_freq_fb/LPF_freq_fb.sym} -420 0 2 1 {name=x3}
+C {blocks/LPF_gain_fb/LPF_gain_fb.sym} 0 -320 0 0 {name=x4}
+C {blocks/LPF_gain_fb/LPF_gain_fb.sym} 0 320 2 1 {name=x5}

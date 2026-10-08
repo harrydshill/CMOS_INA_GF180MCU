@@ -26,7 +26,6 @@ N -40 -150 -20 -150 {lab=IBIAS}
 N -20 -150 -20 -130 {lab=IBIAS}
 N 440 -150 460 -150 {lab=IBIAS}
 N 460 -150 460 -130 {lab=IBIAS}
-C {blocks/in_amp/in_amp.sym} -100 0 0 0 {name=x1}
 C {ipin.sym} -120 -30 0 0 {name=p1 lab=IN+}
 C {ipin.sym} -120 30 0 0 {name=p2 lab=IN+}
 C {lab_wire.sym} 40 -150 0 1 {name=p8 sig_type=std_logic lab=PSUP_LV
@@ -67,3 +66,4 @@ C {ipin.sym} 360 60 0 0 {name=p29 lab=LPF_FREQ1}
 C {ipin.sym} 360 80 0 0 {name=p30 lab=LPF_FRQE0}
 C {ipin.sym} -120 70 0 0 {name=p31 lab=INA_GAIN1}
 C {ipin.sym} -120 90 0 0 {name=p32 lab=INA_GAIN0}
+C {blocks/INA/INA.sym} -100 0 0 0 {name=x1}
