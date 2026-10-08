@@ -79,7 +79,7 @@ write tb_fdda_lv_aol.raw
 C {lab_pin.sym} -100 330 0 0 {name=p11 sig_type=std_logic lab=0}
 C {capa.sym} -100 280 0 0 {name=C1
 m=1
-value=25p
+value=20p
 footprint=1206
 device="ceramic capacitor"
 }
@@ -101,7 +101,7 @@ C {lab_wire.sym} -40 190 0 1 {name=p1 sig_type=std_logic lab=Vop
 C {lab_pin.sym} -40 330 0 0 {name=p5 sig_type=std_logic lab=0}
 C {capa.sym} -40 280 0 0 {name=C2
 m=1
-value=25p
+value=20p
 footprint=1206
 device="ceramic capacitor"
 }
