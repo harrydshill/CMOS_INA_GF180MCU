@@ -37,27 +37,21 @@ N 0 180 0 200 {lab=NSUP}
 N -20 180 0 180 {lab=NSUP}
 N 120 320 220 320 {lab=VO-}
 N -180 320 -100 320 {lab=#net2}
-N -200 40 -200 320 {lab=#net2}
-N -180 40 -70 40 {lab=#net2}
 N -200 320 -180 320 {lab=#net2}
-N -200 40 -180 40 {lab=#net2}
 N 120 320 220 320 {lab=VO-}
-N -240 -20 -70 -20 {lab=#net3}
-N -240 20 -70 20 {lab=#net4}
 N -420 -480 -420 -150 {lab=VO+}
 N -420 -480 220 -480 {lab=VO+}
 N 220 -480 220 -320 {lab=VO+}
 N -420 150 -420 480 {lab=VO-}
 N -420 480 220 480 {lab=VO-}
 N 220 320 220 480 {lab=VO-}
-N -580 90 -580 90 {lab=NSUP}
-N -580 -280 -580 -280 {lab=FREQ0}
-N -580 70 -580 70 {lab=FREQ1}
-N -580 -50 -580 -50 {lab=FREQ0}
-N -580 -320 -580 -320 {lab=GAIN0}
-N -580 -300 -580 -300 {lab=FREQ1}
-N -580 70 -580 70 {lab=FREQ1}
-N -580 -70 -580 -70 {lab=FREQ1}
+N -200 -20 -70 -20 {lab=#net2}
+N -240 20 -240 40 {lab=#net3}
+N -240 -20 -220 -20 {lab=#net4}
+N -220 -20 -220 20 {lab=#net4}
+N -220 20 -70 20 {lab=#net4}
+N -200 -20 -200 320 {lab=#net2}
+N -240 40 -70 40 {lab=#net3}
 C {lab_wire.sym} 40 120 0 1 {name=p5 sig_type=std_logic lab=NSUP}
 C {ipin.sym} -580 -440 2 1 {name=p9 lab=NSUP}
 C {ipin.sym} -580 -420 2 1 {name=p11 lab=EN}
@@ -88,9 +82,6 @@ C {opin.sym} 270 -20 0 0 {name=p36 lab=VO+
 C {opin.sym} 270 20 0 0 {name=p37 lab=VO-}
 C {ipin.sym} 220 0 0 1 {name=p38 lab=VOCM
 }
-C {noconn.sym} 220 0 0 0 {name=l1}
-C {ipin.sym} -580 -20 2 1 {name=p39 lab=IN+}
-C {ipin.sym} -580 20 2 1 {name=p40 lab=IN-}
 C {ipin.sym} -580 -340 2 1 {name=p41 lab=GAIN1}
 C {ipin.sym} -580 -320 2 1 {name=p42 lab=GAIN0}
 C {ipin.sym} -580 -300 2 1 {name=p48 lab=FREQ1}
@@ -118,3 +109,8 @@ C {blocks/LPF_freq_fb/LPF_freq_fb.sym} -420 0 0 0 {name=x2}
 C {blocks/LPF_freq_fb/LPF_freq_fb.sym} -420 0 2 1 {name=x3}
 C {blocks/LPF_gain_fb/LPF_gain_fb.sym} 0 -320 0 0 {name=x4}
 C {blocks/LPF_gain_fb/LPF_gain_fb.sym} 0 320 2 1 {name=x5}
+C {lab_wire.sym} 220 0 0 0 {name=p23 sig_type=std_logic lab=VOCM}
+C {lab_wire.sym} -240 -100 0 1 {name=p26 sig_type=std_logic lab=VOCM}
+C {lab_wire.sym} -240 100 0 1 {name=p27 sig_type=std_logic lab=VOCM}
+C {ipin.sym} -580 -20 2 1 {name=p39 lab=IN+}
+C {ipin.sym} -580 20 2 1 {name=p40 lab=IN-}
