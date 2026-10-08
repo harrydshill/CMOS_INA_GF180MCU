@@ -32,6 +32,7 @@ DECK_MEASURE = re.compile(
     r"(?im)^\s*\.?meas(?:ure)?\s+(?:(?:ac|dc|tran|op|noise|tf)\s+)?"
     r"([A-Za-z_][A-Za-z0-9_]*)\b"
 )
+DECK_PRINT = re.compile(r"(?i)^\s*print\s+([A-Za-z_][A-Za-z0-9_]*)\s*$")
 
 
 def read_cases(filename: Path) -> list[dict[str, str]]:
@@ -217,20 +218,31 @@ def get_measurements(
     return {name: found.get(name.lower(), "") for name in requested}
 
 
-def deck_measure_names(deck: str) -> list[str]:
-    """Find measurement names declared in ngspice deck/control statements."""
+def deck_result_names(deck: str) -> list[str]:
+    """Find scalar result names declared by meas or simple print commands."""
     names: list[str] = []
     for line in deck.splitlines():
         if line.lstrip().startswith("*"):
             continue
-        match = DECK_MEASURE.match(line)
+        match = DECK_MEASURE.match(line) or DECK_PRINT.match(line)
         if match and match.group(1).lower() not in {name.lower() for name in names}:
             names.append(match.group(1))
     return names
 
 
-def with_overlay_write(deck: str, overlay: Path, append: bool) -> str:
-    """Mirror control-block raw writes into an ngspice multi-plot raw file."""
+def overlay_vector_name(vector: str, case_name: str) -> str:
+    """Build a legal, case-identifiable vector name for the overlay raw."""
+    base = re.sub(r"[^A-Za-z0-9_]+", "_", vector).strip("_").lower()
+    case = re.sub(r"[^A-Za-z0-9_]+", "_", case_name).strip("_").lower()
+    if not base or base[0].isdigit():
+        base = f"vec_{base}"
+    return f"{base}__{case}"
+
+
+def with_overlay_write(
+    deck: str, overlay: Path, append: bool, case_name: str
+) -> str:
+    """Mirror raw writes using corner-suffixed vector names in the overlay."""
     if any(char.isspace() for char in str(overlay)):
         raise ValueError("overlay raw path must not contain whitespace (ngspice limitation)")
     lines = deck.splitlines()
@@ -243,7 +255,11 @@ def with_overlay_write(deck: str, overlay: Path, append: bool) -> str:
             continue
         if append or writes:
             output.append(match.group("indent") + "set appendwrite")
-        output.append(f"{match.group('indent')}write {overlay}{match.group('vectors')}")
+        vectors = match.group("vectors").split()
+        aliases = [overlay_vector_name(vector, case_name) for vector in vectors]
+        for alias, vector in zip(aliases, vectors):
+            output.append(f"{match.group('indent')}let {alias} = {vector}")
+        output.append(f"{match.group('indent')}write {overlay} {' '.join(aliases)}")
         writes += 1
     if not writes:
         raise ValueError("--overlay-raw requested, but the deck has no 'write *.raw' command")
@@ -302,7 +318,7 @@ def run() -> int:
         if not shutil.which(args.ngspice) and not Path(args.ngspice).exists():
             raise FileNotFoundError(f"cannot find ngspice executable: {args.ngspice}")
         template = source.read_text(encoding="utf-8", errors="replace")
-        requested_measures = args.measure or deck_measure_names(template)
+        requested_measures = args.measure or deck_result_names(template)
         write_metrics = not args.no_metrics_csv and bool(requested_measures)
         if args.metrics_csv and args.no_metrics_csv:
             raise ValueError("--metrics-csv and --no-metrics-csv cannot be used together")
@@ -326,7 +342,7 @@ def run() -> int:
             deck = resolve_relative_includes(deck, source.parent)
             deck = label_deck_case(deck, case, name)
             if overlay:
-                deck = with_overlay_write(deck, overlay.name, append=index > 1)
+                deck = with_overlay_write(deck, overlay.name, append=index > 1, case_name=name)
             simdeck = run_dir / f"{source.stem}_{name}.spice"
             log_path = run_dir / f"{source.stem}_{name}.log"
             simdeck.write_text(deck, encoding="utf-8")

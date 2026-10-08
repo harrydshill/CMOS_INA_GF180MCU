@@ -131,18 +131,20 @@ class PvtSweepHelpersTest(unittest.TestCase):
             {"UGF": "1", "missing": ""},
         )
 
-    def test_deck_measure_names_ignore_comments_and_duplicates(self) -> None:
+    def test_deck_result_names_detect_meas_and_print_ignore_comments_duplicates(self) -> None:
         deck = """* meas ac ignored 0
 .control
 meas ac gain_peak max gain_db
 meas ac phase_margin find phase when gain_db=0
 .measure tran settling_time when v(out)=1
 meas ac gain_peak max gain_db
+print inoise_total
+* print ignored_scalar
 .endc
 """
         self.assertEqual(
-            pvt_sweep.deck_measure_names(deck),
-            ["gain_peak", "phase_margin", "settling_time"],
+            pvt_sweep.deck_result_names(deck),
+            ["gain_peak", "phase_margin", "settling_time", "inoise_total"],
         )
 
     def test_cli_help_lists_default_behavior_opt_outs(self) -> None:
@@ -158,11 +160,19 @@ meas ac gain_peak max gain_db
 
     def test_overlay_mirrors_each_write_and_appends_plots(self) -> None:
         deck = ".control\nwrite a.raw v(out)\nwrite b.raw v(other)\n.endc\n"
-        rendered = pvt_sweep.with_overlay_write(deck, Path("../overlay.raw"), append=False)
+        rendered = pvt_sweep.with_overlay_write(
+            deck, Path("../overlay.raw"), append=False, case_name="ss"
+        )
         self.assertEqual(rendered.count("write ../overlay.raw"), 2)
+        self.assertIn("let v_out__ss = v(out)", rendered)
+        self.assertIn("let v_other__ss = v(other)", rendered)
+        self.assertIn("write ../overlay.raw v_out__ss", rendered)
         self.assertEqual(rendered.count("set appendwrite"), 1)
-        later = pvt_sweep.with_overlay_write(deck, Path("../overlay.raw"), append=True)
+        later = pvt_sweep.with_overlay_write(
+            deck, Path("../overlay.raw"), append=True, case_name="ff"
+        )
         self.assertEqual(later.count("set appendwrite"), 2)
+        self.assertIn("v_out__ff", later)
 
     def test_relative_includes_are_anchored_to_deck_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
@@ -192,7 +202,8 @@ write run.raw frequency v(out)
 .end
 """
                 rendered = pvt_sweep.with_overlay_write(
-                    deck, Path("comparison.raw"), append=index > 0
+                    deck, Path("comparison.raw"), append=index > 0,
+                    case_name=f"corner_{index}",
                 )
                 deck_path = run_dir / "test.spice"
                 deck_path.write_text(rendered)
@@ -207,7 +218,10 @@ write run.raw frequency v(out)
                 self.assertTrue((root / "run.raw").is_file())
                 self.assertTrue(overlay.is_file(), (run_dir / "run.log").read_text())
                 (root / "run.raw").rename(run_dir / "run.raw")
-            self.assertGreaterEqual(overlay.read_bytes().count(b"Plotname:"), 2)
+            overlay_bytes = overlay.read_bytes()
+            self.assertGreaterEqual(overlay_bytes.count(b"Plotname:"), 2)
+            self.assertIn(b"v_out__corner_0", overlay_bytes)
+            self.assertIn(b"v_out__corner_1", overlay_bytes)
 
     @unittest.skipUnless(shutil.which("ngspice"), "ngspice is not installed")
     def test_cli_defaults_create_results_metrics_overlay_and_attempt_gaw(self) -> None:
