@@ -11,7 +11,6 @@ it here with the expected
 parasitic capacitance for 
 stability check } 80 180 0 0 0.2 0.2 {}
 N -100 310 -100 330 {lab=0}
-N -100 230 -100 250 {lab=Von}
 N -810 360 -790 360 {lab=0}
 N -810 340 -810 360 {lab=0}
 N -810 260 -810 280 {lab=PSUP_LV}
@@ -20,12 +19,8 @@ N -890 360 -870 360 {lab=0}
 N -890 340 -890 360 {lab=0}
 N -890 260 -890 280 {lab=VCM}
 N -890 260 -870 260 {lab=VCM}
-N -140 190 -100 190 {lab=Vop}
-N -140 230 -100 230 {lab=Von}
 N -40 310 -40 330 {lab=0}
 N -40 230 -40 250 {lab=Vop}
-N -40 190 -40 230 {lab=Vop}
-N -100 190 -40 190 {lab=Vop}
 N -440 190 -290 190 {lab=INP}
 N -440 250 -290 250 {lab=INM}
 N -600 220 -580 220 {lab=VCM}
@@ -35,6 +30,11 @@ N -480 190 -440 190 {lab=INP}
 N -480 250 -440 250 {lab=INM}
 N -580 190 -540 190 {lab=VCM}
 N -580 250 -540 250 {lab=VCM}
+N -140 190 -100 190 {lab=Vop}
+N -140 230 -100 230 {lab=Von}
+N -100 190 -40 190 {lab=Vop}
+N -100 230 -100 250 {lab=Von}
+N -40 190 -40 230 {lab=Vop}
 C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -72,7 +72,8 @@ let phase_deg = cph(aol)
 meas ac UGF when gain_db=0
 meas ac phase_margin find phase_deg when gain_db=0
 
-write tb_fdda_lv_aol.raw frequency v(Vop) v(Von) v(Vo) aol gain_db phase_deg
+*write tb_fdda_lv_aol.raw frequency v(Vop) v(Von) v(Vo) aol gain_db phase_deg
+write tb_fdda_lv_aol.raw
 
 .endc
 "}

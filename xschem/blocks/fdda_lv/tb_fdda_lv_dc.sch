@@ -36,7 +36,6 @@ value="
 .control
 save all
 op
-show all
 write tb_fdda_lv_dc.raw
 .endc
 "}
