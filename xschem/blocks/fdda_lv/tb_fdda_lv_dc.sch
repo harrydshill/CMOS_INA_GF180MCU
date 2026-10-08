@@ -25,10 +25,10 @@ C {lab_pin.sym} 230 -210 2 0 {name=p5 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} 240 -10 2 0 {name=p6 sig_type=std_logic lab=0}
 C {noconn.sym} 200 -10 3 0 {name=l2}
 C {noconn.sym} 220 -10 3 0 {name=l3}
-C {vsource.sym} -80 -50 0 0 {name=V1 value=3.3 savecurrent=false}
+C {vsource.sym} -80 -50 0 0 {name=VDD value=\{vdd\} savecurrent=false}
 C {lab_pin.sym} -60 0 2 0 {name=p7 sig_type=std_logic lab=0}
 C {lab_pin.sym} -60 -100 2 0 {name=p8 sig_type=std_logic lab=PSUP_LV}
-C {vsource.sym} -160 -50 0 0 {name=V2 value=1.8 savecurrent=false}
+C {vsource.sym} -160 -50 0 0 {name=VCM value=\{vdd/2\} savecurrent=false}
 C {lab_pin.sym} -140 0 2 0 {name=p9 sig_type=std_logic lab=0}
 C {lab_pin.sym} -140 -100 2 0 {name=p10 sig_type=std_logic lab=VCM}
 C {code_shown.sym} 550 -50 0 0 {name=NGSPICE only_toplevel=true
@@ -53,7 +53,6 @@ value="
 
 .temp 25
 
-.param vcm=2.5
 .param vdd=3.3
 
 * Deterministic PVT: disable random global/mismatch variation.

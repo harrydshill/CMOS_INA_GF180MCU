@@ -33,10 +33,10 @@ N -470 110 -450 110 {lab=INP}
 N -470 110 -470 130 {lab=INP}
 N -470 310 -450 310 {lab=INM}
 N -470 290 -470 310 {lab=INM}
-N -850 400 -830 400 {lab=0}
-N -850 380 -850 400 {lab=0}
-N -850 300 -850 320 {lab=IPROBE}
-N -850 300 -830 300 {lab=IPROBE}
+N -950 400 -930 400 {lab=0}
+N -950 380 -950 400 {lab=0}
+N -950 300 -950 320 {lab=IPROBE}
+N -950 300 -930 300 {lab=IPROBE}
 C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -48,9 +48,8 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice mimcap_typical
 .lib $::180MCU_MODELS/sm141064.ngspice cap_mim
 
-* .temp @TEMP@
+.temp 27
 
-.param vcm=2.5
 .param vdd=3.3
 
 * Deterministic PVT: disable random global/mismatch variation.
@@ -80,7 +79,7 @@ C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {noconn.sym} -240 310 3 0 {name=l4}
 C {noconn.sym} -220 310 3 0 {name=l5}
-C {vsource.sym} -660 350 0 0 {name=V1 value=3.3 savecurrent=false}
+C {vsource.sym} -660 350 0 0 {name=VDD value=\{vdd\} savecurrent=false}
 C {lab_pin.sym} -640 400 2 0 {name=p16 sig_type=std_logic lab=0}
 C {lab_pin.sym} -640 300 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -720 400 2 0 {name=p18 sig_type=std_logic lab=0}
@@ -94,7 +93,7 @@ value=1p
 footprint=1206
 device="ceramic capacitor"
 }
-C {vsource.sym} -740 350 0 0 {name=VCM2 value=\{vcm\} savecurrent=false}
+C {vsource.sym} -740 350 0 0 {name=VCM value=\{vdd/2\} savecurrent=false}
 C {vsource.sym} -470 160 0 1 {name=VDM2 value=0.5 savecurrent=false}
 C {vsource.sym} -470 260 0 1 {name=VDM1 value=0.5 savecurrent=false}
 C {lab_pin.sym} -290 190 0 0 {name=p3 sig_type=std_logic lab=INP}
@@ -108,6 +107,6 @@ C {lab_pin.sym} -450 110 2 0 {name=p8 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -450 310 2 0 {name=p9 sig_type=std_logic lab=INM
 }
 C {lab_pin.sym} -250 110 2 1 {name=p10 sig_type=std_logic lab=IPROBE}
-C {lab_pin.sym} -830 300 2 0 {name=p12 sig_type=std_logic lab=IPROBE}
-C {lab_pin.sym} -830 400 2 0 {name=p20 sig_type=std_logic lab=0}
-C {isource.sym} -850 350 0 0 {name=I0 value="PULSE(0 1u 10n 1n 1n 1n)"}
+C {lab_pin.sym} -930 300 2 0 {name=p12 sig_type=std_logic lab=IPROBE}
+C {lab_pin.sym} -930 400 2 0 {name=p20 sig_type=std_logic lab=0}
+C {isource.sym} -950 350 0 0 {name=I0 value="PULSE(0 1u 10n 1n 1n 1n)"}

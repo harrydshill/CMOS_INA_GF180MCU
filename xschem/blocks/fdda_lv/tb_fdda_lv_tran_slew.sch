@@ -44,9 +44,8 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice mimcap_typical
 .lib $::180MCU_MODELS/sm141064.ngspice cap_mim
 
-* .temp @TEMP@
+.temp 25
 
-.param vcm=2.5
 .param vdd=3.3
 
 * Deterministic PVT: disable random global/mismatch variation.
@@ -76,7 +75,7 @@ C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {noconn.sym} -240 310 3 0 {name=l4}
 C {noconn.sym} -220 310 3 0 {name=l5}
-C {vsource.sym} -660 350 0 0 {name=V1 value="PWL(0 0 1u 0 11u \{vdd\})" savecurrent=false}
+C {vsource.sym} -660 350 0 0 {name=VDD value="PWL(0 0 1u 0 11u \{vdd\})" savecurrent=false}
 C {lab_pin.sym} -640 400 2 0 {name=p16 sig_type=std_logic lab=0}
 C {lab_pin.sym} -640 300 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -720 400 2 0 {name=p18 sig_type=std_logic lab=0}
@@ -90,7 +89,7 @@ value=1p
 footprint=1206
 device="ceramic capacitor"
 }
-C {vsource.sym} -740 350 0 0 {name=VCM2 value=\{vcm\} savecurrent=false}
+C {vsource.sym} -740 350 0 0 {name=VCM value=\{vdd/2\} savecurrent=false}
 C {vsource.sym} -470 160 0 1 {name=VDM2 value="PULSE(0 1 10u 1n 1n 10u 20u)" savecurrent=false}
 C {vsource.sym} -470 260 0 1 {name=VDM1 value="PULSE(0 1 10u 1n 1n 10u 20u)" savecurrent=false}
 C {lab_pin.sym} -290 190 0 0 {name=p3 sig_type=std_logic lab=INP}

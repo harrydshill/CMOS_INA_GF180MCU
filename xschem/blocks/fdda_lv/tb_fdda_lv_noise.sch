@@ -46,7 +46,7 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice mimcap_typical
 .lib $::180MCU_MODELS/sm141064.ngspice cap_mim
 
-.temp 27
+* .temp @TEMP@
 
 .param vcm=1.8
 .param vdd=3.3
@@ -57,22 +57,20 @@ value="
 "}
 C {lab_wire.sym} -100 230 0 1 {name=p4 sig_type=std_logic lab=Von
 }
-C {code_shown.sym} 220 190 0 0 {name=NGSPICE only_toplevel=true value="
+C {code_shown.sym} 220 180 0 0 {name=NGSPICE only_toplevel=true value="
 .control
 set units=degrees
 save all
-ac dec 100 1 1G
 
-let Vid = v(INP) - v(INM)
-let Vo = v(Vop) - v(Von)
-let aol = v(Vo) / v(Vid)
-let gain_db = db(aol)
-let phase_deg = cph(aol)
+noise V(Vop,Von) VDIFF dec 100 0.1 1G
+setplot noise1
+plot inoise_spectrum
 
-meas ac UGF when gain_db=0
-meas ac phase_margin find phase_deg when gain_db=0
+write tb_fdda_lv_noise.raw inoise_spectrum
 
-write tb_fdda_lv_aol.raw frequency v(Vop) v(Von) v(Vo) aol gain_db phase_deg
+noise V(Vop,Von) VDIFF dec 100 0.1 10
+setplot noise2
+print inoise_total
 
 .endc
 "}
@@ -105,13 +103,13 @@ value=1p
 footprint=1206
 device="ceramic capacitor"
 }
-C {vsource.sym} -890 310 0 0 {name=VCM value=\{vdd/2\} savecurrent=false}
+C {vsource.sym} -890 310 0 0 {name=VCM2 value=\{vdd/2\} savecurrent=false}
 C {lab_pin.sym} -290 170 0 0 {name=p2 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} -440 190 3 1 {name=p3 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -440 250 3 0 {name=p6 sig_type=std_logic lab=INM
 }
 C {noconn.sym} -250 110 1 0 {name=l1}
-C {vsource.sym} -440 220 0 0 {name=VDM value="DC 0 AC 1" savecurrent=false}
+C {vsource.sym} -440 220 0 0 {name=VDIFF value="DC 0 AC 1" savecurrent=false}
 C {res.sym} -510 190 3 0 {name=R1
 value=1G
 footprint=1206

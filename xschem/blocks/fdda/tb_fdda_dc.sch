@@ -19,7 +19,7 @@ C {lab_pin.sym} 150 -90 0 0 {name=p1 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} 150 -70 0 0 {name=p2 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} 150 -130 0 0 {name=p3 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} 150 -150 0 0 {name=p4 sig_type=std_logic lab=VCM}
-C {noconn.sym} 210 -210 0 0 {name=l1}
+C {noconn.sym} 210 -210 1 0 {name=l1}
 C {lab_pin.sym} 230 -210 2 0 {name=p5 sig_type=std_logic lab=PSUP}
 C {lab_pin.sym} 240 -10 2 0 {name=p6 sig_type=std_logic lab=0}
 C {noconn.sym} 200 -10 3 0 {name=l2}
@@ -48,6 +48,7 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice res_typical
 .lib $::180MCU_MODELS/sm141064.ngspice bjt_typical
 .lib $::180MCU_MODELS/sm141064.ngspice mimcap_typical
+.lib $::180MCU_MODELS/sm141064.ngspice cap_mim
 
 .temp 25
 
@@ -59,3 +60,4 @@ value="
 .param sw_stat_mismatch=0
 
 "}
+C {noconn.sym} 190 -210 1 0 {name=l4}

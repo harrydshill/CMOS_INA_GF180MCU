@@ -12,30 +12,30 @@ parasitic capacitance for
 stability check } 80 180 0 0 0.2 0.2 {}
 N -100 310 -100 330 {lab=0}
 N -100 230 -100 250 {lab=Von}
-N -740 290 -720 290 {lab=0}
-N -740 270 -740 290 {lab=0}
-N -740 190 -740 210 {lab=PSUP_LV}
-N -740 190 -720 190 {lab=PSUP_LV}
-N -820 290 -800 290 {lab=0}
-N -820 270 -820 290 {lab=0}
-N -820 190 -820 210 {lab=VCM}
-N -820 190 -800 190 {lab=VCM}
+N -810 270 -790 270 {lab=0}
+N -810 250 -810 270 {lab=0}
+N -810 170 -810 190 {lab=PSUP_LV}
+N -810 170 -790 170 {lab=PSUP_LV}
+N -960 270 -940 270 {lab=0}
+N -960 250 -960 270 {lab=0}
+N -960 170 -960 190 {lab=VCM}
+N -960 170 -940 170 {lab=VCM}
 N -140 190 -100 190 {lab=Vop}
 N -140 230 -100 230 {lab=Von}
 N -40 310 -40 330 {lab=0}
 N -40 230 -40 250 {lab=Vop}
 N -40 190 -40 230 {lab=Vop}
 N -100 190 -40 190 {lab=Vop}
-N -550 80 -550 100 {lab=VCM}
-N -570 80 -550 80 {lab=VCM}
-N -510 80 -510 100 {lab=VCM}
-N -550 80 -510 80 {lab=VCM}
-N -510 160 -510 190 {lab=INM}
-N -510 190 -420 190 {lab=INM}
-N -550 160 -550 250 {lab=INP}
-N -550 250 -420 250 {lab=INP}
-N -420 190 -290 190 {lab=INM}
-N -420 250 -290 250 {lab=INP}
+N -520 80 -520 100 {lab=VCM}
+N -540 80 -520 80 {lab=VCM}
+N -480 80 -480 100 {lab=VCM}
+N -520 80 -480 80 {lab=VCM}
+N -480 160 -480 190 {lab=INM}
+N -480 190 -390 190 {lab=INM}
+N -520 160 -520 250 {lab=INP}
+N -520 250 -390 250 {lab=INP}
+N -390 190 -290 190 {lab=INM}
+N -390 250 -290 250 {lab=INP}
 C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -47,9 +47,8 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice mimcap_typical
 .lib $::180MCU_MODELS/sm141064.ngspice cap_mim
 
-* .temp @TEMP@
+.temp 27
 
-.param vcm=2.5
 .param vdd=3.3
 
 * Deterministic PVT: disable random global/mismatch variation.
@@ -121,17 +120,16 @@ device="ceramic capacitor"
 }
 C {blocks/fdda_lv/fdda_lv.sym} -360 160 0 0 {name=x2}
 C {lab_pin.sym} -290 230 0 0 {name=p9 sig_type=std_logic lab=VCM}
-C {lab_pin.sym} -570 80 0 0 {name=p13 sig_type=std_logic lab=VCM}
 C {noconn.sym} -230 110 1 0 {name=l3}
 C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {noconn.sym} -240 310 3 0 {name=l4}
 C {noconn.sym} -220 310 3 0 {name=l5}
-C {vsource.sym} -740 240 0 0 {name=V1 value=3.3 savecurrent=false}
-C {lab_pin.sym} -720 290 2 0 {name=p16 sig_type=std_logic lab=0}
-C {lab_pin.sym} -720 190 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -800 290 2 0 {name=p18 sig_type=std_logic lab=0}
-C {lab_pin.sym} -800 190 2 0 {name=p19 sig_type=std_logic lab=VCM}
+C {vsource.sym} -810 220 0 0 {name=VDD value=\{vdd\} savecurrent=false}
+C {lab_pin.sym} -790 270 2 0 {name=p16 sig_type=std_logic lab=0}
+C {lab_pin.sym} -790 170 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -940 270 2 0 {name=p18 sig_type=std_logic lab=0}
+C {lab_pin.sym} -940 170 2 0 {name=p19 sig_type=std_logic lab=VCM}
 C {lab_wire.sym} -40 190 0 1 {name=p1 sig_type=std_logic lab=Vop
 }
 C {lab_pin.sym} -40 330 0 0 {name=p5 sig_type=std_logic lab=0}
@@ -141,11 +139,12 @@ value=1p
 footprint=1206
 device="ceramic capacitor"
 }
-C {vsource.sym} -820 240 0 0 {name=VCM2 value=\{vcm\} savecurrent=false}
+C {vsource.sym} -960 220 0 0 {name=VCM value="DC \{vdd/2\} AC \{INCM\}" savecurrent=false}
 C {lab_pin.sym} -290 170 0 0 {name=p2 sig_type=std_logic lab=VCM}
-C {vsource.sym} -510 130 0 0 {name=VDM2 value="DC 0 AC \{INCM - (INDM/2)\}" savecurrent=false}
-C {vsource.sym} -550 130 0 1 {name=VDM1 value="DC 0 AC \{INCM + (INDM/2)\}" savecurrent=false}
-C {lab_pin.sym} -550 250 0 0 {name=p3 sig_type=std_logic lab=INP}
-C {lab_pin.sym} -510 190 0 0 {name=p6 sig_type=std_logic lab=INM
-}
 C {noconn.sym} -250 110 1 0 {name=l1}
+C {lab_pin.sym} -540 80 0 0 {name=p13 sig_type=std_logic lab=VCM}
+C {vsource.sym} -480 130 0 0 {name=VDM2 value="DC 0 AC \{-INDM/2\}" savecurrent=false}
+C {vsource.sym} -520 130 0 1 {name=VDM1 value="DC 0 AC \{INDM/2\}" savecurrent=false}
+C {lab_pin.sym} -520 250 0 0 {name=p3 sig_type=std_logic lab=INP}
+C {lab_pin.sym} -480 190 0 0 {name=p6 sig_type=std_logic lab=INM
+}

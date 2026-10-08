@@ -12,14 +12,14 @@ parasitic capacitance for
 stability check } 80 180 0 0 0.2 0.2 {}
 N -100 310 -100 330 {lab=0}
 N -100 230 -100 250 {lab=Von}
-N -660 400 -640 400 {lab=0}
-N -660 380 -660 400 {lab=0}
-N -660 300 -660 320 {lab=PSUP_LV}
-N -660 300 -640 300 {lab=PSUP_LV}
-N -740 400 -720 400 {lab=0}
-N -740 380 -740 400 {lab=0}
-N -740 300 -740 320 {lab=VCM}
-N -740 300 -720 300 {lab=VCM}
+N -790 270 -770 270 {lab=0}
+N -790 250 -790 270 {lab=0}
+N -790 170 -790 190 {lab=PSUP_LV}
+N -790 170 -770 170 {lab=PSUP_LV}
+N -870 270 -850 270 {lab=0}
+N -870 250 -870 270 {lab=0}
+N -870 170 -870 190 {lab=VCM}
+N -870 170 -850 170 {lab=VCM}
 N -140 190 -100 190 {lab=Vop}
 N -140 230 -100 230 {lab=Von}
 N -40 310 -40 330 {lab=0}
@@ -45,9 +45,8 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice mimcap_typical
 .lib $::180MCU_MODELS/sm141064.ngspice cap_mim
 
-* .temp @TEMP@
+.temp 25
 
-.param vcm=1.8
 .param vdd=3.3
 
 * Deterministic PVT: disable random global/mismatch variation.
@@ -77,11 +76,11 @@ C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {noconn.sym} -240 310 3 0 {name=l4}
 C {noconn.sym} -220 310 3 0 {name=l5}
-C {vsource.sym} -660 350 0 0 {name=V1 value="PWL(0 0 1u 0 11u \{vdd\})" savecurrent=false}
-C {lab_pin.sym} -640 400 2 0 {name=p16 sig_type=std_logic lab=0}
-C {lab_pin.sym} -640 300 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -720 400 2 0 {name=p18 sig_type=std_logic lab=0}
-C {lab_pin.sym} -720 300 2 0 {name=p19 sig_type=std_logic lab=VCM}
+C {vsource.sym} -790 220 0 0 {name=VDD value="PWL(0 0 1u 0 11u \{vdd\})" savecurrent=false}
+C {lab_pin.sym} -770 270 2 0 {name=p16 sig_type=std_logic lab=0}
+C {lab_pin.sym} -770 170 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -850 270 2 0 {name=p18 sig_type=std_logic lab=0}
+C {lab_pin.sym} -850 170 2 0 {name=p19 sig_type=std_logic lab=VCM}
 C {lab_wire.sym} -40 190 0 1 {name=p1 sig_type=std_logic lab=Vop
 }
 C {lab_pin.sym} -40 330 0 0 {name=p5 sig_type=std_logic lab=0}
@@ -91,7 +90,7 @@ value=1p
 footprint=1206
 device="ceramic capacitor"
 }
-C {vsource.sym} -740 350 0 0 {name=VCM2 value=\{vcm\} savecurrent=false}
+C {vsource.sym} -870 220 0 0 {name=VCM value=\{vdd/2\} savecurrent=false}
 C {vsource.sym} -470 160 0 1 {name=VDM2 value="PWL(0 0 50u 0 150u \{vdd/2\})" savecurrent=false}
 C {vsource.sym} -470 260 0 1 {name=VDM1 value="PWL(0 0 50u 0 150u \{vdd/2\})" savecurrent=false}
 C {lab_pin.sym} -290 190 0 0 {name=p3 sig_type=std_logic lab=INP}
