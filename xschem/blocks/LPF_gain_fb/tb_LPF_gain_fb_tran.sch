@@ -60,7 +60,7 @@ tran 10n 200u
 
 let FB_Gain=db(V(PSUP_LV)/V(Vout))
 
-write tb_rdiv_0_9_3db_tran.raw FB_Gain
+write tb_LPF_gain_fb_tran.raw FB_Gain
 .endc
 "}
 C {lab_wire.sym} 120 0 0 1 {name=p12 sig_type=std_logic lab=PSUP_LV}
@@ -68,7 +68,7 @@ C {vsource.sym} -800 0 0 0 {name=VBIT2 value="PULSE(0 3.3 100u 1n 1n 100u)" save
 }
 C {lab_wire.sym} -780 -50 0 1 {name=VBIT1 sig_type=std_logic lab=CONF2}
 C {lab_wire.sym} -780 50 0 1 {name=VBIT3 sig_type=std_logic lab=0}
-C {blocks/rdiv_0_9_3db/rdiv_0_9_3db.sym} 0 0 0 0 {name=x1}
 C {lab_wire.sym} -100 40 0 0 {name=VBIT5 sig_type=std_logic lab=CONF2}
 C {lab_wire.sym} -100 0 0 0 {name=VBIT6 sig_type=std_logic lab=Vout}
 C {lab_wire.sym} 0 120 0 0 {name=p9 sig_type=std_logic lab=0}
+C {blocks/LPF_gain_fb/LPF_gain_fb.sym} 0 0 0 0 {name=x1}

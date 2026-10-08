@@ -30,9 +30,8 @@ C {lab_wire.sym} -360 -50 0 1 {name=p3 sig_type=std_logic lab=CONF0}
 C {lab_wire.sym} -760 50 0 1 {name=p4 sig_type=std_logic lab=0}
 C {lab_wire.sym} -570 50 0 1 {name=p5 sig_type=std_logic lab=0}
 C {lab_wire.sym} -360 50 0 1 {name=p6 sig_type=std_logic lab=0}
-C {blocks/rdiv_0_84_12db/rdiv_0_84_12db.sym} 0 0 0 0 {name=x1}
-C {lab_wire.sym} -100 80 0 0 {name=p7 sig_type=std_logic lab=CONF1}
-C {lab_wire.sym} -100 60 0 0 {name=p8 sig_type=std_logic lab=CONF0}
+C {lab_wire.sym} -100 60 0 0 {name=p7 sig_type=std_logic lab=CONF1}
+C {lab_wire.sym} -100 80 0 0 {name=p8 sig_type=std_logic lab=CONF0}
 C {lab_wire.sym} -100 -80 0 0 {name=p10 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} -100 -60 0 0 {name=p11 sig_type=std_logic lab=0}
 C {noconn.sym} 0 140 3 0 {name=l1}
@@ -63,7 +62,7 @@ tran 10n 200u
 
 let R=(2000000 * V(Rtop))/(3.3 - V(Rtop))
 
-write tb_rdiv_0_84_12_tran.raw R V(rtop)
+write tb_INA_gain_fb_tran.raw R V(rtop)
 .endc
 "}
 C {res.sym} 200 -90 0 0 {name=R1
@@ -75,3 +74,4 @@ C {lab_wire.sym} 200 -120 0 0 {name=p12 sig_type=std_logic lab=PSUP_LV}
 C {spice_probe.sym} 200 -40 0 0 {name=p13 attrs=""}
 C {lab_wire.sym} 100 40 0 1 {name=p14 sig_type=std_logic lab=Rtop}
 C {lab_wire.sym} 100 -40 0 1 {name=p9 sig_type=std_logic lab=0}
+C {blocks/INA_gain_fb/INA_gain_fb.sym} 0 0 0 0 {name=x1}
