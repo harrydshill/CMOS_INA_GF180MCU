@@ -1,3 +1,4 @@
 **/simulation/
 **/shell.nix
 **/__pycache__/
+**/.vscode/**
