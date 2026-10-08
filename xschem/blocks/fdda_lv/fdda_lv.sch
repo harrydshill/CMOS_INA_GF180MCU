@@ -7,13 +7,11 @@ E {}
 T {1u} -620 -650 0 0 0.4 0.4 {}
 T {2u} -80 -620 0 0 0.4 0.4 {}
 T {2u} 320 -620 0 0 0.4 0.4 {}
-T {CMFB -->} 1660 -450 0 0 0.4 0.4 {}
+T {CMFB -->} 1700 -450 0 0 0.4 0.4 {}
 T {4u} 630 -610 0 0 0.4 0.4 {}
 T {4u} 800 -610 0 0 0.4 0.4 {}
-T {1u} 1800 -60 0 0 0.4 0.4 {}
+T {1u} 1840 -60 0 0 0.4 0.4 {}
 T {FDFCDA} 120 -640 0 0 0.4 0.4 {}
-T {1u} 2030 -620 0 0 0.4 0.4 {}
-T {1u} 2180 -620 0 0 0.4 0.4 {}
 T {1u} -460 -650 0 0 0.4 0.4 {}
 N -660 -730 -260 -730 {lab=PSUP_LV}
 N -670 -730 -660 -730 {lab=PSUP_LV}
@@ -34,7 +32,7 @@ N -100 -650 -80 -650 {lab=vb1}
 N 300 -650 320 -650 {lab=vb1}
 N 80 -480 100 -480 {lab=Vp+}
 N -180 -480 -160 -480 {lab=Vp-}
-N 1720 -290 1740 -290 {lab=Vref}
+N 1730 -290 1750 -290 {lab=Vcmfb}
 N 360 -730 360 -680 {lab=PSUP_LV}
 N -40 -680 -40 -650 {lab=PSUP_LV}
 N -120 -560 30 -560 {lab=n1}
@@ -79,78 +77,57 @@ N 80 -100 80 -50 {lab=sum_n}
 N 30 -730 1520 -730 {lab=PSUP_LV}
 N 140 10 840 10 {lab=sum_n}
 N 240 -30 610 -30 {lab=sum_p}
-N 1780 -260 1780 -230 {lab=CMFB_PROBE}
-N 1920 -260 1920 -230 {lab=CMFB_PROBE}
-N 1780 -440 1780 -350 {lab=Vcmfb
+N 1820 -260 1820 -230 {lab=CMFB_PROBE}
+N 1960 -260 1960 -230 {lab=CMFB_PROBE}
+N 1820 -440 1820 -350 {lab=n8
 }
-N 1920 -400 1920 -350 {lab=n8}
-N 1920 -460 1920 -400 {lab=n8}
-N 1850 -80 1850 -20 {lab=NSUP}
-N 1850 -110 1850 -80 {lab=NSUP}
-N 1920 -330 1920 -320 {lab=n8}
-N 1780 -330 1780 -320 {lab=Vcmfb}
-N 1790 -290 1910 -290 {lab=NSUP}
-N 1790 -230 1910 -230 {lab=CMFB_PROBE}
-N 1820 -650 1830 -650 {lab=Vcmfb}
-N 1780 -600 1830 -600 {lab=Vcmfb}
-N 1870 -650 1880 -650 {lab=n8}
-N 1870 -600 1920 -600 {lab=n8}
-N 1830 -650 1840 -650 {lab=Vcmfb}
-N 1840 -650 1840 -600 {lab=Vcmfb}
-N 1830 -600 1840 -600 {lab=Vcmfb}
+N 1960 -400 1960 -350 {lab=Vcmfb}
+N 1960 -460 1960 -400 {lab=Vcmfb}
+N 1890 -80 1890 -20 {lab=NSUP}
+N 1890 -110 1890 -80 {lab=NSUP}
+N 1960 -330 1960 -320 {lab=Vcmfb}
+N 1820 -330 1820 -320 {lab=n8}
+N 1830 -290 1950 -290 {lab=NSUP}
+N 1830 -230 1950 -230 {lab=CMFB_PROBE}
 N 1860 -650 1870 -650 {lab=n8}
-N 1860 -650 1860 -600 {lab=n8}
-N 1860 -600 1870 -600 {lab=n8}
-N 1780 -290 1790 -290 {lab=NSUP}
-N 1910 -290 1920 -290 {lab=NSUP}
-N 1780 -230 1790 -230 {lab=CMFB_PROBE}
-N 1910 -230 1920 -230 {lab=CMFB_PROBE}
-N 1920 -610 1920 -460 {lab=n8}
-N 1780 -610 1780 -470 {lab=Vcmfb}
-N 1780 -470 1780 -440 {lab=Vcmfb}
-N 1920 -730 1920 -650 {lab=PSUP_LV}
-N 1780 -730 1780 -650 {lab=PSUP_LV}
-N 1780 -620 1780 -610 {lab=Vcmfb}
-N 1920 -620 1920 -610 {lab=n8}
-N 1790 -110 1810 -110 {lab=vb3}
-N 1780 -350 1780 -330 {lab=Vcmfb}
-N 1920 -350 1920 -330 {lab=n8}
-N 1850 -230 1850 -140 {lab=CMFB_PROBE}
-N 2010 -110 2030 -110 {lab=Vofcp}
-N 2010 -110 2030 -110 {lab=Vofcp}
-N 2270 -110 2290 -110 {lab=Vofcn}
-N 2010 -650 2030 -650 {lab=vb1}
-N 2010 -650 2030 -650 {lab=vb1}
-N 2070 -620 2070 -140 {lab=n4}
-N 2070 -80 2070 0 {lab=NSUP}
-N 2070 -730 2070 -680 {lab=PSUP_LV}
-N 2230 -620 2230 -140 {lab=n5}
-N 2230 -80 2230 0 {lab=NSUP}
-N 2230 -730 2230 -680 {lab=PSUP_LV}
-N 2080 -110 2220 -110 {lab=PSUP_LV}
-N 2150 -480 2160 -480 {lab=Vcm}
-N 2140 -480 2150 -480 {lab=Vcm}
-N 2150 -480 2150 -460 {lab=Vcm}
-N 2110 -500 2150 -500 {lab=PSUP_LV}
-N 2150 -500 2190 -500 {lab=PSUP_LV}
-N 2070 -110 2080 -110 {lab=PSUP_LV}
-N 2220 -110 2230 -110 {lab=PSUP_LV}
-N 2070 -480 2080 -480 {lab=n4}
-N 2220 -480 2230 -480 {lab=n5}
-N 2070 -680 2070 -650 {lab=PSUP_LV}
-N 2230 -680 2230 -650 {lab=PSUP_LV}
-N 2170 -650 2190 -650 {lab=vb1}
-N 2170 -650 2190 -650 {lab=vb1}
-N 1960 -290 2150 -290 {lab=Vcm}
-N 2150 -460 2150 -290 {lab=Vcm}
-N 1850 -730 2230 -730 {lab=PSUP_LV}
+N 1820 -600 1870 -600 {lab=n8}
+N 1910 -650 1920 -650 {lab=Vcmfb}
+N 1910 -600 1960 -600 {lab=Vcmfb}
+N 1870 -650 1880 -650 {lab=n8}
+N 1880 -650 1880 -600 {lab=n8}
+N 1870 -600 1880 -600 {lab=n8}
+N 1900 -650 1910 -650 {lab=Vcmfb}
+N 1900 -650 1900 -600 {lab=Vcmfb}
+N 1900 -600 1910 -600 {lab=Vcmfb}
+N 1820 -290 1830 -290 {lab=NSUP}
+N 1950 -290 1960 -290 {lab=NSUP}
+N 1820 -230 1830 -230 {lab=CMFB_PROBE}
+N 1950 -230 1960 -230 {lab=CMFB_PROBE}
+N 1960 -610 1960 -460 {lab=Vcmfb}
+N 1820 -610 1820 -470 {lab=n8}
+N 1820 -470 1820 -440 {lab=n8}
+N 1960 -730 1960 -650 {lab=PSUP_LV}
+N 1820 -730 1820 -650 {lab=PSUP_LV}
+N 1820 -620 1820 -610 {lab=n8}
+N 1960 -620 1960 -610 {lab=Vcmfb}
+N 1830 -110 1850 -110 {lab=vb3}
+N 1820 -350 1820 -330 {lab=n8}
+N 1960 -350 1960 -330 {lab=Vcmfb}
+N 1890 -230 1890 -140 {lab=CMFB_PROBE}
+N 1580 -290 1580 -280 {lab=Vcmfb}
+N 1580 -300 1580 -290 {lab=Vcmfb}
+N 1580 -290 1600 -290 {lab=Vcmfb}
+N 1560 -330 1560 -290 {lab=PSUP_LV}
+N 1560 -290 1560 -250 {lab=PSUP_LV}
+N 1580 -370 1580 -360 {lab=Vo+}
+N 1580 -220 1580 -210 {lab=Vo-}
 N -250 -210 -250 -190 {lab=Vref}
 N -260 -730 -10 -730 {lab=PSUP_LV}
-N 1800 -180 1850 -180 {lab=CMFB_PROBE}
-N 2070 -380 2080 -380 {lab=n4}
-N 2140 -380 2150 -380 {lab=Vcm}
-N 2150 -380 2160 -380 {lab=Vcm}
-N 2220 -380 2230 -380 {lab=n5}
+N 1840 -180 1890 -180 {lab=CMFB_PROBE}
+N 1680 -380 1680 -360 {lab=Vo+}
+N 1680 -300 1680 -290 {lab=Vcmfb}
+N 1680 -290 1680 -280 {lab=Vcmfb}
+N 1680 -220 1680 -210 {lab=Vo-}
 N -120 -480 40 -480 {lab=PSUP_LV}
 N 610 -30 670 -30 {lab=sum_p}
 N -550 -230 -550 -140 {lab=vb3}
@@ -212,12 +189,8 @@ N -390 -270 -390 -100 {lab=vb4}
 N -230 150 840 150 {lab=NSUP}
 N 670 -380 670 -370 {lab=n9}
 N 840 -380 840 -370 {lab=n10}
-N 880 150 1850 150 {lab=NSUP}
-N 1850 -20 1850 140 {lab=NSUP}
-N 1850 150 2070 150 {lab=NSUP}
-N 2070 0 2070 140 {lab=NSUP}
-N 2070 150 2230 150 {lab=NSUP}
-N 2230 0 2230 140 {lab=NSUP}
+N 920 150 1890 150 {lab=NSUP}
+N 1890 -20 1890 140 {lab=NSUP}
 N 1150 -730 1150 -650 {lab=PSUP_LV}
 N 1420 -730 1420 -650 {lab=PSUP_LV}
 N 1150 70 1150 100 {lab=NSUP}
@@ -261,9 +234,7 @@ N 240 -260 240 -250 {lab=sum_p}
 N 80 -260 80 -250 {lab=sum_n}
 N -550 -240 -550 -230 {lab=vb3}
 N -390 -280 -390 -270 {lab=vb4}
-N 1850 140 1850 150 {lab=NSUP}
-N 2070 140 2070 150 {lab=NSUP}
-N 2230 140 2230 150 {lab=NSUP}
+N 1890 140 1890 150 {lab=NSUP}
 N 1230 -180 1230 40 {lab=Vofcn}
 N 1230 40 1230 70 {lab=Vofcn}
 N 1270 70 1380 70 {lab=Vofcn}
@@ -300,6 +271,20 @@ N 1150 -310 1170 -310 {lab=Vo-}
 N 1420 -310 1440 -310 {lab=Vo+}
 N -250 -300 -250 -270 {lab=n11}
 N -390 -450 -250 -300 {lab=n11}
+N 1860 -730 1920 -730 {lab=PSUP_LV}
+N 1850 -730 1860 -730 {lab=PSUP_LV}
+N 2000 -290 2030 -290 {lab=Vref}
+N 1600 -290 1730 -290 {lab=Vcmfb}
+N 1580 -380 1580 -370 {lab=Vo+}
+N 1680 -210 1680 -200 {lab=Vo-}
+N 1580 -210 1580 -200 {lab=Vo-}
+N 1920 -730 1960 -730 {lab=PSUP_LV}
+N 1150 -200 1190 -200 {lab=Vo-}
+N 1420 -380 1460 -380 {lab=Vo+}
+N 1750 -290 1780 -290 {lab=Vcmfb}
+N 1460 -380 1680 -380 {lab=Vo+}
+N 880 150 920 150 {lab=NSUP}
+N 1190 -200 1680 -200 {lab=Vo-}
 C {noconn.sym} -670 90 0 1 {name=l1}
 C {noconn.sym} -670 120 0 1 {name=l2}
 C {ipin.sym} -670 -730 0 0 {name=p19 lab=PSUP_LV
@@ -417,7 +402,6 @@ C {ipin.sym} 500 -480 0 1 {name=p25 lab=Vn+
 C {ipin.sym} 220 -480 0 0 {name=p26 lab=Vn-
 
 }
-C {lab_pin.sym} 1720 -290 0 0 {name=p7 sig_type=std_logic lab=Vref}
 C {lab_pin.sym} 40 -560 2 0 {name=p11 sig_type=std_logic lab=n1}
 C {lab_pin.sym} 440 -560 2 0 {name=p14 sig_type=std_logic lab=n2}
 C {symbols/pfet_03v3.sym} 460 -480 0 1 {name=M24
@@ -584,7 +568,7 @@ spiceprefix=X
 C {lab_pin.sym} 670 -90 2 1 {name=p50 sig_type=std_logic lab=NSUP}
 C {lab_pin.sym} 840 -90 2 0 {name=p51 sig_type=std_logic lab=NSUP}
 C {lab_pin.sym} -550 -550 2 1 {name=p18 sig_type=std_logic lab=PSUP_LV}
-C {symbols/pfet_03v3.sym} 1800 -650 0 1 {name=M3
+C {symbols/pfet_03v3.sym} 1840 -650 0 1 {name=M3
 L=8u
 W=2u
 nf=1
@@ -598,7 +582,7 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
-C {symbols/pfet_03v3.sym} 1900 -650 0 0 {name=M8
+C {symbols/pfet_03v3.sym} 1940 -650 0 0 {name=M8
 L=8u
 W=2u
 nf=1
@@ -612,8 +596,8 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
-C {lab_pin.sym} 1890 -290 0 0 {name=p52 sig_type=std_logic lab=NSUP}
-C {symbols/nfet_03v3.sym} 1940 -290 0 1 {name=M21
+C {lab_pin.sym} 1930 -290 0 0 {name=p52 sig_type=std_logic lab=NSUP}
+C {symbols/nfet_03v3.sym} 1980 -290 0 1 {name=M21
 L=2u
 W=4u
 nf=5
@@ -627,7 +611,7 @@ sa=0 sb=0 sd=0
 model=nfet_03v3
 spiceprefix=X
 }
-C {symbols/nfet_03v3.sym} 1760 -290 0 0 {name=M25
+C {symbols/nfet_03v3.sym} 1800 -290 0 0 {name=M25
 L=2u
 W=4u
 nf=5
@@ -641,9 +625,9 @@ sa=0 sb=0 sd=0
 model=nfet_03v3
 spiceprefix=X
 }
-C {lab_pin.sym} 1780 -590 0 0 {name=p1 sig_type=std_logic lab=Vcmfb}
-C {lab_pin.sym} 1790 -110 0 0 {name=p12 sig_type=std_logic lab=vb3}
-C {symbols/nfet_03v3.sym} 1830 -110 0 0 {name=M4
+C {lab_pin.sym} 1960 -550 0 0 {name=p1 sig_type=std_logic lab=Vcmfb}
+C {lab_pin.sym} 1830 -110 0 0 {name=p12 sig_type=std_logic lab=vb3}
+C {symbols/nfet_03v3.sym} 1870 -110 0 0 {name=M4
 L=4u
 W=2u
 nf=1
@@ -659,101 +643,40 @@ spiceprefix=X
 }
 C {lab_pin.sym} 670 -560 2 0 {name=p35 sig_type=std_logic lab=n6}
 C {lab_pin.sym} 840 -560 2 0 {name=p36 sig_type=std_logic lab=n7}
-C {symbols/pfet_03v3.sym} 2250 -110 0 1 {name=M22
-L=2u
-W=4u
-nf=1
-m=10
-ad="'int((nf+1)/2) * W/nf * 0.18u'"
-pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
-as="'int((nf+2)/2) * W/nf * 0.18u'"
-ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
-nrd="'0.18u / W'" nrs="'0.18u / W'"
-sa=0 sb=0 sd=0
-model=pfet_03v3
-spiceprefix=X
-}
-C {symbols/pfet_03v3.sym} 2050 -110 0 0 {name=M23
-L=2u
-W=4u
-nf=1
-m=10
-ad="'int((nf+1)/2) * W/nf * 0.18u'"
-pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
-as="'int((nf+2)/2) * W/nf * 0.18u'"
-ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
-nrd="'0.18u / W'" nrs="'0.18u / W'"
-sa=0 sb=0 sd=0
-model=pfet_03v3
-spiceprefix=X
-}
-C {symbols/ppolyf_u_3k.sym} 2110 -480 1 0 {name=R1
+C {symbols/ppolyf_u_3k.sym} 1580 -330 2 1 {name=R1
 W=1e-6
 L=3000e-6
 model=ppolyf_u_3k
 spiceprefix=X
 m=1
 }
-C {symbols/ppolyf_u_3k.sym} 2190 -480 1 0 {name=R2
+C {symbols/ppolyf_u_3k.sym} 1580 -250 2 1 {name=R2
 W=1e-6
 L=3000e-6
 model=ppolyf_u_3k
 spiceprefix=X
 m=1
 }
-C {lab_pin.sym} 1990 -290 0 1 {name=p46 sig_type=std_logic lab=Vcm}
-C {lab_pin.sym} 2120 -500 0 1 {name=p53 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} 2070 -560 2 0 {name=p54 sig_type=std_logic lab=n4}
-C {lab_pin.sym} 2230 -560 2 0 {name=p55 sig_type=std_logic lab=n5}
-C {lab_pin.sym} 2120 -110 2 0 {name=p56 sig_type=std_logic lab=PSUP_LV}
-C {symbols/pfet_03v3.sym} 2050 -650 0 0 {name=M5
-L=4u
-W=2u
-nf=1
-m=4
-ad="'int((nf+1)/2) * W/nf * 0.18u'"
-pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
-as="'int((nf+2)/2) * W/nf * 0.18u'"
-ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
-nrd="'0.18u / W'" nrs="'0.18u / W'"
-sa=0 sb=0 sd=0
-model=pfet_03v3
-spiceprefix=X
-}
-C {symbols/pfet_03v3.sym} 2210 -650 0 0 {name=M17
-L=4u
-W=2u
-nf=1
-m=4
-ad="'int((nf+1)/2) * W/nf * 0.18u'"
-pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
-as="'int((nf+2)/2) * W/nf * 0.18u'"
-ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
-nrd="'0.18u / W'" nrs="'0.18u / W'"
-sa=0 sb=0 sd=0
-model=pfet_03v3
-spiceprefix=X
-}
-C {lab_pin.sym} 2010 -650 0 0 {name=p57 sig_type=std_logic lab=vb1}
-C {lab_pin.sym} 2170 -650 0 0 {name=p58 sig_type=std_logic lab=vb1}
+C {lab_pin.sym} 2030 -290 0 1 {name=p46 sig_type=std_logic lab=Vref}
+C {lab_pin.sym} 1560 -250 2 1 {name=p53 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -250 -190 0 0 {name=p3 sig_type=std_logic lab=Vref}
 C {res.sym} -250 -240 0 0 {name=R3
 value=1
 footprint=1206
 device=resistor
 m=1}
-C {ipin.sym} 1800 -180 0 0 {name=p2 lab=CMFB_PROBE
+C {ipin.sym} 1840 -180 0 0 {name=p2 lab=CMFB_PROBE
 
 
 }
-C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 2110 -380 1 0 {name=C1
+C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 1680 -330 2 1 {name=C1
 W=15e-6
 L=15e-6
 model=cap_mim_2f0fF
 spiceprefix=X
 m=1
 }
-C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 2190 -380 1 0 {name=C2
+C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 1680 -250 2 1 {name=C2
 W=15e-6
 L=15e-6
 model=cap_mim_2f0fF
@@ -767,7 +690,7 @@ value=300k
 footprint=1206
 device=resistor
 m=1}
-C {lab_pin.sym} 1920 -580 0 0 {name=p10 sig_type=std_logic lab=n8}
+C {lab_pin.sym} 1820 -550 0 0 {name=p10 sig_type=std_logic lab=n8}
 C {symbols/pfet_03v3.sym} -370 -650 0 1 {name=M10
 L=4u
 W=2u
@@ -938,12 +861,8 @@ sa=0 sb=0 sd=0
 model=pfet_03v3
 spiceprefix=X
 }
-C {opin.sym} 1440 -310 0 0 {name=p13 lab=Vo+
-}
 C {opin.sym} 1170 -310 0 0 {name=p27 lab=Vo-
 }
-C {lab_pin.sym} 2010 -110 2 1 {name=p15 sig_type=std_logic lab=Vofcp}
-C {lab_pin.sym} 2290 -110 2 0 {name=p48 sig_type=std_logic lab=Vofcn}
 C {lab_pin.sym} 1230 -400 0 1 {name=p40 sig_type=std_logic lab=n9}
 C {lab_pin.sym} 960 -430 0 1 {name=p42 sig_type=std_logic lab=n10}
 C {lab_pin.sym} -330 -650 2 0 {name=p49 sig_type=std_logic lab=n11}
@@ -993,3 +912,6 @@ device=resistor
 m=1}
 C {lab_pin.sym} 960 -150 2 0 {name=p66 sig_type=std_logic lab=Vofcp}
 C {lab_pin.sym} 1230 -180 2 0 {name=p67 sig_type=std_logic lab=Vofcn}
+C {opin.sym} 1440 -310 0 0 {name=p7 lab=Vo+
+}
+C {lab_pin.sym} 1760 -290 0 0 {name=p13 sig_type=std_logic lab=Vcmfb}
