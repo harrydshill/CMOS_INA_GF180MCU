@@ -5,7 +5,7 @@
 ## Setup
 
 1. In xschem, open the testbench and generate its SPICE netlist.
-2. Ensure the testbench contains the model, temperature, and supply statements needed for simulation, plus an ngspice `write <name>.raw` command for waveform output. For scalar results, use an ngspice `meas` command or print a scalar by name (for example, `print inoise_total`). Both `meas` names and simple `print <scalar_name>` commands are detected automatically for the measurements CSV. For a supply swept by the built-in `gf180` profile, define `.param vdd=<typical voltage>` and use `{vdd}` as the value of the supply source connected from `PSUP` (or `PSUP_LV`) to ground. This leaves a valid typical value for ordinary xschem simulation; the sweep profile substitutes each case's `VDD` in the generated deck.
+2. Ensure the testbench contains the model, temperature, and supply statements needed for simulation, plus an ngspice `write <name>.raw` command for waveform output. For scalar results, use an ngspice `meas` command or print a scalar/vector (for example, `print inoise_total` or `print i(Vmeas)`). Both `meas` names and simple `print` names or vector expressions are detected automatically for the measurements CSV. For a supply swept by the built-in `gf180` profile, define `.param vdd=<typical voltage>` and use `{vdd}` as the value of the supply source connected from `PSUP` (or `PSUP_LV`) to ground. This leaves a valid typical value for ordinary xschem simulation; the sweep profile substitutes each case's `VDD` in the generated deck.
 3. Edit [pvt_cases.csv](pvt_cases.csv): each row defines one complete case. Set the model-section names, temperature, and supply values you want to test. The CSV values are applied by the selected profile; confirm its rules match the generated deck.
 
 The default profile is [pvt_profiles.json](pvt_profiles.json), profile name `gf180`. It maps CSV columns to deck edits. If the deck's statements differ, update the profile before running. The runner checks configured match counts and stops rather than silently using an unchanged value.
@@ -52,3 +52,20 @@ The default output directory is `<input deck directory>/results/<input deck name
 Raw files are retained per case even when an overlay is requested. The overlay is most useful when each case runs the same analysis and writes the same vectors. GAW is launched by default when installed. If it is not installed, the run completes and prints a warning; raw files are still available.
 
 Measurements require corresponding `meas` commands in the testbench. A missing crossing/result is recorded with an empty value unless strict measurement checking is enabled. The runner accepts generated `.spice`/`.cir` decks; generate the netlist in xschem before running it.
+
+## Monte Carlo runs
+
+For repeated statistical runs of one testbench, use `mc_sweep.py`. Generate the xschem netlist first, and make sure the deck reports the scalar of interest with a `.meas` command or a simple `print` command. If exactly one result is found, it is selected automatically; otherwise specify it with `--measure`.
+
+```sh
+python3 mc_sweep.py blocks/aux_amp/simulation/tb_aux_amp_offset.spice \
+  --runs 500 --jobs 8 --measure v_offset --seed 12345
+```
+
+`--jobs 8` runs up to eight independent ngspice processes simultaneously (by default, the runner uses the available CPU count). This parallelizes trials; it does not make one circuit solve use eight cores. Reduce `--jobs` if memory use becomes excessive. Each trial gets a distinct consecutive random seed. Set `--seed` to choose the first seed and reproduce the same set of runs; if omitted, a random starting seed is selected and printed.
+
+The default variation mode enables both GF180 global process variation and local mismatch. Select `--variation mismatch` or `--variation global` to isolate either effect; `--variation none` is useful as a deterministic control. The runner sets both `sw_stat_global` and `sw_stat_mismatch` explicitly because the installed PDK include's active defaults disable them.
+
+The default CSV is written to `results/<deck-name>/monte_carlo.csv`; set `--out PATH` to choose another location. It contains one row per attempted run with `RUN`, `MEASURE`, `VALUE`, and `STATUS`. Failed simulations and missing/invalid measurements are retained with a blank value and a status, and later runs continue. Summary statistics for successful runs (count, mean, sample standard deviation, minimum, maximum) are printed to the terminal. Each run uses a disposable working directory, so its deck, log, and raw files are removed after extraction; only the CSV persists.
+
+Ngspice's default random seed is fixed, so independent processes without explicit seeds can repeat the same random sequence. The runner sets and records each trial's seed to avoid that and support reproducible runs. For offset benches, verify that the swept input range contains the crossing: the existing aux-amplifier benches scan approximately -20 mV to +20 mV in 10 µV increments, so a crossing outside that range is reported as missing and the sweep step limits offset resolution.

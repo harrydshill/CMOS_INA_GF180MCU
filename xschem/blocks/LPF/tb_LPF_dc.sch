@@ -56,7 +56,8 @@ C {code_shown.sym} 580 30 0 0 {name=NGSPICE only_toplevel=true value="
 set units=degrees
 save all
 op
-write tb_INA_dc.raw
+
+write tb_LPF_dc.raw
 
 .endc
 "}
@@ -75,13 +76,16 @@ C {noconn.sym} -20 -130 1 0 {name=l2}
 C {noconn.sym} -20 130 3 0 {name=l3}
 C {noconn.sym} 0 130 3 0 {name=l4}
 C {lab_pin.sym} -300 -140 0 0 {name=p13 sig_type=std_logic lab=VCM}
-C {vsource.sym} -240 -90 2 1 {name=VDM2 value=0.5m savecurrent=false}
-C {vsource.sym} -280 -90 0 1 {name=VDM1 value=0.5m savecurrent=false}
+C {vsource.sym} -240 -90 2 1 {name=VDM2 value="DC 0.05 AC 0.5" savecurrent=false}
+C {vsource.sym} -280 -90 0 1 {name=VDM1 value="DC 0.05 AC 0.5" savecurrent=false}
 C {lab_pin.sym} -280 30 0 0 {name=p5 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -240 -30 0 0 {name=p6 sig_type=std_logic lab=INM
 }
-C {lab_pin.sym} -120 70 2 1 {name=p7 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -120 90 2 1 {name=p8 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -320 90 2 1 {name=p9 sig_type=std_logic lab=0}
-C {lab_pin.sym} -320 110 2 1 {name=p10 sig_type=std_logic lab=0}
-C {blocks/INA/INA.sym} -100 0 0 0 {name=x1}
+C {lab_pin.sym} -120 80 2 1 {name=p7 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -120 60 2 1 {name=p8 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -220 220 2 1 {name=p9 sig_type=std_logic lab=0}
+C {lab_pin.sym} -220 200 2 1 {name=p10 sig_type=std_logic lab=0}
+C {blocks/LPF/LPF.sym} -100 0 0 0 {name=x2}
+C {lab_pin.sym} -120 -100 2 1 {name=p11 sig_type=std_logic lab=0}
+C {lab_pin.sym} -120 -80 2 1 {name=p12 sig_type=std_logic lab=0}
+C {lab_pin.sym} -120 -60 2 1 {name=p14 sig_type=std_logic lab=0}

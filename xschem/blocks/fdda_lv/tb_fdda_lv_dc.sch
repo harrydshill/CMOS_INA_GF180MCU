@@ -14,6 +14,8 @@ N -160 -100 -160 -80 {lab=VCM}
 N -160 -100 -140 -100 {lab=VCM}
 N 300 -130 340 -130 {lab=#net1}
 N 300 -90 340 -90 {lab=#net2}
+N 230 -290 230 -280 {lab=PSUP_LV}
+N 230 -220 230 -210 {lab=#net3}
 C {blocks/fdda_lv/fdda_lv.sym} 80 -160 0 0 {name=x1}
 C {lab_pin.sym} 150 -90 0 0 {name=p1 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} 150 -70 0 0 {name=p2 sig_type=std_logic lab=VCM}
@@ -21,7 +23,7 @@ C {lab_pin.sym} 150 -130 0 0 {name=p3 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} 150 -150 0 0 {name=p4 sig_type=std_logic lab=VCM}
 C {noconn.sym} 210 -210 0 0 {name=l1}
 C {noconn.sym} 190 -210 1 0 {name=l4}
-C {lab_pin.sym} 230 -210 2 0 {name=p5 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} 230 -290 2 0 {name=p5 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} 240 -10 2 0 {name=p6 sig_type=std_logic lab=0}
 C {noconn.sym} 200 -10 3 0 {name=l2}
 C {noconn.sym} 220 -10 3 0 {name=l3}
@@ -36,6 +38,7 @@ value="
 .control
 save all
 op
+print i(Vmeas)
 write tb_fdda_lv_dc.raw
 .endc
 "}
@@ -59,3 +62,4 @@ value="
 .param sw_stat_mismatch=0
 
 "}
+C {ammeter.sym} 230 -250 0 0 {name=Vmeas savecurrent=true spice_ignore=0}

@@ -27,9 +27,9 @@ C {ipin.sym} 80 -200 0 1 {name=p5 lab=VPOS}
 C {ipin.sym} 80 -120 0 1 {name=p6 lab=VNEG}
 C {symbols/nfet_03v3.sym} 0 -40 3 0 {name=M3
 L=0.28u
-W=2u
+W=4u
 nf=1
-m=4
+m=8
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -41,9 +41,9 @@ spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 0 -280 1 0 {name=M4
 L=0.28u
-W=2u
+W=4u
 nf=1
-m=4
+m=8
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"

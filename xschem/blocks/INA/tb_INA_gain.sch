@@ -32,7 +32,6 @@ N -240 -60 -240 -30 {lab=INM}
 N -280 -60 -280 30 {lab=INP}
 N -240 -30 -120 -30 {lab=INM}
 N -280 30 -120 30 {lab=INP}
-C {blocks/in_amp/in_amp.sym} -100 0 0 0 {name=x1}
 C {code_shown.sym} 580 -370 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -64,8 +63,7 @@ let aol = v(Vo) / v(Vid)
 let gain_db = db(aol)
 let phase_deg = cph(aol)
 
-*write tb_in_amp_gain.raw frequency v(Vop) v(Von) v(Vo) aol gain_db phase_deg
-write tb_in_amp_gain.raw
+write tb_INA_gain.raw frequency v(Vop) v(Von) v(Vo) aol gain_db phase_deg
 
 .endc
 "}
@@ -89,5 +87,8 @@ C {vsource.sym} -280 -90 0 1 {name=VDM1 value="DC 0 AC 0.5" savecurrent=false}
 C {lab_pin.sym} -280 30 0 0 {name=p5 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -240 -30 0 0 {name=p6 sig_type=std_logic lab=INM
 }
-C {lab_pin.sym} -120 70 2 1 {name=p7 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -120 90 2 1 {name=p8 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -120 90 2 1 {name=p7 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -120 70 2 1 {name=p8 sig_type=std_logic lab=PSUP_LV}
+C {blocks/INA/INA.sym} -100 0 0 0 {name=x1}
+C {lab_pin.sym} -310 80 2 1 {name=p9 sig_type=std_logic lab=0}
+C {lab_pin.sym} -360 80 2 1 {name=p10 sig_type=std_logic lab=0}

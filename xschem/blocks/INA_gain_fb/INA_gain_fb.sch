@@ -116,7 +116,7 @@ spiceprefix=X
 m=1}
 C {symbols/ppolyf_u_3k.sym} 320 340 0 0 {name=R3
 W=1e-6
-L=33e-6
+L=333e-6
 model=ppolyf_u_3k
 spiceprefix=X
 m=1}
@@ -242,10 +242,8 @@ spiceprefix=X
 m=1}
 C {lab_wire.sym} 160 -150 0 0 {name=p33 sig_type=std_logic lab=NSUP}
 C {lab_wire.sym} 200 -150 0 1 {name=p34 sig_type=std_logic lab=PSUP_LV}
-C {blocks/transmission_gate/transmission_gate.sym} 20 -130 1 0 {name=x2}
 C {lab_wire.sym} 0 -150 0 0 {name=p35 sig_type=std_logic lab=NSUP}
 C {lab_wire.sym} 40 -150 0 1 {name=p36 sig_type=std_logic lab=PSUP_LV}
-C {blocks/transmission_gate/transmission_gate.sym} -140 -130 1 0 {name=x3}
 C {lab_wire.sym} -160 -150 0 0 {name=p37 sig_type=std_logic lab=NSUP}
 C {lab_wire.sym} -120 -150 0 1 {name=p38 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} 160 -130 0 0 {name=p10 sig_type=std_logic lab=C0}
@@ -344,3 +342,5 @@ C {lab_wire.sym} 300 70 0 0 {name=p30 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} 300 170 0 0 {name=p31 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} 300 340 0 0 {name=p32 sig_type=std_logic lab=PSUP_LV}
 C {ammeter.sym} 320 230 0 0 {name=Vmeas savecurrent=true spice_ignore=0}
+C {blocks/TG_loron/TG_loron.sym} -140 -130 1 0 {name=x7}
+C {blocks/TG_loron/TG_loron.sym} 20 -130 1 0 {name=x2}

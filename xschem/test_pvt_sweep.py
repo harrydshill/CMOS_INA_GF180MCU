@@ -19,7 +19,7 @@ SAMPLE = """.lib /pdk/sm141064.ngspice typical
 .lib /pdk/sm141064.ngspice mimcap_typical
 * .temp @TEMP@
 .param vdd=5
-V1 PSUP 0 5
+V1 PSUP 0 {vdd}
 .control
 ac dec 10 1 1Meg
 meas ac UGF when gain_db=0
@@ -96,19 +96,28 @@ class PvtSweepHelpersTest(unittest.TestCase):
         self.assertIn(".lib /pdk/sm141064.ngspice mimcap_typical", changed)
         self.assertIn(".temp 125", changed)
         self.assertIn(".param vdd=2.97", changed)
-        self.assertIn("V1 PSUP 0 2.97", changed)
+        self.assertIn("V1 PSUP 0 {vdd}", changed)
 
     def test_gf180_profile_matches_psup_lv_supply_source(self) -> None:
         profile = pvt_sweep.read_profile(ROOT / "pvt_profiles.json", "gf180")
-        deck = SAMPLE.replace("V1 PSUP 0 5", "VDD PSUP_LV 0 3.3")
+        deck = SAMPLE.replace("V1 PSUP 0 {vdd}", "VDD PSUP_LV 0 {vdd}")
         changed = pvt_sweep.replace_profile_values(deck, CASE, profile)
-        self.assertIn("VDD PSUP_LV 0 2.97", changed)
+        self.assertIn("VDD PSUP_LV 0 {vdd}", changed)
+        self.assertIn(".param vdd=2.97", changed)
+
+    def test_gf180_profile_preserves_pwl_supply_expression(self) -> None:
+        profile = pvt_sweep.read_profile(ROOT / "pvt_profiles.json", "gf180")
+        deck = SAMPLE.replace(
+            "V1 PSUP 0 {vdd}", "VDD PSUP_LV 0 PWL(0 0 1u 0 11u {vdd})"
+        )
+        changed = pvt_sweep.replace_profile_values(deck, CASE, profile)
+        self.assertIn("VDD PSUP_LV 0 PWL(0 0 1u 0 11u {vdd})", changed)
         self.assertIn(".param vdd=2.97", changed)
 
     def test_profile_fails_if_expected_supply_is_missing(self) -> None:
         profile = pvt_sweep.read_profile(ROOT / "pvt_profiles.json", "gf180")
-        with self.assertRaisesRegex(ValueError, "VDD expected 1 match"):
-            pvt_sweep.replace_profile_values(SAMPLE.replace("V1 PSUP 0 5\n", ""), CASE, profile)
+        with self.assertRaisesRegex(ValueError, "profile substitution for VDD expected 1 match"):
+            pvt_sweep.replace_profile_values(SAMPLE.replace(".param vdd=5\n", ""), CASE, profile)
 
     def test_temperature_is_inserted_if_missing(self) -> None:
         profile = pvt_sweep.read_profile(ROOT / "pvt_profiles.json", "gf180")
@@ -119,8 +128,11 @@ class PvtSweepHelpersTest(unittest.TestCase):
 
     def test_measure_extraction_is_case_insensitive(self) -> None:
         self.assertEqual(
-            pvt_sweep.get_measurements("UGF = 1.234e+06\nphase_margin = 61.2\n", ["UGF", "PHASE_MARGIN"]),
-            {"UGF": "1.234e+06", "PHASE_MARGIN": "61.2"},
+            pvt_sweep.get_measurements(
+                "UGF = 1.234e+06\nphase_margin = 61.2\ni(vmeas) = 3.258530e-05\n",
+                ["UGF", "PHASE_MARGIN", "i(Vmeas)"],
+            ),
+            {"UGF": "1.234e+06", "PHASE_MARGIN": "61.2", "i(Vmeas)": "3.258530e-05"},
         )
 
     def test_missing_measurement_is_reported(self) -> None:
@@ -139,12 +151,14 @@ meas ac phase_margin find phase when gain_db=0
 .measure tran settling_time when v(out)=1
 meas ac gain_peak max gain_db
 print inoise_total
+print i(Vmeas)
+print v(out)
 * print ignored_scalar
 .endc
 """
         self.assertEqual(
             pvt_sweep.deck_result_names(deck),
-            ["gain_peak", "phase_margin", "settling_time", "inoise_total"],
+            ["gain_peak", "phase_margin", "settling_time", "inoise_total", "i(Vmeas)", "v(out)"],
         )
 
     def test_cli_help_lists_default_behavior_opt_outs(self) -> None:

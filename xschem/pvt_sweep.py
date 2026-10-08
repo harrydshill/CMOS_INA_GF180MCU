@@ -19,8 +19,9 @@ from pathlib import Path
 from typing import Any
 
 TOKEN = re.compile(r"@([A-Za-z_][A-Za-z0-9_]*)@")
+VECTOR_NAME = r"[A-Za-z_][A-Za-z0-9_]*(?:\([^()\r\n]*\))?"
 MEASURE = re.compile(
-    r"^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*([-+0-9.eE]+)",
+    rf"^\s*({VECTOR_NAME})\s*=\s*([-+0-9.eE]+)",
     re.IGNORECASE | re.MULTILINE,
 )
 RAW_WRITE = re.compile(
@@ -32,7 +33,7 @@ DECK_MEASURE = re.compile(
     r"(?im)^\s*\.?meas(?:ure)?\s+(?:(?:ac|dc|tran|op|noise|tf)\s+)?"
     r"([A-Za-z_][A-Za-z0-9_]*)\b"
 )
-DECK_PRINT = re.compile(r"(?i)^\s*print\s+([A-Za-z_][A-Za-z0-9_]*)\s*$")
+DECK_PRINT = re.compile(rf"(?i)^\s*print\s+({VECTOR_NAME})\s*$")
 
 
 def read_cases(filename: Path) -> list[dict[str, str]]:
@@ -219,7 +220,7 @@ def get_measurements(
 
 
 def deck_result_names(deck: str) -> list[str]:
-    """Find scalar result names declared by meas or simple print commands."""
+    """Find result names declared by meas or simple scalar/vector print commands."""
     names: list[str] = []
     for line in deck.splitlines():
         if line.lstrip().startswith("*"):

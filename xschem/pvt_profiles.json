@@ -23,12 +23,6 @@
         },
         {
           "column": "VDD",
-          "pattern": "(?im)^(\\s*V\\S+\\s+PSUP(?:_LV)?\\s+0\\s+)\\S+(.*)$",
-          "replacement": "\\g<1>{value}\\g<2>",
-          "matches": 1
-        },
-        {
-          "column": "VDD",
           "pattern": "(?im)^(\\s*\\.param\\s+vdd\\s*=\\s*)[^\\s]+(.*)$",
           "replacement": "\\g<1>{value}\\g<2>",
           "matches": 1
