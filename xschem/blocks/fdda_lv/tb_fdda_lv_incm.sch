@@ -12,14 +12,14 @@ parasitic capacitance for
 stability check } 80 180 0 0 0.2 0.2 {}
 N -100 310 -100 330 {lab=0}
 N -100 230 -100 250 {lab=Von}
-N -660 400 -640 400 {lab=0}
-N -660 380 -660 400 {lab=0}
-N -660 300 -660 320 {lab=PSUP_LV}
-N -660 300 -640 300 {lab=PSUP_LV}
-N -740 400 -720 400 {lab=0}
-N -740 380 -740 400 {lab=0}
-N -740 300 -740 320 {lab=VCM}
-N -740 300 -720 300 {lab=VCM}
+N -790 270 -770 270 {lab=0}
+N -790 250 -790 270 {lab=0}
+N -790 170 -790 190 {lab=PSUP_LV}
+N -790 170 -770 170 {lab=PSUP_LV}
+N -870 270 -850 270 {lab=0}
+N -870 250 -870 270 {lab=0}
+N -870 170 -870 190 {lab=VCM}
+N -870 170 -850 170 {lab=VCM}
 N -140 190 -100 190 {lab=Vop}
 N -140 230 -100 230 {lab=Von}
 N -40 310 -40 330 {lab=0}
@@ -33,6 +33,7 @@ N -470 110 -450 110 {lab=INP}
 N -470 110 -470 130 {lab=INP}
 N -470 310 -450 310 {lab=INM}
 N -470 290 -470 310 {lab=INM}
+N -230 100 -230 110 {lab=#net1}
 C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -57,8 +58,8 @@ C {lab_wire.sym} -100 230 0 1 {name=p4 sig_type=std_logic lab=Von
 C {code_shown.sym} 220 190 0 0 {name=NGSPICE only_toplevel=true value="
 .control
 save all
-tran 100n 2000u
-write tb_fdda_lv_tran_slew.raw
+dc VCM 0 3.3 10u
+write tb_fdda_lv_incm.raw
 .endc
 "}
 C {lab_pin.sym} -100 330 0 0 {name=p11 sig_type=std_logic lab=0}
@@ -70,16 +71,16 @@ device="ceramic capacitor"
 }
 C {blocks/fdda_lv/fdda_lv.sym} -360 160 0 0 {name=x2}
 C {lab_pin.sym} -490 210 0 0 {name=p13 sig_type=std_logic lab=VCM}
-C {noconn.sym} -230 110 1 0 {name=l3}
+C {noconn.sym} -230 100 0 0 {name=l3}
 C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {noconn.sym} -240 310 3 0 {name=l4}
 C {noconn.sym} -220 310 3 0 {name=l5}
-C {vsource.sym} -660 350 0 0 {name=VDD value="PWL(0 0 1u 0 11u \{vdd\})" savecurrent=false}
-C {lab_pin.sym} -640 400 2 0 {name=p16 sig_type=std_logic lab=0}
-C {lab_pin.sym} -640 300 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -720 400 2 0 {name=p18 sig_type=std_logic lab=0}
-C {lab_pin.sym} -720 300 2 0 {name=p19 sig_type=std_logic lab=VCM}
+C {vsource.sym} -790 220 0 0 {name=VDD value=\{vdd\} savecurrent=false}
+C {lab_pin.sym} -770 270 2 0 {name=p16 sig_type=std_logic lab=0}
+C {lab_pin.sym} -770 170 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -850 270 2 0 {name=p18 sig_type=std_logic lab=0}
+C {lab_pin.sym} -850 170 2 0 {name=p19 sig_type=std_logic lab=VCM}
 C {lab_wire.sym} -40 190 0 1 {name=p1 sig_type=std_logic lab=Vop
 }
 C {lab_pin.sym} -40 330 0 0 {name=p5 sig_type=std_logic lab=0}
@@ -89,9 +90,9 @@ value=1p
 footprint=1206
 device="ceramic capacitor"
 }
-C {vsource.sym} -740 350 0 0 {name=VCM value=\{vdd/2\} savecurrent=false}
-C {vsource.sym} -470 160 0 1 {name=VDM2 value="PULSE(0 1 100u 1n 1n 100u 200u)" savecurrent=false}
-C {vsource.sym} -470 260 0 1 {name=VDM1 value="PULSE(0 1 100u 1n 1n 100u 200u)" savecurrent=false}
+C {vsource.sym} -870 220 0 0 {name=VCM value=\{vdd/2\} savecurrent=false}
+C {vsource.sym} -470 160 0 1 {name=VDM2 value=50m savecurrent=false}
+C {vsource.sym} -470 260 0 1 {name=VDM1 value=50m savecurrent=false}
 C {lab_pin.sym} -290 190 0 0 {name=p3 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -290 250 0 0 {name=p6 sig_type=std_logic lab=INM
 }
@@ -102,4 +103,4 @@ C {lab_wire.sym} -290 230 0 0 {name=p7 sig_type=std_logic lab=Von
 C {lab_pin.sym} -450 110 2 0 {name=p8 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -450 310 2 0 {name=p9 sig_type=std_logic lab=INM
 }
-C {noconn.sym} -250 110 1 0 {name=l1}
+C {noconn.sym} -250 110 0 0 {name=l1}

@@ -70,6 +70,7 @@ let phase_deg = cph(aol)
 
 meas ac UGF when gain_db=0
 meas ac phase_margin find phase_deg when gain_db=0
+meas ac AOL find gain_db when frequency=10
 
 *write tb_fdda_lv_aol.raw frequency v(Vop) v(Von) v(Vo) aol gain_db phase_deg
 write tb_fdda_lv_aol.raw

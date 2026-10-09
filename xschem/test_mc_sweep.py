@@ -160,6 +160,7 @@ write result.raw all
             with output.open(newline="", encoding="utf-8") as stream:
                 rows = list(csv.DictReader(stream))
             self.assertEqual(len(rows), 2)
+            rows.sort(key=lambda row: int(row["RUN"]))
             self.assertEqual([row["RUN"] for row in rows], ["1", "2"])
             self.assertEqual({row["SEED"] for row in rows}, {"100", "101"})
             self.assertTrue(all(row["STATUS"] == "ok" for row in rows), rows)

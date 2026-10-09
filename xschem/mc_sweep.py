@@ -33,6 +33,12 @@ SWITCHES = {
 MAX_SEED = 2_147_483_647
 
 
+def available_cpus() -> int:
+    """Return CPUs available to this process, respecting affinity when supported."""
+    process_cpu_count = getattr(os, "process_cpu_count", os.cpu_count)
+    return process_cpu_count() or 1
+
+
 def configure_statistical_switches(deck: str, mode: str = "both") -> str:
     """Set or insert GF180 statistical switches without changing other params."""
     if mode not in SWITCHES:
@@ -82,18 +88,20 @@ def select_measurement(deck: str, requested: str | None) -> str:
 
 def set_random_seed(deck: str, seed: int) -> str:
     """Set one explicit ngspice random seed before model parameters evaluate."""
-    pattern = re.compile(r"(?i)(?<![A-Za-z0-9_])seed(\s*=\s*)[^\s]+")
+    seed_pattern = re.compile(r"(?i)(?<![A-Za-z0-9_])seed(\s*=\s*)[^\s]+")
     lines = deck.splitlines()
     matches = [
-        (index, pattern) for index, line in enumerate(lines)
+        (index, match) for index, line in enumerate(lines)
         if line.lstrip() and not line.lstrip().startswith(("*", "#"))
-        for pattern in pattern.finditer(line)
+        for match in seed_pattern.finditer(line)
     ]
     if len(matches) > 1:
         raise ValueError("deck must set ngspice seed at most once")
     if matches:
         index, match = matches[0]
-        lines[index] = pattern.sub(lambda found: f"seed{found.group(1)}{seed}", lines[index], count=1)
+        lines[index] = seed_pattern.sub(
+            lambda found: f"seed{found.group(1)}{seed}", lines[index], count=1
+        )
     else:
         if not lines:
             raise ValueError("SPICE deck is empty")
@@ -162,7 +170,7 @@ def run(argv: list[str] | None = None) -> int:
     parser.add_argument("deck", type=Path, help="saved xschem-generated .spice/.cir deck")
     parser.add_argument("--runs", type=int, required=True, help="number of trials")
     parser.add_argument(
-        "--jobs", type=int, default=os.cpu_count() or 1,
+        "--jobs", type=int, default=available_cpus(),
         help="maximum simultaneous ngspice trials (default: available CPU count)",
     )
     parser.add_argument("--out", type=Path, help="CSV path (default: results/<deck>/monte_carlo.csv)")
@@ -181,6 +189,8 @@ def run(argv: list[str] | None = None) -> int:
     try:
         if args.runs < 1:
             raise ValueError("--runs must be a positive integer")
+        if args.runs > MAX_SEED:
+            raise ValueError(f"--runs cannot exceed {MAX_SEED} when assigning distinct ngspice seeds")
         if args.jobs < 1:
             raise ValueError("--jobs must be a positive integer")
         seed = args.seed if args.seed is not None else secrets.randbelow(MAX_SEED - args.runs + 1) + 1
