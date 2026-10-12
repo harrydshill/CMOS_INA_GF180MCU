@@ -9,7 +9,7 @@ T {3u} -80 -620 0 0 0.4 0.4 {}
 T {CMFB -->} 1500 -490 0 0 0.4 0.4 {}
 T {4u} 630 -620 0 0 0.4 0.4 {}
 T {4u} 800 -620 0 0 0.4 0.4 {}
-T {1u} 1620 20 0 0 0.4 0.4 {}
+T {2u} 1620 20 0 0 0.4 0.4 {}
 T {FDFCDA} 120 -640 0 0 0.4 0.4 {}
 T {~16u typ} 1040 -620 0 0 0.4 0.4 {}
 T {~16u typ} 1350 -620 0 0 0.4 0.4 {}
@@ -584,10 +584,10 @@ spiceprefix=X
 }
 C {lab_pin.sym} 1730 -300 0 0 {name=p52 sig_type=std_logic lab=NSUP}
 C {symbols/nfet_03v3.sym} 1780 -300 0 1 {name=M21
-L=2u
+L=1u
 W=4u
-nf=4
-m=4
+nf=1
+m=20
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -598,10 +598,10 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 1600 -300 0 0 {name=M25
-L=2u
+L=1u
 W=4u
-nf=4
-m=4
+nf=1
+m=20
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -811,7 +811,7 @@ C {symbols/nfet_03v3.sym} 1670 70 0 0 {name=M5
 L=4u
 W=2u
 nf=1
-m=4
+m=8
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -825,7 +825,7 @@ C {symbols/nfet_03v3.sym} 1670 -30 0 0 {name=M17
 L=4u
 W=2u
 nf=1
-m=4
+m=8
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
