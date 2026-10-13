@@ -137,7 +137,6 @@ value=1G
 footprint=1206
 device=resistor
 m=1}
-C {noconn.sym} -250 40 1 0 {name=l2}
 C {symbols/pfet_03v3.sym} -330 -120 0 1 {name=M7
 L=4u
 W=2u
