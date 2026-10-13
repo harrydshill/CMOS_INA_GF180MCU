@@ -207,7 +207,7 @@ N 1130 -200 1150 -200 {lab=Vo-}
 N 1470 -200 1490 -200 {lab=Vo+}
 N 1660 -730 1720 -730 {lab=PSUP_LV}
 N 1650 -730 1660 -730 {lab=PSUP_LV}
-N 1800 -300 1830 -300 {lab=vb4}
+N 1800 -300 1830 -300 {lab=VOCM}
 N 1720 -730 1760 -730 {lab=PSUP_LV}
 N 1150 -200 1190 -200 {lab=Vo-}
 N 880 150 920 150 {lab=NSUP}
@@ -903,7 +903,6 @@ model=cap_mim_2f0fF
 spiceprefix=X
 m=1
 }
-C {lab_pin.sym} 1830 -300 2 0 {name=p3 sig_type=std_logic lab=vb4}
 C {symbols/pfet_03v3.sym} -400 -550 0 1 {name=M4
 L=4u
 W=2u
@@ -969,3 +968,4 @@ spiceprefix=X
 C {lab_pin.sym} -700 -240 3 0 {name=p18 sig_type=std_logic lab=NSUP}
 C {ammeter.sym} 1150 -10 0 0 {name=Vmeas savecurrent=true spice_ignore=0}
 C {ammeter.sym} 1470 -10 0 0 {name=Vmeas1 savecurrent=true spice_ignore=0}
+C {ipin.sym} 1830 -300 0 1 {name=p3 lab=Vocm}

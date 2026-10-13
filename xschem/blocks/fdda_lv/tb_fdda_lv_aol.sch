@@ -172,3 +172,4 @@ C {ammeter.sym} -230 0 0 1 {name=Vmeas1 savecurrent=true spice_ignore=0}
 C {lab_pin.sym} -290 -80 2 0 {name=p23 sig_type=std_logic lab=g}
 C {lab_pin.sym} -240 310 3 0 {name=p20 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -220 310 2 0 {name=p21 sig_type=std_logic lab=0}
+C {lab_pin.sym} -290 210 0 0 {name=p7 sig_type=std_logic lab=VCM}
