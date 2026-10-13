@@ -35,12 +35,12 @@ N 210 -220 210 -210 {lab=#net5}
 N 210 -300 210 -280 {lab=#net4}
 C {blocks/fdda_lv/fdda_lv.sym} 80 -160 0 0 {name=x1}
 C {lab_pin.sym} 150 -90 0 0 {name=p1 sig_type=std_logic lab=VCM}
-C {lab_pin.sym} 150 -70 0 0 {name=p2 sig_type=std_logic lab=VCM}
+C {lab_pin.sym} 150 -110 0 0 {name=p2 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} 150 -130 0 0 {name=p3 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} 150 -150 0 0 {name=p4 sig_type=std_logic lab=VCM}
 C {noconn.sym} 190 -210 1 0 {name=l4}
 C {lab_pin.sym} 230 -290 2 0 {name=p5 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} 240 -10 2 0 {name=p6 sig_type=std_logic lab=0}
+C {lab_pin.sym} 240 -10 3 0 {name=p6 sig_type=std_logic lab=0}
 C {vsource.sym} -80 -50 0 0 {name=VDD value=\{vdd\} savecurrent=false}
 C {lab_pin.sym} -60 0 2 0 {name=p7 sig_type=std_logic lab=0}
 C {lab_pin.sym} -60 -100 2 0 {name=p8 sig_type=std_logic lab=PSUP_LV}
@@ -109,6 +109,7 @@ C {lab_pin.sym} 210 -420 2 0 {name=p11 sig_type=std_logic lab=PSUP_LV}
 C {isource.sym} 90 -270 0 0 {name=I0 value=1u}
 C {lab_pin.sym} 90 -210 2 0 {name=p12 sig_type=std_logic lab=0}
 C {lab_pin.sym} 200 -10 3 0 {name=p13 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} 220 -10 2 0 {name=p14 sig_type=std_logic lab=0}
+C {lab_pin.sym} 220 -10 3 0 {name=p14 sig_type=std_logic lab=0}
 C {ammeter.sym} 210 -250 0 1 {name=Vmeas1 savecurrent=true spice_ignore=0}
 C {lab_pin.sym} 150 -330 2 0 {name=p15 sig_type=std_logic lab=g}
+C {lab_pin.sym} 150 -70 0 0 {name=p16 sig_type=std_logic lab=VCM}

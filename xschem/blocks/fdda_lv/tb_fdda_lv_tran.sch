@@ -51,6 +51,14 @@ N -350 -190 -350 -170 {lab=PSUP_LV}
 N -230 10 -230 20 {lab=#net2}
 N -230 -70 -230 -50 {lab=#net1}
 N -230 20 -230 110 {lab=#net2}
+N -690 430 -670 430 {lab=0}
+N -690 410 -690 430 {lab=0}
+N -690 330 -690 350 {lab=N_EN}
+N -690 330 -670 330 {lab=N_EN}
+N -870 430 -850 430 {lab=0}
+N -870 410 -870 430 {lab=0}
+N -870 330 -870 350 {lab=EN}
+N -870 330 -850 330 {lab=EN}
 C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -75,7 +83,7 @@ C {lab_wire.sym} -100 230 0 1 {name=p4 sig_type=std_logic lab=Von
 C {code_shown.sym} 220 190 0 0 {name=NGSPICE only_toplevel=true value="
 .control
 save all
-tran 10n 200u
+tran 1n 7u
 write tb_fdda_lv_tran.raw
 .endc
 "}
@@ -90,7 +98,7 @@ C {blocks/fdda_lv/fdda_lv.sym} -360 160 0 0 {name=x2}
 C {lab_pin.sym} -490 210 0 0 {name=p13 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
-C {vsource.sym} -790 220 0 0 {name=VDD value="PWL(0 0 1u 0 11u \{vdd\})" savecurrent=false}
+C {vsource.sym} -790 220 0 0 {name=VDD value="PULSE(0 3.3 1u 1u 1u 5u 7u)" savecurrent=false}
 C {lab_pin.sym} -770 270 2 0 {name=p16 sig_type=std_logic lab=0}
 C {lab_pin.sym} -770 170 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -850 270 2 0 {name=p18 sig_type=std_logic lab=0}
@@ -105,21 +113,19 @@ footprint=1206
 device="ceramic capacitor"
 }
 C {vsource.sym} -870 220 0 0 {name=VCM value=\{vdd/2\} savecurrent=false}
-C {vsource.sym} -470 160 0 1 {name=VDM2 value="PWL(0 0 50u 0 150u \{vdd/2\})" savecurrent=false}
-C {vsource.sym} -470 260 0 1 {name=VDM1 value="PWL(0 0 50u 0 150u \{vdd/2\})" savecurrent=false}
+C {vsource.sym} -470 160 0 1 {name=VDM2 value=0.5 savecurrent=false}
+C {vsource.sym} -470 260 0 1 {name=VDM1 value=0.5 savecurrent=false}
 C {lab_pin.sym} -290 190 0 0 {name=p3 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -290 250 0 0 {name=p6 sig_type=std_logic lab=INM
 }
 C {lab_wire.sym} -290 170 0 0 {name=p2 sig_type=std_logic lab=Vop
 }
-C {lab_wire.sym} -290 230 0 0 {name=p7 sig_type=std_logic lab=Von
+C {lab_wire.sym} -290 230 2 1 {name=p7 sig_type=std_logic lab=Von
 }
 C {lab_pin.sym} -450 110 2 0 {name=p8 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -450 310 2 0 {name=p9 sig_type=std_logic lab=INM
 }
 C {noconn.sym} -250 110 0 0 {name=l1}
-C {lab_pin.sym} -240 310 3 0 {name=p20 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -220 310 2 0 {name=p21 sig_type=std_logic lab=0}
 C {noconn.sym} -250 20 1 0 {name=l2}
 C {symbols/pfet_03v3.sym} -330 -140 0 1 {name=M7
 L=4u
@@ -154,3 +160,17 @@ C {isource.sym} -350 -40 0 0 {name=I1 value=1u}
 C {lab_pin.sym} -350 20 2 0 {name=p22 sig_type=std_logic lab=0}
 C {ammeter.sym} -230 -20 0 1 {name=Vmeas1 savecurrent=true spice_ignore=0}
 C {lab_pin.sym} -290 -100 2 0 {name=p23 sig_type=std_logic lab=g}
+C {lab_pin.sym} -290 210 0 0 {name=p12 sig_type=std_logic lab=VCM}
+C {vsource.sym} -690 380 0 0 {name=VDD1 value="PULSE(0 3.3 3u 1n 1n 5u 7u)" savecurrent=false}
+C {lab_pin.sym} -670 430 2 0 {name=p24 sig_type=std_logic lab=0}
+C {lab_pin.sym} -850 430 2 0 {name=p26 sig_type=std_logic lab=0}
+C {vsource.sym} -870 380 0 0 {name=VCM1 value="PULSE(3.3 0 3u 1n 1n 5u 7u)" savecurrent=false}
+C {lab_pin.sym} -240 310 1 1 {name=p20 sig_type=std_logic lab=EN
+}
+C {lab_pin.sym} -220 310 1 1 {name=p21 sig_type=std_logic lab=N_EN
+}
+C {lab_pin.sym} -850 330 2 0 {name=p25 sig_type=std_logic lab=EN
+}
+C {lab_pin.sym} -670 330 0 1 {name=p27 sig_type=std_logic lab=N_EN
+}
+C {vsource.sym} -690 380 0 0 {name=VDD2 value="PULSE(0 3.3 3u 1n 1n 5u 7u)" savecurrent=false}
