@@ -177,12 +177,12 @@ C {lab_pin.sym} -670 330 0 1 {name=p27 sig_type=std_logic lab=N_EN
 C {vsource.sym} -690 380 0 0 {name=VDD2 value="PULSE(0 3.3 300u 1n 1n 100u)" savecurrent=false}
 C {ammeter.sym} -210 60 0 0 {name=Vmeas1 savecurrent=true spice_ignore=0}
 C {res.sym} 120 280 0 0 {name=R1
-value=100k
+value=1M
 footprint=1206
 device=resistor
 m=1}
 C {res.sym} -60 280 0 1 {name=R2
-value=100k
+value=1M
 footprint=1206
 device=resistor
 m=1}

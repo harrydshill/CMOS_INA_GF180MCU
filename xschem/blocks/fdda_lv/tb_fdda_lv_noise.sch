@@ -10,6 +10,7 @@ good practive to include
 it here with the expected
 parasitic capacitance for 
 stability check } 80 180 0 0 0.2 0.2 {}
+T {1u} -390 -70 0 0 0.4 0.4 {}
 N -100 310 -100 330 {lab=0}
 N -100 230 -100 250 {lab=Von}
 N -810 360 -790 360 {lab=0}
@@ -35,6 +36,23 @@ N -480 190 -440 190 {lab=INP}
 N -480 250 -440 250 {lab=INM}
 N -580 190 -540 190 {lab=VCM}
 N -580 250 -540 250 {lab=VCM}
+N -350 -120 -350 -90 {lab=PSUP_LV}
+N -350 -40 -290 -40 {lab=g}
+N -310 -90 -290 -90 {lab=g}
+N -290 -90 -290 -40 {lab=g}
+N -350 -60 -350 -40 {lab=g}
+N -350 -40 -350 -20 {lab=g}
+N -230 -120 -230 -90 {lab=PSUP_LV}
+N -290 -90 -270 -90 {lab=g}
+N -230 -60 -230 -40 {lab=#net1}
+N -230 -40 -230 -20 {lab=#net1}
+N -350 -140 -230 -140 {lab=PSUP_LV}
+N -350 40 -350 70 {lab=0}
+N -230 -140 -230 -120 {lab=PSUP_LV}
+N -350 -140 -350 -120 {lab=PSUP_LV}
+N -230 60 -230 70 {lab=#net2}
+N -230 -20 -230 0 {lab=#net1}
+N -230 70 -230 110 {lab=#net2}
 C {code_shown.sym} 220 -210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -84,11 +102,8 @@ device="ceramic capacitor"
 C {blocks/fdda_lv/fdda_lv.sym} -360 160 0 0 {name=x2}
 C {lab_pin.sym} -290 230 0 0 {name=p9 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} -600 220 0 0 {name=p13 sig_type=std_logic lab=VCM}
-C {noconn.sym} -230 110 1 0 {name=l3}
 C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
-C {noconn.sym} -240 310 3 0 {name=l4}
-C {noconn.sym} -220 310 3 0 {name=l5}
+C {lab_pin.sym} -210 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {vsource.sym} -810 310 0 0 {name=VDD value=\{vdd\} savecurrent=false}
 C {lab_pin.sym} -790 360 2 0 {name=p16 sig_type=std_logic lab=0}
 C {lab_pin.sym} -790 260 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
@@ -108,7 +123,6 @@ C {lab_pin.sym} -290 170 0 0 {name=p2 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} -440 190 3 1 {name=p3 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -440 250 3 0 {name=p6 sig_type=std_logic lab=INM
 }
-C {noconn.sym} -250 110 1 0 {name=l1}
 C {vsource.sym} -440 220 0 0 {name=VDIFF value="DC 0 AC 1" savecurrent=false}
 C {res.sym} -510 190 3 0 {name=R1
 value=1G
@@ -120,3 +134,38 @@ value=1G
 footprint=1206
 device=resistor
 m=1}
+C {symbols/pfet_03v3.sym} -330 -90 0 1 {name=M7
+L=4u
+W=2u
+nf=1
+m=4
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=pfet_03v3
+spiceprefix=X
+}
+C {symbols/pfet_03v3.sym} -250 -90 0 0 {name=M1
+L=4u
+W=2u
+nf=1
+m=4
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=pfet_03v3
+spiceprefix=X
+}
+C {lab_pin.sym} -230 -140 2 0 {name=p7 sig_type=std_logic lab=PSUP_LV}
+C {isource.sym} -350 10 0 0 {name=I0 value=1u}
+C {lab_pin.sym} -350 70 2 0 {name=p12 sig_type=std_logic lab=0}
+C {ammeter.sym} -230 30 0 1 {name=Vmeas1 savecurrent=true spice_ignore=0}
+C {lab_pin.sym} -290 -50 2 0 {name=p8 sig_type=std_logic lab=g}
+C {noconn.sym} -250 110 1 0 {name=l4}
+C {lab_pin.sym} -290 210 0 0 {name=p10 sig_type=std_logic lab=VCM}

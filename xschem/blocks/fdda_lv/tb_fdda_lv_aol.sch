@@ -97,7 +97,7 @@ write tb_fdda_lv_aol.raw
 C {lab_pin.sym} -100 330 0 0 {name=p11 sig_type=std_logic lab=0}
 C {capa.sym} -100 280 0 0 {name=C1
 m=1
-value=20p
+value=100p
 footprint=1206
 device="ceramic capacitor"
 }
@@ -105,7 +105,6 @@ C {blocks/fdda_lv/fdda_lv.sym} -360 160 0 0 {name=x2}
 C {lab_pin.sym} -290 230 0 0 {name=p9 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} -600 220 0 0 {name=p13 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} -210 110 2 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -200 310 2 0 {name=p15 sig_type=std_logic lab=0}
 C {vsource.sym} -810 310 0 0 {name=VDD value=\{vdd\} savecurrent=false}
 C {lab_pin.sym} -790 360 2 0 {name=p16 sig_type=std_logic lab=0}
 C {lab_pin.sym} -790 260 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
@@ -116,7 +115,7 @@ C {lab_wire.sym} -40 190 0 1 {name=p1 sig_type=std_logic lab=Vop
 C {lab_pin.sym} -40 330 0 0 {name=p5 sig_type=std_logic lab=0}
 C {capa.sym} -40 280 0 0 {name=C2
 m=1
-value=20p
+value=100p
 footprint=1206
 device="ceramic capacitor"
 }
@@ -170,6 +169,5 @@ C {isource.sym} -350 -20 0 0 {name=I1 value=1u}
 C {lab_pin.sym} -350 40 2 0 {name=p22 sig_type=std_logic lab=0}
 C {ammeter.sym} -230 0 0 1 {name=Vmeas1 savecurrent=true spice_ignore=0}
 C {lab_pin.sym} -290 -80 2 0 {name=p23 sig_type=std_logic lab=g}
-C {lab_pin.sym} -240 310 3 0 {name=p20 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -220 310 2 0 {name=p21 sig_type=std_logic lab=0}
+C {lab_pin.sym} -210 310 2 0 {name=p21 sig_type=std_logic lab=0}
 C {lab_pin.sym} -290 210 0 0 {name=p7 sig_type=std_logic lab=VCM}
