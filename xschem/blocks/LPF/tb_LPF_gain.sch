@@ -10,6 +10,7 @@ good practive to include
 it here with the expected
 parasitic capacitance for 
 stability check } 440 20 0 0 0.2 0.2 {}
+T {1u} -180 -300 0 0 0.4 0.4 {}
 N -680 50 -660 50 {lab=0}
 N -680 30 -680 50 {lab=0}
 N -680 -50 -680 -30 {lab=PSUP_LV}
@@ -32,6 +33,27 @@ N -240 -60 -240 -30 {lab=INM}
 N -280 -60 -280 30 {lab=INP}
 N -240 -30 -120 -30 {lab=INM}
 N -280 30 -120 30 {lab=INP}
+N -0 150 20 150 {lab=0}
+N -0 130 0 150 {lab=0}
+N -20 130 -20 150 {lab=PSUP_LV}
+N -40 150 -20 150 {lab=PSUP_LV}
+N -140 -350 -140 -320 {lab=PSUP_LV}
+N -140 -270 -80 -270 {lab=g}
+N -100 -320 -80 -320 {lab=g}
+N -80 -320 -80 -270 {lab=g}
+N -140 -290 -140 -270 {lab=g}
+N -140 -270 -140 -250 {lab=g}
+N -20 -350 -20 -320 {lab=PSUP_LV}
+N -80 -320 -60 -320 {lab=g}
+N -20 -290 -20 -270 {lab=#net1}
+N -20 -270 -20 -250 {lab=#net1}
+N -140 -370 -20 -370 {lab=PSUP_LV}
+N -140 -190 -140 -160 {lab=0}
+N -20 -370 -20 -350 {lab=PSUP_LV}
+N -140 -370 -140 -350 {lab=PSUP_LV}
+N -20 -230 -20 -220 {lab=#net1}
+N -20 -250 -20 -230 {lab=#net1}
+N -20 -220 -20 -130 {lab=#net1}
 C {code_shown.sym} 580 -370 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -73,14 +95,10 @@ C {lab_pin.sym} -660 -50 2 0 {name=p17 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -740 50 2 0 {name=p18 sig_type=std_logic lab=0}
 C {lab_pin.sym} -740 -50 2 0 {name=p19 sig_type=std_logic lab=VCM}
 C {vsource.sym} -760 0 0 0 {name=VCM value=\{vdd/2\} savecurrent=false}
-C {noconn.sym} 160 0 0 1 {name=l1}
 C {lab_wire.sym} 180 -30 0 1 {name=p1 sig_type=std_logic lab=VOP}
 C {lab_wire.sym} 180 30 0 1 {name=p2 sig_type=std_logic lab=VON}
 C {lab_pin.sym} 40 150 2 0 {name=p3 sig_type=std_logic lab=0}
 C {lab_pin.sym} 40 -150 2 0 {name=p4 sig_type=std_logic lab=PSUP_LV}
-C {noconn.sym} -20 -130 1 0 {name=l2}
-C {noconn.sym} -20 130 3 0 {name=l3}
-C {noconn.sym} 0 130 3 0 {name=l4}
 C {lab_pin.sym} -300 -140 0 0 {name=p13 sig_type=std_logic lab=VCM}
 C {vsource.sym} -240 -90 2 1 {name=VDM2 value="DC 0 AC 0.5" savecurrent=false}
 C {vsource.sym} -280 -90 0 1 {name=VDM1 value="DC 0 AC 0.5" savecurrent=false}
@@ -88,13 +106,47 @@ C {lab_pin.sym} -280 30 0 0 {name=p5 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -240 -30 0 0 {name=p6 sig_type=std_logic lab=INM
 }
 C {lab_pin.sym} -120 80 2 1 {name=p7 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -120 60 2 1 {name=p8 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -150 120 2 1 {name=p9 sig_type=std_logic lab=0}
-C {lab_pin.sym} -170 100 2 1 {name=p10 sig_type=std_logic lab=0}
+C {lab_pin.sym} -250 70 2 1 {name=p8 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -200 130 2 1 {name=p9 sig_type=std_logic lab=0}
+C {lab_pin.sym} -120 60 2 1 {name=p10 sig_type=std_logic lab=0}
 C {blocks/LPF/LPF.sym} -100 0 0 0 {name=x2}
 C {lab_pin.sym} -120 -100 2 1 {name=p11 sig_type=std_logic lab=0}
 C {lab_pin.sym} -120 -80 2 1 {name=p12 sig_type=std_logic lab=0}
 C {lab_pin.sym} -120 -60 2 1 {name=p14 sig_type=std_logic lab=0}
-C {lab_pin.sym} -70 -240 2 1 {name=p15 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -70 -220 2 1 {name=p20 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -70 -200 2 1 {name=p21 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -330 -310 2 1 {name=p15 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -330 -290 2 1 {name=p20 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -330 -270 2 1 {name=p21 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} 160 0 2 0 {name=p22 sig_type=std_logic lab=VCM}
+C {lab_pin.sym} -40 150 2 1 {name=p23 sig_type=std_logic lab=PSUP_LV}
+C {symbols/pfet_03v3.sym} -120 -320 0 1 {name=M7
+L=4u
+W=2u
+nf=1
+m=4
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=pfet_03v3
+spiceprefix=X
+}
+C {symbols/pfet_03v3.sym} -40 -320 0 0 {name=M1
+L=4u
+W=2u
+nf=1
+m=4
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=pfet_03v3
+spiceprefix=X
+}
+C {lab_pin.sym} -20 -370 2 0 {name=p24 sig_type=std_logic lab=PSUP_LV}
+C {isource.sym} -140 -220 0 0 {name=I1 value=1u}
+C {lab_pin.sym} -140 -160 2 0 {name=p25 sig_type=std_logic lab=0}
+C {lab_pin.sym} -80 -280 2 0 {name=p26 sig_type=std_logic lab=g}

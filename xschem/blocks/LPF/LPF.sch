@@ -80,8 +80,6 @@ C {lab_wire.sym} -100 380 2 1 {name=p32 sig_type=std_logic lab=PSUP_LV}
 C {opin.sym} 270 -20 0 0 {name=p36 lab=VO+
 }
 C {opin.sym} 270 20 0 0 {name=p37 lab=VO-}
-C {ipin.sym} 220 0 0 1 {name=p38 lab=VOCM
-}
 C {ipin.sym} -580 -340 2 1 {name=p41 lab=GAIN1}
 C {ipin.sym} -580 -320 2 1 {name=p42 lab=GAIN0}
 C {ipin.sym} -580 -300 2 1 {name=p48 lab=FREQ1}
@@ -109,8 +107,9 @@ C {blocks/LPF_freq_fb/LPF_freq_fb.sym} -420 0 0 0 {name=x2}
 C {blocks/LPF_freq_fb/LPF_freq_fb.sym} -420 0 2 1 {name=x3}
 C {blocks/LPF_gain_fb/LPF_gain_fb.sym} 0 -320 0 0 {name=x4}
 C {blocks/LPF_gain_fb/LPF_gain_fb.sym} 0 320 2 1 {name=x5}
-C {lab_wire.sym} 220 0 0 0 {name=p23 sig_type=std_logic lab=VOCM}
 C {lab_wire.sym} -240 -100 0 1 {name=p26 sig_type=std_logic lab=VOCM}
 C {lab_wire.sym} -240 100 0 1 {name=p27 sig_type=std_logic lab=VOCM}
 C {ipin.sym} -580 -20 2 1 {name=p39 lab=IN+}
 C {ipin.sym} -580 20 2 1 {name=p40 lab=IN-}
+C {ipin.sym} -70 0 0 0 {name=p38 lab=VOCM
+}
