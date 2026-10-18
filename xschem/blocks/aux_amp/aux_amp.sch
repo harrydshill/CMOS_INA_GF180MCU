@@ -10,13 +10,13 @@ L 4 -130 -190 180 -190 {}
 L 4 180 -190 180 -80 {}
 T {matched} -100 160 0 0 0.2 0.2 {}
 T {matched} 10 -210 0 0 0.2 0.2 {}
-T {18u} 40 180 0 0 0.4 0.4 {}
+T {6u} 40 180 0 0 0.4 0.4 {}
 N 30 100 120 100 {lab=AA2}
 N -150 -230 -70 -230 {lab=PSUP_LV}
 N -70 70 -70 100 {lab=AA2}
 N 120 70 120 100 {lab=AA2}
-N 160 40 180 40 {lab=V+}
-N -130 40 -110 40 {lab=V-}
+N 160 40 180 40 {lab=V-}
+N -130 40 -110 40 {lab=V+}
 N -70 -90 -70 0 {lab=AA1
 }
 N 120 -50 120 0 {lab=Vo}
@@ -106,10 +106,10 @@ spiceprefix=X
 }
 C {lab_pin.sym} -70 -60 0 0 {name=p25 sig_type=std_logic lab=AA1}
 C {lab_pin.sym} -70 100 0 0 {name=p26 sig_type=std_logic lab=AA2}
-C {ipin.sym} 180 40 0 1 {name=p32 lab=V+
+C {ipin.sym} -130 40 0 0 {name=p32 lab=V+
 
 }
-C {ipin.sym} -130 40 0 0 {name=p33 lab=V-
+C {ipin.sym} 180 40 0 1 {name=p33 lab=V-
 
 }
 C {ipin.sym} -220 240 0 0 {name=p1 lab=V_ibias_n
@@ -118,7 +118,7 @@ C {symbols/nfet_03v3.sym} 10 240 0 0 {name=M1
 L=8u
 W=2u
 nf=1
-m=70
+m=24
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"

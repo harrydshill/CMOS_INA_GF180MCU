@@ -66,7 +66,6 @@ value="
 
 .param vcm=1.8
 .param vdd=3.3
-.param ibias=2.5u
 
 * Deterministic PVT: disable random global/mismatch variation.
 .param sw_stat_global=0
@@ -85,10 +84,9 @@ let Vo = v(Vop) - v(Von)
 let aol = v(Vo) / v(Vid)
 let gain_db = db(aol)
 let phase_deg = cph(aol)
-let phase_margin = 180 + phase_deg
 
 meas ac UGF when gain_db=0
-meas ac phase_margin find phase_margin when gain_db=0
+meas ac phase_margin find phase_deg when gain_db=0
 meas ac AOL find gain_db when frequency=10
 
 *write tb_fdda_lv_aol.raw frequency v(Vop) v(Von) v(Vo) aol gain_db phase_deg
@@ -167,7 +165,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {lab_pin.sym} -230 -170 2 0 {name=p10 sig_type=std_logic lab=PSUP_LV}
-C {isource.sym} -350 -20 0 0 {name=I1 value=\{ibias\}}
+C {isource.sym} -350 -20 0 0 {name=I1 value=1u}
 C {lab_pin.sym} -350 40 2 0 {name=p22 sig_type=std_logic lab=0}
 C {ammeter.sym} -230 0 0 1 {name=Vmeas1 savecurrent=true spice_ignore=0}
 C {lab_pin.sym} -290 -80 2 0 {name=p23 sig_type=std_logic lab=g}
