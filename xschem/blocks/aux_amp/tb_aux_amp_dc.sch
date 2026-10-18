@@ -8,7 +8,6 @@ P 4 1 10 -0 {}
 T {vdd needs to become a variable to sweep
 } -420.0000000000007 -120.0000000000001 0 0 0.2 0.2 {}
 T {1u} -310 280 0 0 0.4 0.4 {}
-N -40 -70 -40 -30 {lab=PSUP}
 N -40 30 -40 70 {lab=0}
 N -320 -50 -300 -50 {lab=PSUP}
 N -300 -50 -300 -30 {lab=PSUP}
@@ -52,8 +51,8 @@ N -230 360 -210 360 {lab=vb2}
 N -270 310 -270 330 {lab=vb1}
 N -270 410 -270 460 {lab=vb2}
 N -270 520 -270 540 {lab=0}
-N -70 -50 -50 -50 {lab=PSUP}
-N -50 -50 -50 -30 {lab=PSUP}
+N -50 -60 -50 -30 {lab=vb1}
+N -40 -70 -40 -30 {lab=PSUP}
 C {lab_wire.sym} -40 -70 0 0 {name=p1 sig_type=std_logic lab=PSUP
 }
 C {lab_wire.sym} -320 -50 0 0 {name=p2 sig_type=std_logic lab=PSUP
@@ -180,4 +179,4 @@ C {lab_wire.sym} -270 180 0 0 {name=p13 sig_type=std_logic lab=PSUP
 C {isource.sym} -270 490 0 0 {name=I1 value=1u}
 C {lab_wire.sym} -270 540 0 0 {name=p14 sig_type=std_logic lab=0
 }
-C {lab_pin.sym} -70 -50 0 0 {name=p15 sig_type=std_logic lab=vb1}
+C {lab_pin.sym} -50 -60 0 0 {name=p15 sig_type=std_logic lab=vb1}
