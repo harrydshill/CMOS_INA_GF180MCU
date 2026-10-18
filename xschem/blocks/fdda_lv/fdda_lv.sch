@@ -7,9 +7,9 @@ E {}
 T {1u} -340 -630 0 0 0.4 0.4 {}
 T {4u} -80 -620 0 0 0.4 0.4 {}
 T {CMFB -->} 1500 -490 0 0 0.4 0.4 {}
-T {4u} 630 -620 0 0 0.4 0.4 {}
-T {4u} 800 -620 0 0 0.4 0.4 {}
-T {2u} 1620 20 0 0 0.4 0.4 {}
+T {8u} 630 -620 0 0 0.4 0.4 {}
+T {8u} 800 -620 0 0 0.4 0.4 {}
+T {4u} 1620 20 0 0 0.4 0.4 {}
 T {FCDDA} 120 -640 0 0 0.4 0.4 {}
 T {~30u typ} 1060 -620 0 0 0.4 0.4 {}
 T {~30u typ} 1380 -620 0 0 0.4 0.4 {}
@@ -263,17 +263,17 @@ N -530 150 -500 150 {lab=NSUP}
 N -520 -730 -260 -730 {lab=PSUP_LV}
 N -260 -730 -40 -730 {lab=PSUP_LV}
 N -300 150 690 150 {lab=NSUP}
-N 1040 -70 1070 -70 {lab=Vofcp}
-N 1360 -70 1390 -70 {lab=Vofcn}
+N 1040 -70 1070 -70 {lab=#net7}
+N 1360 -70 1390 -70 {lab=#net8}
 N 840 -620 840 -590 {lab=n7}
-N 840 -530 840 -510 {lab=#net7}
+N 840 -530 840 -510 {lab=#net9}
 N -300 -330 -300 -200 {lab=#net1}
 N 1690 -150 1690 -140 {lab=CMFB_PROBE}
 N 1690 -230 1690 -210 {lab=#net4}
 N 1690 -60 1690 0 {lab=CMFB_PROBE}
 N 240 -250 240 -160 {lab=#net3}
 N 80 -250 80 -160 {lab=#net2}
-N 670 -530 670 -510 {lab=#net8}
+N 670 -530 670 -510 {lab=#net10}
 N 670 -620 670 -590 {lab=n6}
 N 960 -70 980 -70 {lab=Vofcp}
 N 1280 -70 1300 -70 {lab=Vofcn}
@@ -479,7 +479,7 @@ C {symbols/nfet_03v3.sym} 820 70 0 0 {name=M26
 L=8u
 W=2u
 nf=1
-m=32
+m=48
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -495,7 +495,7 @@ C {symbols/nfet_03v3.sym} 690 70 0 1 {name=M27
 L=8u
 W=2u
 nf=1
-m=32
+m=48
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -568,9 +568,9 @@ spiceprefix=X
 C {lab_pin.sym} 1730 -300 0 0 {name=p52 sig_type=std_logic lab=NSUP}
 C {symbols/nfet_03v3.sym} 1780 -300 0 1 {name=M21
 L=2u
-W=8u
+W=10u
 nf=1
-m=8
+m=6
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -582,9 +582,9 @@ spiceprefix=X
 }
 C {symbols/nfet_03v3.sym} 1600 -300 0 0 {name=M25
 L=2u
-W=8u
+W=10u
 nf=1
-m=8
+m=6
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -713,7 +713,7 @@ C {symbols/nfet_03v3.sym} 1130 70 0 0 {name=M14
 L=4u
 W=4u
 nf=1
-m=16
+m=20
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -727,7 +727,7 @@ C {symbols/nfet_03v3.sym} 1450 70 0 0 {name=M37
 L=4u
 W=4u
 nf=1
-m=16
+m=20
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -741,7 +741,7 @@ C {symbols/pfet_03v3.sym} 1130 -650 0 0 {name=M33
 L=4u
 W=4u
 nf=1
-m=32
+m=40
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -755,7 +755,7 @@ C {symbols/pfet_03v3.sym} 1450 -650 0 0 {name=M34
 L=4u
 W=4u
 nf=1
-m=32
+m=40
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -778,7 +778,7 @@ C {symbols/nfet_03v3.sym} 1670 70 0 0 {name=M5
 L=8u
 W=2u
 nf=1
-m=8
+m=16
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
 pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
 as="'int((nf+2)/2) * W/nf * 0.18u'"
@@ -797,9 +797,9 @@ model=cap_mim_2f0fF
 spiceprefix=X
 m=1
 }
-C {lab_pin.sym} 1010 -100 0 1 {name=p56 sig_type=std_logic lab=PSUP_LV
+C {lab_pin.sym} 1010 -90 0 1 {name=p56 sig_type=std_logic lab=PSUP_LV
 L=100e-6}
-C {lab_pin.sym} 1330 -100 0 1 {name=p57 sig_type=std_logic lab=PSUP_LV
+C {lab_pin.sym} 1330 -90 0 1 {name=p57 sig_type=std_logic lab=PSUP_LV
 L=100e-6}
 C {gf180mcu_fd_pr/cap_mim_2f0fF.sym} 1420 -70 3 1 {name=C6
 W=35e-6
@@ -842,18 +842,18 @@ spiceprefix=X
 m=1}
 C {symbols/ppolyf_u_1k.sym} 1010 -70 1 0 {name=R2
 W=1e-6
-L=80e-6
+L=30e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
-spice_ignore=short}
+}
 C {symbols/ppolyf_u_1k.sym} 1330 -70 1 0 {name=R4
 W=1e-6
-L=80e-6
+L=30e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
-spice_ignore=short}
+}
 C {ammeter.sym} 840 -560 0 0 {name=Vmeas2 savecurrent=true spice_ignore=0}
 C {ammeter.sym} -300 -360 0 0 {name=Vmeas3 savecurrent=true spice_ignore=0}
 C {ammeter.sym} 1690 -180 0 0 {name=Vmeas4 savecurrent=true spice_ignore=0}
