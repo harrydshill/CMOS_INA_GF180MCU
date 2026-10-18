@@ -11,8 +11,8 @@ T {8u} 630 -620 0 0 0.4 0.4 {}
 T {8u} 800 -620 0 0 0.4 0.4 {}
 T {4u} 1620 20 0 0 0.4 0.4 {}
 T {FCDDA} 120 -640 0 0 0.4 0.4 {}
-T {~30u typ} 1060 -620 0 0 0.4 0.4 {}
-T {~30u typ} 1380 -620 0 0 0.4 0.4 {}
+T {~30u typ} 1060 -510 0 0 0.4 0.4 {}
+T {~30u typ} 1370 -510 0 0 0.4 0.4 {}
 T {4u} 320 -620 0 0 0.4 0.4 {}
 N -530 -730 -520 -730 {lab=PSUP_LV}
 N -300 -680 -300 -650 {lab=PSUP_LV}
@@ -151,9 +151,7 @@ N 670 -420 670 -380 {lab=n9}
 N 840 -420 840 -380 {lab=n10}
 N 840 -430 960 -430 {lab=n10}
 N 960 -650 960 -430 {lab=n10}
-N 1000 -650 1110 -650 {lab=n10}
 N 1280 -650 1280 -430 {lab=n9}
-N 1320 -650 1430 -650 {lab=n9}
 N -420 -100 -420 -80 {lab=IBIAS}
 N -300 0 -300 20 {lab=#net1}
 N -420 100 -420 150 {lab=NSUP}
@@ -192,10 +190,8 @@ N 840 150 880 150 {lab=NSUP}
 N 960 70 1000 70 {lab=Vofcp}
 N 910 -170 950 -170 {lab=Vofcn}
 N 910 -410 950 -410 {lab=n9}
-N 960 -650 1000 -650 {lab=n10}
 N 1000 -410 1280 -410 {lab=n9}
 N 1000 -170 1280 -170 {lab=Vofcn}
-N 1280 -650 1320 -650 {lab=n9}
 N 1280 70 1320 70 {lab=Vofcn}
 N 1130 -200 1150 -200 {lab=Vo-}
 N 1470 -200 1490 -200 {lab=Vo+}
@@ -277,6 +273,28 @@ N 670 -530 670 -510 {lab=#net10}
 N 670 -620 670 -590 {lab=n6}
 N 960 -70 980 -70 {lab=Vofcp}
 N 1280 -70 1300 -70 {lab=Vofcn}
+N 1040 -690 1040 -680 {lab=PSUP_LV}
+N 1030 -620 1030 -610 {lab=vb3}
+N 1040 -620 1040 -610 {lab=NSUP}
+N 960 -660 1010 -660 {lab=n10}
+N 980 -640 1010 -640 {lab=#net11}
+N 980 -640 980 -580 {lab=#net11}
+N 980 -580 1100 -580 {lab=#net11}
+N 1100 -650 1100 -580 {lab=#net11}
+N 1070 -650 1100 -650 {lab=#net11}
+N 960 -660 960 -650 {lab=n10}
+N 1100 -650 1110 -650 {lab=#net11}
+N 1360 -690 1360 -680 {lab=PSUP_LV}
+N 1350 -620 1350 -610 {lab=vb3}
+N 1360 -620 1360 -610 {lab=NSUP}
+N 1280 -660 1330 -660 {lab=n9}
+N 1300 -640 1330 -640 {lab=#net12}
+N 1300 -640 1300 -580 {lab=#net12}
+N 1300 -580 1420 -580 {lab=#net12}
+N 1420 -650 1420 -580 {lab=#net12}
+N 1390 -650 1420 -650 {lab=#net12}
+N 1280 -660 1280 -650 {lab=n9}
+N 1420 -650 1430 -650 {lab=#net12}
 C {ipin.sym} -530 -730 0 0 {name=p19 lab=PSUP_LV
 }
 C {ipin.sym} -530 150 0 0 {name=p20 lab=NSUP
@@ -860,3 +878,13 @@ C {ammeter.sym} 1690 -180 0 0 {name=Vmeas4 savecurrent=true spice_ignore=0}
 C {ammeter.sym} 80 -130 0 0 {name=Vmeas5 savecurrent=true spice_ignore=0}
 C {ammeter.sym} 240 -130 0 0 {name=Vmeas6 savecurrent=true spice_ignore=0}
 C {ammeter.sym} 670 -560 0 0 {name=Vmeas7 savecurrent=true spice_ignore=0}
+C {lab_wire.sym} 1040 -690 0 1 {name=p12 sig_type=std_logic lab=PSUP_LV
+}
+C {blocks/aux_amp/aux_amp.sym} 1040 -580 0 0 {name=x1}
+C {lab_pin.sym} 1030 -610 2 1 {name=p31 sig_type=std_logic lab=vb3}
+C {lab_pin.sym} 1040 -610 2 0 {name=p22 sig_type=std_logic lab=NSUP}
+C {blocks/aux_amp/aux_amp.sym} 1360 -580 0 0 {name=x2}
+C {lab_pin.sym} 1350 -610 2 1 {name=p47 sig_type=std_logic lab=vb3}
+C {lab_pin.sym} 1360 -610 2 0 {name=p48 sig_type=std_logic lab=NSUP}
+C {lab_wire.sym} 1360 -690 0 1 {name=p49 sig_type=std_logic lab=PSUP_LV
+}

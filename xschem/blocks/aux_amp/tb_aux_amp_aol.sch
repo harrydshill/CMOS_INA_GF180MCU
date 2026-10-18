@@ -86,7 +86,7 @@ C {code_shown.sym} 220 190 0 0 {name=NGSPICE only_toplevel=true value="
 .control
 set units=degrees
 save all
-ac dec 100 1 100Meg
+ac dec 100 1 1G
 
 let vid = v(INP) - v(INM)
 let aol = v(VO) / vid
@@ -107,7 +107,7 @@ C {lab_wire.sym} -40 40 0 1 {name=p8 sig_type=std_logic lab=0
 C {lab_pin.sym} 30 80 0 0 {name=p11 sig_type=std_logic lab=NSUP}
 C {capa.sym} 30 30 0 0 {name=C1
 m=1
-value=1p
+value=1.5p
 footprint=1206
 device="ceramic capacitor"
 }

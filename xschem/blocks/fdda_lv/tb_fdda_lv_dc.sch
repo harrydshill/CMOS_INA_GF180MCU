@@ -40,7 +40,7 @@ C {lab_pin.sym} 150 -130 0 0 {name=p3 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} 150 -150 0 0 {name=p4 sig_type=std_logic lab=VCM}
 C {noconn.sym} 190 -210 1 0 {name=l4}
 C {lab_pin.sym} 230 -290 2 0 {name=p5 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} 230 -10 3 0 {name=p6 sig_type=std_logic lab=0}
+C {lab_pin.sym} 230 -10 0 0 {name=p6 sig_type=std_logic lab=0}
 C {vsource.sym} -80 -50 0 0 {name=VDD value=\{vdd\} savecurrent=false}
 C {lab_pin.sym} -60 0 2 0 {name=p7 sig_type=std_logic lab=0}
 C {lab_pin.sym} -60 -100 2 0 {name=p8 sig_type=std_logic lab=PSUP_LV}
