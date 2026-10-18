@@ -106,12 +106,14 @@ save all
 ac dec 100 1 1G
 
 let vid = v(INP) - v(INM)
-let aol = v(VO) / vid
+let aol = -v(VO) / vid
 let gain_db = db(aol)
 let phase_deg = cph(aol)
 
 meas ac UGF when gain_db=0
-meas ac PM when phase_deg=UGF
+meas ac phase_at_ugf find phase_deg at=UGF
+let PM = 180 + phase_at_ugf
+print PM
 
 write tb_aux_amp_aol.raw frequency v(INP) v(INM) v(VO) aol gain_db phase_deg
 
@@ -161,7 +163,7 @@ C {lab_wire.sym} -410 200 0 0 {name=p10 sig_type=std_logic lab=PSUP
 
 
 }
-C {isource.sym} -410 250 0 0 {name=I0 value=1u}
+C {isource.sym} -410 250 0 0 {name=I0 value=0.5u}
 C {lab_wire.sym} -410 530 0 0 {name=p12 sig_type=std_logic lab=0
 }
 C {symbols/pfet_03v3.sym} -200 320 0 1 {name=M7
