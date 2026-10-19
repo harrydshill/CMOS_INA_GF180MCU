@@ -17,22 +17,18 @@ N 300 -130 340 -130 {lab=#net1}
 N 300 -90 340 -90 {lab=#net2}
 N 230 -290 230 -280 {lab=PSUP_LV}
 N 230 -220 230 -210 {lab=#net3}
-N 90 -400 90 -370 {lab=PSUP_LV}
 N 90 -320 150 -320 {lab=g}
 N 130 -370 150 -370 {lab=g}
 N 150 -370 150 -320 {lab=g}
 N 90 -340 90 -320 {lab=g}
 N 90 -320 90 -300 {lab=g}
-N 210 -400 210 -370 {lab=PSUP_LV}
 N 150 -370 170 -370 {lab=g}
-N 210 -340 210 -320 {lab=#net4}
-N 210 -320 210 -300 {lab=#net4}
+N 210 -340 210 -280 {lab=#net4}
 N 90 -420 210 -420 {lab=PSUP_LV}
 N 90 -240 90 -210 {lab=0}
-N 210 -420 210 -400 {lab=PSUP_LV}
-N 90 -420 90 -400 {lab=PSUP_LV}
+N 210 -420 210 -370 {lab=PSUP_LV}
+N 90 -420 90 -370 {lab=PSUP_LV}
 N 210 -220 210 -210 {lab=#net5}
-N 210 -300 210 -280 {lab=#net4}
 C {blocks/fdda_lv/fdda_lv.sym} 80 -160 0 0 {name=x1}
 C {lab_pin.sym} 150 -90 0 0 {name=p1 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} 150 -110 0 0 {name=p2 sig_type=std_logic lab=VCM}

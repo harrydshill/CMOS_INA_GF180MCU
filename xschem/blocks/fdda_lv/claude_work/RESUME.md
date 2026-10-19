@@ -1,6 +1,6 @@
-# Claude working state - fdda_lv compensation (paused 2026-10-18)
+# Claude working state - fdda_lv compensation (updated 2026-10-19: S9 final)
 
-The schematic `../fdda_lv.sch` is now **S5** (best run). The previous saved version (buffer removed, before S5) is `../fdda_lv.sch.pre_s5`;
+The schematic `../fdda_lv.sch` is now **S9** (final; S5 saved as `../fdda_lv.sch.s5`). Report: Claude doc 'fdda_lv Compensation Report'. S9 params: P9.json; reproduce with sim.evaluate(P9,{'nobuf','replica'}). The previous saved version (buffer removed, before S5) is `../fdda_lv.sch.pre_s5`;
 the original before any Claude edits is `../fdda_lv.sch.orig`.
 
 ## Step results (worst case over 45 PVT corners; slew from 5 corners, unity-feedback, 100 pF, 2 V diff step)
