@@ -1,4 +1,9 @@
-# Claude working state - fdda_lv compensation (updated 2026-10-19: S9 final)
+# Claude working state - fdda_lv (updated 2026-10-19: S13 class-AB resize implemented)
+
+**Latest: S13 = option B. Read `CHANGELOG_S13_classAB.md` first** (what changed, results, noise, how to rebuild the environment, open items). Previous schematic saved as `../fdda_lv.sch.s12`. S13 params: `P_B.json`; sweep data `run1-3.jsonl`, `cand.json`; helper `sw.py`.
+
+---
+
 
 The schematic `../fdda_lv.sch` is now **S9** (final; S5 saved as `../fdda_lv.sch.s5`). Report: Claude doc 'fdda_lv Compensation Report'. S9 params: P9.json; reproduce with sim.evaluate(P9,{'nobuf','replica'}). The previous saved version (buffer removed, before S5) is `../fdda_lv.sch.pre_s5`;
 the original before any Claude edits is `../fdda_lv.sch.orig`.

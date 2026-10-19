@@ -1,6 +1,6 @@
 import json,re,numpy as np
 from sim import *
-import sys; P=json.load(open(sys.argv[1] if len(sys.argv)>1 else 'P9.json')); top,fd=gen.build(P,{'nobuf','replica'})
+import sys; P=json.load(open('P9.json')); top,fd=gen.build(P,{'nobuf','replica'})
 CMK='''.control
 save all
 tran 2n 30u
@@ -25,7 +25,7 @@ def step(c):
     return dict(case=c['CASE'],step_os=os_,step_settle=(tt[idx[-1]]-2e-6)*1e6)
 if __name__=='__main__':
     A=pmap(cmkick,CASES); B=pmap(step,CASES); S=slew(P,{'nobuf','replica'},[c['CASE'] for c in CASES])
-    R={'cm':A,'step':B,'slew':S}; json.dump(R,open('ver_'+(sys.argv[1] if len(sys.argv)>1 else 'P9.json'),'w'),default=float)
+    R={'cm':A,'step':B,'slew':S}; json.dump(R,open('ver_'+('P9.json'),'w'),default=float)
     print('CM kick: worst settle(5%%) %.2f us, worst residual after 5us %.4f mV'%(max(r['cm_settle'] for r in A),max(r['cm_late'] for r in A)))
     print('Step 100mV: overshoot %.1f..%.1f %%, 1%% settle max %.2f us'%(min(r['step_os'] for r in B),max(r['step_os'] for r in B),max(r['step_settle'] for r in B)))
     rise=[min(r['vop_rise'],r['von_rise']) for r in S]; fall=[min(r['vop_fall'],r['von_fall']) for r in S]
