@@ -37,6 +37,8 @@ N -170 -40 -70 -40 {lab=#net2}
 N -170 -90 -170 -40 {lab=#net2}
 N -240 -90 -170 -90 {lab=#net2}
 N -320 -90 -300 -90 {lab=IN-}
+N -80 40 -70 40 {lab=R+}
+N -100 -0 -80 -0 {lab=VOCM}
 C {opin.sym} 270 -20 0 0 {name=p1 lab=VO+
 }
 C {opin.sym} 270 20 0 0 {name=p2 lab=VO-}
@@ -54,9 +56,9 @@ C {ipin.sym} 250 -220 2 0 {name=p21 lab=PSUP_LV}
 C {lab_wire.sym} 230 -220 0 0 {name=p22 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} -560 -80 0 0 {name=p23 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} -560 -60 0 0 {name=p24 sig_type=std_logic lab=NSUP}
-C {ipin.sym} -560 80 0 0 {name=p25 lab=GAIN0}
-C {ipin.sym} -560 60 0 0 {name=p27 lab=GAIN1}
-C {opin.sym} -80 0 0 1 {name=p34 lab=VOCM
+C {ipin.sym} -560 60 0 0 {name=p25 lab=GAIN0}
+C {ipin.sym} -560 80 0 0 {name=p27 lab=GAIN1}
+C {ipin.sym} -100 0 0 0 {name=p34 lab=VOCM
 }
 C {lab_wire.sym} 50 -120 0 1 {name=p7 sig_type=std_logic lab=PSUP_LV}
 C {noconn.sym} -30 -100 0 0 {name=l2}
