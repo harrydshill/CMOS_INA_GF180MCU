@@ -36,6 +36,28 @@
           "insert_before": "(?im)^\\s*\\.control\\b"
         }
       ]
+    },
+    "gf180_conf3": {
+      "substitutions": [
+        {
+          "column": "cbit0",
+          "pattern": "(?im)^(\\s*\\.param\\s+cbit0\\s*=\\s*)[^\\s]+(.*)$",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        },
+        {
+          "column": "cbit1",
+          "pattern": "(?im)^(\\s*\\.param\\s+cbit1\\s*=\\s*)[^\\s]+(.*)$",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        },
+        {
+          "column": "cbit2",
+          "pattern": "(?im)^(\\s*\\.param\\s+cbit2\\s*=\\s*)[^\\s]+(.*)$",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        }
+      ]
     }
   }
 }

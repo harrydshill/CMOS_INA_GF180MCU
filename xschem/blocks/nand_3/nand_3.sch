@@ -23,7 +23,7 @@ N 60 0 100 -0 {lab=Y}
 N 0 150 60 150 {lab=NSUP}
 N -60 150 -40 150 {lab=B}
 N 0 250 60 250 {lab=NSUP}
-N -440 -50 -420 -50 {lab=C}
+N -440 -50 -420 -50 {lab=A}
 N -380 -20 -380 0 {lab=Y}
 N -380 0 -160 0 {lab=Y}
 N -380 -100 -380 -80 {lab=PSUP}
@@ -136,4 +136,4 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {lab_wire.sym} -380 -100 0 0 {name=p23 sig_type=std_logic lab=PSUP}
-C {lab_wire.sym} -440 -50 0 0 {name=p24 sig_type=std_logic lab=C}
+C {lab_wire.sym} -440 -50 0 0 {name=p24 sig_type=std_logic lab=A}

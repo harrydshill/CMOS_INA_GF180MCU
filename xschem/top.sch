@@ -22,8 +22,8 @@ N 500 150 520 150 {lab=NSUP}
 N 500 130 500 150 {lab=NSUP}
 N 20 150 40 150 {lab=NSUP}
 N 20 130 20 150 {lab=NSUP}
-N -40 -150 -20 -150 {lab=IBIAS}
-N -20 -150 -20 -130 {lab=IBIAS}
+N -40 -150 -20 -150 {lab=IBIAS_INA}
+N -20 -150 -20 -130 {lab=IBIAS_INA}
 N 440 -150 460 -150 {lab=IBIAS}
 N 460 -150 460 -130 {lab=IBIAS}
 C {ipin.sym} -120 -30 0 0 {name=p1 lab=IN+}
@@ -47,15 +47,15 @@ C {lab_wire.sym} 520 -150 0 1 {name=p4 sig_type=std_logic lab=PSUP_LV
 }
 C {lab_wire.sym} 40 150 0 1 {name=p5 sig_type=std_logic lab=NSUP}
 C {lab_wire.sym} 520 150 0 1 {name=p6 sig_type=std_logic lab=NSUP}
-C {ipin.sym} -130 -400 2 1 {name=p15 lab=IBIAS}
-C {lab_wire.sym} -130 -400 0 1 {name=p18 sig_type=std_logic lab=IBIAS}
-C {lab_wire.sym} -40 -150 0 0 {name=p19 sig_type=std_logic lab=IBIAS}
-C {lab_wire.sym} 440 -150 0 0 {name=p20 sig_type=std_logic lab=IBIAS}
+C {ipin.sym} -130 -400 2 1 {name=p15 lab=IBIAS_INA}
+C {lab_wire.sym} -130 -400 0 1 {name=p18 sig_type=std_logic lab=IBIAS_INA}
+C {lab_wire.sym} -40 -150 0 0 {name=p19 sig_type=std_logic lab=IBIAS_INA}
+C {lab_wire.sym} 440 -150 0 0 {name=p20 sig_type=std_logic lab=IBIAS_LPF}
 C {ipin.sym} -130 -360 0 0 {name=p38 lab=VOCM
 }
 C {lab_wire.sym} -130 -360 0 1 {name=p23 sig_type=std_logic lab=VOCM}
-C {lab_wire.sym} 160 0 0 1 {name=p24 sig_type=std_logic lab=VOCM}
-C {lab_wire.sym} 640 0 0 1 {name=p25 sig_type=std_logic lab=VOCM}
+C {lab_wire.sym} -120 0 0 0 {name=p24 sig_type=std_logic lab=VOCM}
+C {lab_wire.sym} 360 0 0 0 {name=p25 sig_type=std_logic lab=VOCM}
 C {opin.sym} 640 -30 0 0 {name=p36 lab=VO+
 }
 C {opin.sym} 640 30 0 0 {name=p37 lab=VO-}
@@ -64,6 +64,8 @@ C {ipin.sym} 360 -80 0 0 {name=p27 lab=LPF_GAIN1}
 C {ipin.sym} 360 -60 0 0 {name=p28 lab=LPF_GAIN0}
 C {ipin.sym} 360 60 0 0 {name=p29 lab=LPF_FREQ1}
 C {ipin.sym} 360 80 0 0 {name=p30 lab=LPF_FRQE0}
-C {ipin.sym} -120 70 0 0 {name=p31 lab=INA_GAIN1}
-C {ipin.sym} -120 90 0 0 {name=p32 lab=INA_GAIN0}
+C {ipin.sym} -120 80 0 0 {name=p31 lab=INA_GAIN1}
+C {ipin.sym} -120 60 0 0 {name=p32 lab=INA_GAIN0}
 C {blocks/INA/INA.sym} -100 0 0 0 {name=x1}
+C {ipin.sym} -130 -380 2 1 {name=p33 lab=IBIAS_LPF}
+C {lab_wire.sym} -130 -380 0 1 {name=p34 sig_type=std_logic lab=IBIAS_LPF}
