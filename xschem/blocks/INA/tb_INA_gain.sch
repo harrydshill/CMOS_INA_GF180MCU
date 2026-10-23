@@ -53,7 +53,15 @@ N -140 -410 -140 -390 {lab=PSUP_LV}
 N -20 -210 -20 -200 {lab=#net2}
 N -20 -290 -20 -270 {lab=#net1}
 N -20 -200 -20 -130 {lab=#net2}
-C {code_shown.sym} 580 -370 0 0 {name=MODELS only_toplevel=true
+N -830 190 -830 210 {lab=0}
+N -830 210 -810 210 {lab=0}
+N -830 110 -830 130 {lab=CONF1}
+N -830 110 -810 110 {lab=CONF1}
+N -620 110 -620 130 {lab=CONF0}
+N -620 110 -600 110 {lab=CONF0}
+N -620 190 -620 210 {lab=0}
+N -620 210 -600 210 {lab=0}
+C {code_shown.sym} 580 -410 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
 .include $::180MCU_MODELS/design.ngspice
@@ -68,11 +76,15 @@ value="
 
 .param vdd=3.3
 
+.param cbit0=0
+.param cbit1=0
+.param cbit2=0
+
 * Deterministic PVT: disable random global/mismatch variation.
 .param sw_stat_global=0
 .param sw_stat_mismatch=0
 "}
-C {code_shown.sym} 580 30 0 0 {name=NGSPICE only_toplevel=true value="
+C {code_shown.sym} 580 70 0 0 {name=NGSPICE only_toplevel=true value="
 .control
 set units=degrees
 save all
@@ -84,7 +96,7 @@ let aol = v(Vo) / v(Vid)
 let gain_db = db(aol)
 let phase_deg = cph(aol)
 
-write tb_INA_gain.raw
+write tb_INA_gain.raw gain_db phase_deg
 
 .endc
 "}
@@ -104,13 +116,8 @@ C {vsource.sym} -280 -90 0 1 {name=VDM1 value="DC 0 AC 0.5" savecurrent=false}
 C {lab_pin.sym} -280 30 0 0 {name=p5 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -240 -30 0 0 {name=p6 sig_type=std_logic lab=INM
 }
-C {lab_pin.sym} -270 190 2 1 {name=p7 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -120 80 2 1 {name=p8 sig_type=std_logic lab=PSUP_LV}
 C {blocks/INA/INA.sym} -100 0 0 0 {name=x1}
-C {lab_pin.sym} -250 100 2 1 {name=p9 sig_type=std_logic lab=0}
-C {lab_pin.sym} -150 120 2 1 {name=p10 sig_type=std_logic lab=0}
-C {lab_pin.sym} -120 60 2 1 {name=p11 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} 160 0 0 1 {name=p12 sig_type=std_logic lab=VCM}
+C {lab_pin.sym} -120 0 0 0 {name=p12 sig_type=std_logic lab=VCM}
 C {lab_pin.sym} -40 150 0 0 {name=p14 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -40 170 0 0 {name=p15 sig_type=std_logic lab=0}
 C {symbols/pfet_03v3.sym} -120 -360 0 1 {name=M7
@@ -146,3 +153,13 @@ C {isource.sym} -140 -260 0 0 {name=I1 value=1u}
 C {lab_pin.sym} -140 -200 2 0 {name=p22 sig_type=std_logic lab=0}
 C {ammeter.sym} -20 -240 0 1 {name=Vmeas1 savecurrent=true spice_ignore=0}
 C {lab_pin.sym} -80 -320 2 0 {name=p23 sig_type=std_logic lab=g}
+C {lab_wire.sym} -810 110 0 1 {name=p21 sig_type=std_logic lab=CONF1}
+C {lab_wire.sym} -600 110 0 1 {name=p28 sig_type=std_logic lab=CONF0}
+C {lab_wire.sym} -810 210 0 1 {name=p29 sig_type=std_logic lab=0}
+C {lab_wire.sym} -600 210 0 1 {name=p30 sig_type=std_logic lab=0}
+C {vsource.sym} -830 160 0 0 {name=CBIT1 value=\{cbit1\} savecurrent=false
+}
+C {vsource.sym} -620 160 0 0 {name=CBIT0 value=\{cbit0\} savecurrent=false
+}
+C {lab_wire.sym} -120 60 0 0 {name=p8 sig_type=std_logic lab=CONF0}
+C {lab_wire.sym} -120 80 0 0 {name=p7 sig_type=std_logic lab=CONF1}

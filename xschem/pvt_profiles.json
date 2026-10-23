@@ -58,6 +58,40 @@
           "matches": 1
         }
       ]
+    },
+    "gf180_conf5": {
+      "substitutions": [
+        {
+          "column": "cbit0",
+          "pattern": "(?im)^(\\s*\\.param\\s+cbit0\\s*=\\s*)[^\\s]+(.*)$",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        },
+        {
+          "column": "cbit1",
+          "pattern": "(?im)^(\\s*\\.param\\s+cbit1\\s*=\\s*)[^\\s]+(.*)$",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        },
+        {
+          "column": "cbit2",
+          "pattern": "(?im)^(\\s*\\.param\\s+cbit2\\s*=\\s*)[^\\s]+(.*)$",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        },
+        {
+          "column": "cbit3",
+          "pattern": "(?im)^(\\s*\\.param\\s+cbit3\\s*=\\s*)[^\\s]+(.*)$",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        },
+        {
+          "column": "cbit4",
+          "pattern": "(?im)^(\\s*\\.param\\s+cbit4\\s*=\\s*)[^\\s]+(.*)$",
+          "replacement": "\\g<1>{value}\\g<2>",
+          "matches": 1
+        }
+      ]
     }
   }
 }

@@ -60,7 +60,7 @@ tran 10n 200u
 
 let FB_Gain=db(V(PSUP_LV)/V(Vout))
 
-write tb_LPF_gain_fb_tran.raw FB_Gain
+write tb_LPF_gain_fb_tran.raw
 .endc
 "}
 C {lab_wire.sym} 120 0 0 1 {name=p12 sig_type=std_logic lab=PSUP_LV}
