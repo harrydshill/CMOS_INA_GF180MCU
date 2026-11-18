@@ -72,3 +72,4 @@ C {lab_wire.sym} 0 -140 0 1 {name=p2 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} 0 140 2 0 {name=p3 sig_type=std_logic lab=0}
 C {lab_wire.sym} 60 -40 0 1 {name=p5 sig_type=std_logic lab=outp}
 C {lab_wire.sym} 60 40 0 1 {name=p6 sig_type=std_logic lab=outn}
+C {lab_wire.sym} -100 100 0 0 {name=p9 sig_type=std_logic lab=CONF2}

@@ -4,6 +4,7 @@ K {}
 V {}
 S {}
 E {}
+T {ESD} -390 0 0 0 0.2 0.2 {}
 N 20 -150 40 -150 {lab=PSUP_LV}
 N 20 -150 20 -130 {lab=PSUP_LV}
 N 160 -30 360 -30 {lab=#net1}
@@ -24,10 +25,13 @@ N 20 150 40 150 {lab=NSUP}
 N 20 130 20 150 {lab=NSUP}
 N -40 -150 -20 -150 {lab=IBIAS_INA}
 N -20 -150 -20 -130 {lab=IBIAS_INA}
-N 440 -150 460 -150 {lab=IBIAS}
-N 460 -150 460 -130 {lab=IBIAS}
-C {ipin.sym} -120 -30 0 0 {name=p1 lab=IN+}
-C {ipin.sym} -120 30 0 0 {name=p2 lab=IN-}
+N 440 -150 460 -150 {lab=IBIAS_LPF}
+N 460 -150 460 -130 {lab=IBIAS_LPF}
+N -330 -10 -330 10 {lab=PSUP_LV}
+N -300 -30 -120 -30 {lab=#net3}
+N -300 30 -120 30 {lab=#net4}
+C {ipin.sym} -360 -30 0 0 {name=p1 lab=IN+}
+C {ipin.sym} -360 30 0 0 {name=p2 lab=IN-}
 C {lab_wire.sym} 40 -150 0 1 {name=p8 sig_type=std_logic lab=PSUP_LV
 }
 C {blocks/LPF/LPF.sym} 380 0 0 0 {name=x2}
@@ -59,13 +63,27 @@ C {lab_wire.sym} 360 0 0 0 {name=p25 sig_type=std_logic lab=VOCM}
 C {opin.sym} 640 -30 0 0 {name=p36 lab=VO+
 }
 C {opin.sym} 640 30 0 0 {name=p37 lab=VO-}
-C {ipin.sym} 360 -100 0 0 {name=p26 lab=LPF_GAIN2}
-C {ipin.sym} 360 -80 0 0 {name=p27 lab=LPF_GAIN1}
-C {ipin.sym} 360 -60 0 0 {name=p28 lab=LPF_GAIN0}
-C {ipin.sym} 360 60 0 0 {name=p29 lab=LPF_FREQ1}
-C {ipin.sym} 360 80 0 0 {name=p30 lab=LPF_FRQE0}
-C {ipin.sym} -120 80 0 0 {name=p31 lab=INA_GAIN1}
-C {ipin.sym} -120 60 0 0 {name=p32 lab=INA_GAIN0}
+C {ipin.sym} 360 80 0 0 {name=p29 lab=LPF_FREQ1}
+C {ipin.sym} 360 60 0 0 {name=p30 lab=LPF_FRQE0}
+C {ipin.sym} -120 70 0 0 {name=p31 lab=INA_GAIN1}
+C {ipin.sym} -120 50 0 0 {name=p32 lab=INA_GAIN0}
 C {blocks/INA/INA.sym} -100 0 0 0 {name=x1}
 C {ipin.sym} -130 -380 2 1 {name=p33 lab=IBIAS_LPF}
 C {lab_wire.sym} -130 -380 0 1 {name=p34 sig_type=std_logic lab=IBIAS_LPF}
+C {lab_pin.sym} -330 0 2 0 {name=p56 sig_type=std_logic lab=PSUP_LV
+L=100e-6}
+C {symbols/ppolyf_u_1k.sym} -330 -30 1 1 {name=R2
+W=1e-6
+L=1e-6
+model=ppolyf_u_1k
+spiceprefix=X
+m=1
+}
+C {symbols/ppolyf_u_1k.sym} -330 30 1 0 {name=R1
+W=1e-6
+L=1e-6
+model=ppolyf_u_1k
+spiceprefix=X
+m=1
+}
+C {ipin.sym} -120 90 0 0 {name=p26 lab=INA_GAIN2}

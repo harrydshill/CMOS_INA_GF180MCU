@@ -55,8 +55,6 @@ C {ipin.sym} -580 -400 2 1 {name=p13 lab=N_EN}
 C {ipin.sym} -580 -380 2 1 {name=p17 lab=IBIAS}
 C {lab_wire.sym} -30 -120 0 0 {name=p19 sig_type=std_logic lab=IBIAS}
 C {ipin.sym} -580 -460 2 1 {name=p21 lab=PSUP_LV}
-C {ipin.sym} -580 -360 2 1 {name=p25 lab=GAIN2
-}
 C {lab_wire.sym} 30 -120 0 1 {name=p7 sig_type=std_logic lab=PSUP_LV}
 C {noconn.sym} -30 -100 0 0 {name=l2}
 C {blocks/fdda_lv/fdda_lv.sym} -140 -50 0 0 {name=x1}
@@ -74,23 +72,12 @@ C {lab_wire.sym} -100 380 2 1 {name=p32 sig_type=std_logic lab=PSUP_LV}
 C {opin.sym} 270 -20 0 0 {name=p36 lab=VO+
 }
 C {opin.sym} 270 20 0 0 {name=p37 lab=VO-}
-C {ipin.sym} -580 -340 2 1 {name=p41 lab=GAIN1}
-C {ipin.sym} -580 -320 2 1 {name=p42 lab=GAIN0}
-C {ipin.sym} -580 -300 2 1 {name=p48 lab=FREQ1}
-C {ipin.sym} -580 -280 2 1 {name=p49 lab=FREQ0}
+C {ipin.sym} -580 -360 2 1 {name=p48 lab=FREQ1}
+C {ipin.sym} -580 -340 2 1 {name=p49 lab=FREQ0}
 C {lab_wire.sym} -580 -60 0 0 {name=p54 sig_type=std_logic lab=NSUP}
 C {lab_wire.sym} -580 -80 0 0 {name=p56 sig_type=std_logic lab=PSUP_LV}
-C {lab_wire.sym} -580 -360 0 1 {name=p4 sig_type=std_logic lab=GAIN2}
-C {lab_wire.sym} -580 -340 0 1 {name=p24 sig_type=std_logic lab=GAIN1}
-C {lab_wire.sym} -580 -320 0 1 {name=p20 sig_type=std_logic lab=GAIN0}
-C {lab_wire.sym} -580 -300 0 1 {name=p1 sig_type=std_logic lab=FREQ1}
-C {lab_wire.sym} -580 -280 0 1 {name=p44 sig_type=std_logic lab=FREQ0}
-C {lab_wire.sym} -100 -280 0 0 {name=p2 sig_type=std_logic lab=GAIN2}
-C {lab_wire.sym} -100 -260 0 0 {name=p28 sig_type=std_logic lab=GAIN1}
-C {lab_wire.sym} -100 -240 0 0 {name=p29 sig_type=std_logic lab=GAIN0}
-C {lab_wire.sym} -100 280 2 1 {name=p33 sig_type=std_logic lab=GAIN2}
-C {lab_wire.sym} -100 260 2 1 {name=p34 sig_type=std_logic lab=GAIN1}
-C {lab_wire.sym} -100 240 2 1 {name=p35 sig_type=std_logic lab=GAIN0}
+C {lab_wire.sym} -580 -360 0 1 {name=p1 sig_type=std_logic lab=FREQ1}
+C {lab_wire.sym} -580 -340 0 1 {name=p44 sig_type=std_logic lab=FREQ0}
 C {lab_wire.sym} -580 60 2 1 {name=p46 sig_type=std_logic lab=FREQ1}
 C {lab_wire.sym} -580 80 2 1 {name=p47 sig_type=std_logic lab=FREQ0}
 C {blocks/LPF_freq_fb/LPF_freq_fb.sym} -420 0 0 0 {name=x3}

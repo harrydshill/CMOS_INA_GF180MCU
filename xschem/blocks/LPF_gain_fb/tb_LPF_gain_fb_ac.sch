@@ -44,9 +44,9 @@ value="
 
 .param vdd=3.3
 
-.param cbit0=0
+.param cbit0=1
 .param cbit1=0
-.param cbit2=0
+.param cbit2=1
 
 * Deterministic PVT: disable random global/mismatch variation.
 .param sw_stat_global=0
@@ -64,7 +64,6 @@ write tb_LPF_gain_fb_ac.raw fb_gain
 "}
 C {lab_wire.sym} -100 0 0 0 {name=VBIT6 sig_type=std_logic lab=Vout}
 C {lab_wire.sym} 0 120 0 0 {name=p9 sig_type=std_logic lab=0}
-C {lab_wire.sym} -90 110 0 0 {name=p2 sig_type=std_logic lab=0}
 C {blocks/LPF_gain_fb/LPF_gain_fb.sym} 0 0 0 0 {name=x1}
 C {vsource.sym} 140 50 0 0 {name=VIN value="DC 1.65 AC 1" savecurrent=false}
 C {lab_wire.sym} 160 100 0 1 {name=p7 sig_type=std_logic lab=0}

@@ -94,10 +94,6 @@ C {vsource.sym} -280 -90 0 1 {name=VDM1 value=0.5m savecurrent=false}
 C {lab_pin.sym} -280 30 0 0 {name=p5 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -240 -30 0 0 {name=p6 sig_type=std_logic lab=INM
 }
-C {lab_pin.sym} -230 140 2 1 {name=p7 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -190 190 2 1 {name=p8 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -120 50 2 1 {name=p9 sig_type=std_logic lab=0}
-C {lab_pin.sym} -120 70 2 1 {name=p10 sig_type=std_logic lab=0}
 C {blocks/INA/INA.sym} -100 0 0 0 {name=x1}
 C {lab_pin.sym} 40 -150 2 0 {name=p4 sig_type=std_logic lab=PSUP_LV}
 C {symbols/pfet_03v3.sym} -120 -360 0 1 {name=M7
@@ -133,5 +129,7 @@ C {isource.sym} -140 -260 0 0 {name=I1 value=1u}
 C {lab_pin.sym} -140 -200 2 0 {name=p22 sig_type=std_logic lab=0}
 C {ammeter.sym} -20 -240 0 1 {name=Vmeas1 savecurrent=true spice_ignore=0}
 C {lab_pin.sym} -80 -320 2 0 {name=p23 sig_type=std_logic lab=g}
-C {lab_pin.sym} -120 90 2 1 {name=p11 sig_type=std_logic lab=0}
-C {lab_pin.sym} 160 0 0 1 {name=p12 sig_type=std_logic lab=VCM}
+C {lab_pin.sym} -120 0 0 0 {name=p12 sig_type=std_logic lab=VCM}
+C {lab_pin.sym} -120 50 2 1 {name=p7 sig_type=std_logic lab=0}
+C {lab_pin.sym} -120 90 2 1 {name=p9 sig_type=std_logic lab=PSUP_LV}
+C {lab_pin.sym} -120 70 2 1 {name=p8 sig_type=std_logic lab=PSUP_LV}

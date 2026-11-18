@@ -62,18 +62,6 @@ N -710 100 -710 120 {lab=CONF0}
 N -710 100 -690 100 {lab=CONF0}
 N -710 180 -710 200 {lab=0}
 N -710 200 -690 200 {lab=0}
-N -1130 180 -1130 200 {lab=0}
-N -1130 200 -1110 200 {lab=0}
-N -1130 100 -1130 120 {lab=CONF2}
-N -1130 100 -1110 100 {lab=CONF2}
-N -1290 180 -1290 200 {lab=0}
-N -1290 200 -1270 200 {lab=0}
-N -1290 100 -1290 120 {lab=CONF3}
-N -1290 100 -1270 100 {lab=CONF3}
-N -1500 180 -1500 200 {lab=0}
-N -1500 200 -1480 200 {lab=0}
-N -1500 100 -1500 120 {lab=CONF4}
-N -1500 100 -1480 100 {lab=CONF4}
 C {code_shown.sym} 580 -490 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -89,11 +77,11 @@ value="
 
 .param vdd=3.3
 
-.param cbit0=1
+.param cbit0=0
 .param cbit1=0
 .param cbit2=1
-.param cbit3=0
-.param cbit4=0
+.param cbit3=1
+.param cbit4=1
 
 * Deterministic PVT: disable random global/mismatch variation.
 .param sw_stat_global=0
@@ -111,8 +99,8 @@ let aol = v(Vo) / v(Vid)
 let gain_db = db(aol)
 let phase_deg = cph(aol)
 
-*write tb_LPF_gain.raw gain_db phase_deg
-write tb_LPF_gain.raw
+write tb_LPF_gain.raw gain_db phase_deg
+*write tb_LPF_gain.raw
 
 .endc
 "}
@@ -133,9 +121,6 @@ C {lab_pin.sym} -280 30 0 0 {name=p5 sig_type=std_logic lab=INP}
 C {lab_pin.sym} -240 -30 0 0 {name=p6 sig_type=std_logic lab=INM
 }
 C {blocks/LPF/LPF.sym} -100 0 0 0 {name=x2}
-C {lab_pin.sym} -330 -310 2 1 {name=p15 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -330 -290 2 1 {name=p20 sig_type=std_logic lab=PSUP_LV}
-C {lab_pin.sym} -330 -270 2 1 {name=p21 sig_type=std_logic lab=PSUP_LV}
 C {lab_pin.sym} -40 150 2 1 {name=p23 sig_type=std_logic lab=PSUP_LV}
 C {symbols/pfet_03v3.sym} -120 -320 0 1 {name=M7
 L=4u
@@ -174,24 +159,9 @@ C {lab_wire.sym} -900 100 0 1 {name=p22 sig_type=std_logic lab=CONF1}
 C {lab_wire.sym} -690 100 0 1 {name=p28 sig_type=std_logic lab=CONF0}
 C {lab_wire.sym} -900 200 0 1 {name=p29 sig_type=std_logic lab=0}
 C {lab_wire.sym} -690 200 0 1 {name=p30 sig_type=std_logic lab=0}
-C {vsource.sym} -1130 150 0 0 {name=CBIT2 value=\{cbit2\} savecurrent=false
-}
-C {lab_wire.sym} -1110 100 0 1 {name=VBIT1 sig_type=std_logic lab=CONF2}
-C {lab_wire.sym} -1110 200 0 1 {name=VBIT3 sig_type=std_logic lab=0}
 C {vsource.sym} -920 150 0 0 {name=CBIT1 value=\{cbit1\} savecurrent=false
 }
 C {vsource.sym} -710 150 0 0 {name=CBIT0 value=\{cbit0\} savecurrent=false
 }
-C {lab_wire.sym} -120 -60 0 0 {name=p11 sig_type=std_logic lab=CONF0}
-C {lab_wire.sym} -120 -80 0 0 {name=p12 sig_type=std_logic lab=CONF1}
-C {lab_wire.sym} -120 -100 0 0 {name=VBIT2 sig_type=std_logic lab=CONF2}
-C {lab_wire.sym} -1270 100 0 1 {name=p14 sig_type=std_logic lab=CONF3}
-C {lab_wire.sym} -1270 200 0 1 {name=p31 sig_type=std_logic lab=0}
-C {vsource.sym} -1500 150 0 0 {name=CBIT4 value=\{cbit4\} savecurrent=false
-}
-C {lab_wire.sym} -1480 100 0 1 {name=VBIT4 sig_type=std_logic lab=CONF4}
-C {lab_wire.sym} -1480 200 0 1 {name=VBIT5 sig_type=std_logic lab=0}
-C {vsource.sym} -1290 150 0 0 {name=CBIT3 value=\{cbit3\} savecurrent=false
-}
-C {lab_wire.sym} -120 80 0 0 {name=p7 sig_type=std_logic lab=CONF3}
-C {lab_wire.sym} -120 60 0 0 {name=p8 sig_type=std_logic lab=CONF4}
+C {lab_wire.sym} -120 60 0 0 {name=p7 sig_type=std_logic lab=CONF0}
+C {lab_wire.sym} -120 80 0 0 {name=p8 sig_type=std_logic lab=CONF1}

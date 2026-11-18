@@ -53,14 +53,18 @@ N -140 -410 -140 -390 {lab=PSUP_LV}
 N -20 -210 -20 -200 {lab=#net2}
 N -20 -290 -20 -270 {lab=#net1}
 N -20 -200 -20 -130 {lab=#net2}
-N -830 190 -830 210 {lab=0}
-N -830 210 -810 210 {lab=0}
-N -830 110 -830 130 {lab=CONF1}
-N -830 110 -810 110 {lab=CONF1}
-N -620 110 -620 130 {lab=CONF0}
-N -620 110 -600 110 {lab=CONF0}
-N -620 190 -620 210 {lab=0}
-N -620 210 -600 210 {lab=0}
+N -680 180 -680 200 {lab=0}
+N -680 200 -660 200 {lab=0}
+N -680 100 -680 120 {lab=CONF1}
+N -680 100 -660 100 {lab=CONF1}
+N -490 100 -490 120 {lab=CONF0}
+N -490 100 -470 100 {lab=CONF0}
+N -490 180 -490 200 {lab=0}
+N -490 200 -470 200 {lab=0}
+N -880 180 -880 200 {lab=0}
+N -880 200 -860 200 {lab=0}
+N -880 100 -880 120 {lab=CONF2}
+N -880 100 -860 100 {lab=CONF2}
 C {code_shown.sym} 580 -410 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -153,13 +157,18 @@ C {isource.sym} -140 -260 0 0 {name=I1 value=1u}
 C {lab_pin.sym} -140 -200 2 0 {name=p22 sig_type=std_logic lab=0}
 C {ammeter.sym} -20 -240 0 1 {name=Vmeas1 savecurrent=true spice_ignore=0}
 C {lab_pin.sym} -80 -320 2 0 {name=p23 sig_type=std_logic lab=g}
-C {lab_wire.sym} -810 110 0 1 {name=p21 sig_type=std_logic lab=CONF1}
-C {lab_wire.sym} -600 110 0 1 {name=p28 sig_type=std_logic lab=CONF0}
-C {lab_wire.sym} -810 210 0 1 {name=p29 sig_type=std_logic lab=0}
-C {lab_wire.sym} -600 210 0 1 {name=p30 sig_type=std_logic lab=0}
-C {vsource.sym} -830 160 0 0 {name=CBIT1 value=\{cbit1\} savecurrent=false
+C {lab_wire.sym} -120 50 0 0 {name=p8 sig_type=std_logic lab=CONF0}
+C {lab_wire.sym} -120 70 0 0 {name=p7 sig_type=std_logic lab=CONF1}
+C {lab_wire.sym} -120 90 0 0 {name=p9 sig_type=std_logic lab=CONF2}
+C {lab_wire.sym} -660 100 0 1 {name=p21 sig_type=std_logic lab=CONF1}
+C {lab_wire.sym} -470 100 0 1 {name=p28 sig_type=std_logic lab=CONF0}
+C {lab_wire.sym} -660 200 0 1 {name=p29 sig_type=std_logic lab=0}
+C {lab_wire.sym} -470 200 0 1 {name=p30 sig_type=std_logic lab=0}
+C {vsource.sym} -680 150 0 0 {name=CBIT1 value="\{cbit1 * 3.3\}" savecurrent=false
 }
-C {vsource.sym} -620 160 0 0 {name=CBIT0 value=\{cbit0\} savecurrent=false
+C {vsource.sym} -490 150 0 0 {name=CBIT0 value="\{cbit0 * 3.3\}" savecurrent=false
 }
-C {lab_wire.sym} -120 60 0 0 {name=p8 sig_type=std_logic lab=CONF0}
-C {lab_wire.sym} -120 80 0 0 {name=p7 sig_type=std_logic lab=CONF1}
+C {lab_wire.sym} -860 100 0 1 {name=p10 sig_type=std_logic lab=CONF2}
+C {lab_wire.sym} -860 200 0 1 {name=p11 sig_type=std_logic lab=0}
+C {vsource.sym} -880 150 0 0 {name=CBIT2 value="\{cbit2 * 3.3\}" savecurrent=false
+}
