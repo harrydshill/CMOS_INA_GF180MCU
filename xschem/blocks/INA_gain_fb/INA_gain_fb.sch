@@ -87,14 +87,14 @@ C {lab_wire.sym} -20 -100 0 0 {name=p30 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} -20 0 0 0 {name=p31 sig_type=std_logic lab=PSUP_LV}
 C {symbols/ppolyf_u_1k.sym} 0 -100 0 0 {name=R2
 W=1e-6
-L=3.491e-6
+L=1.7455e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
 }
 C {symbols/ppolyf_u_1k.sym} 0 -200 0 0 {name=R4
 W=1e-6
-L=10.82e-6
+L=5.41e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
@@ -102,14 +102,14 @@ m=1
 C {lab_wire.sym} -20 -300 0 0 {name=p27 sig_type=std_logic lab=PSUP_LV}
 C {symbols/ppolyf_u_1k.sym} 0 -300 0 0 {name=R9
 W=1e-6
-L=34.19e-6
+L=17.095e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
 }
 C {symbols/ppolyf_u_1k.sym} 0 0 0 0 {name=R3
 W=1e-6
-L=2.162e-6
+L=1.081e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
@@ -125,14 +125,14 @@ C {lab_wire.sym} -20 -500 0 0 {name=p13 sig_type=std_logic lab=PSUP_LV}
 C {lab_wire.sym} -20 -400 0 0 {name=p16 sig_type=std_logic lab=PSUP_LV}
 C {symbols/ppolyf_u_1k.sym} 0 -500 0 0 {name=R1
 W=1e-6
-L=349.1e-6
+L=174.55e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
 }
 C {symbols/ppolyf_u_1k.sym} 0 -600 0 0 {name=R5
 W=1e-6
-L=1082e-6
+L=541e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
@@ -140,14 +140,14 @@ m=1
 C {lab_wire.sym} -20 -700 0 0 {name=p18 sig_type=std_logic lab=PSUP_LV}
 C {symbols/ppolyf_u_1k.sym} 0 -700 0 0 {name=R8
 W=1e-6
-L=3419e-6
+L=1709.5e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
 }
 C {symbols/ppolyf_u_1k.sym} 0 -400 0 0 {name=R10
 W=1e-6
-L=108.2e-6
+L=54.1e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
@@ -189,49 +189,49 @@ C {lab_wire.sym} 0 150 0 0 {name=p53 sig_type=std_logic lab=TAP_6-
 }
 C {symbols/ppolyf_u_1k.sym} 0 100 2 1 {name=R6
 W=1e-6
-L=3.491e-6
+L=1.7455e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
 }
 C {symbols/ppolyf_u_1k.sym} 0 200 2 1 {name=R7
 W=1e-6
-L=10.82e-6
+L=5.41e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
 }
 C {symbols/ppolyf_u_1k.sym} 0 300 2 1 {name=R11
 W=1e-6
-L=34.19e-6
+L=17.095e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
 }
 C {symbols/ppolyf_u_1k.sym} 0 500 2 1 {name=R12
 W=1e-6
-L=349.1e-6
+L=174.55e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
 }
 C {symbols/ppolyf_u_1k.sym} 0 600 2 1 {name=R13
 W=1e-6
-L=1082e-6
+L=541e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
 }
 C {symbols/ppolyf_u_1k.sym} 0 700 2 1 {name=R14
 W=1e-6
-L=3419e-6
+L=1709.5e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1
 }
 C {symbols/ppolyf_u_1k.sym} 0 400 2 1 {name=R15
 W=1e-6
-L=108.2e-6
+L=54.1e-6
 model=ppolyf_u_1k
 spiceprefix=X
 m=1

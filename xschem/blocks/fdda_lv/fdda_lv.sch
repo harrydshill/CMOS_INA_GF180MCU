@@ -2,7 +2,7 @@ v {xschem version=3.4.7 file_version=1.2}
 G {}
 K {}
 V {}
-S {fill=false}
+S {}
 E {}
 B 7 1090 30 1540 110 {fill=false}
 B 7 580 -300 920 -220 {fill=false}

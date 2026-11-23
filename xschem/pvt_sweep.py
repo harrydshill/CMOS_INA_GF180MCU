@@ -13,8 +13,10 @@ import hashlib
 import json
 import re
 import shutil
+import socket
 import subprocess
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
@@ -34,6 +36,7 @@ DECK_MEASURE = re.compile(
     r"([A-Za-z_][A-Za-z0-9_]*)\b"
 )
 DECK_PRINT = re.compile(rf"(?i)^\s*print\s+({VECTOR_NAME})\s*$")
+RAW_PLOT_NAME = re.compile(rb"(?im)^Plotname:\s*([^\r\n]+)")
 
 
 def read_cases(filename: Path) -> list[dict[str, str]]:
@@ -267,6 +270,109 @@ def with_overlay_write(
     return "\n".join(output) + ("\n" if deck.endswith("\n") else "")
 
 
+def gaw_plot_groups(deck: str, case_names: list[str]) -> list[list[tuple[int, str]]]:
+    """Group same-named output vectors across cases for automatic GAW panels.
+
+    Each tuple contains the zero-based SPICE3 raw plot (dataset) index and the
+    case-suffixed vector name written by :func:`with_overlay_write`.
+    """
+    writes: list[list[str]] = []
+    for line in deck.splitlines():
+        match = RAW_WRITE.match(line)
+        if not match or not re.search(r"\.raw(?:\s|$)", match.group("file"), re.IGNORECASE):
+            continue
+        vectors = match.group("vectors").split()
+        if vectors:
+            writes.append(vectors)
+
+    groups: list[list[tuple[int, str]]] = []
+    for write_index, vectors in enumerate(writes):
+        seen: set[str] = set()
+        output_vectors = vectors
+        if vectors[0].strip().lower() in {"frequency", "time", "sweep", "temper"}:
+            output_vectors = vectors[1:]
+        for vector in output_vectors:
+            key = re.sub(r"[^A-Za-z0-9_]+", "_", vector).strip("_").lower()
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            groups.append(
+                [
+                    (
+                        case_index * len(writes) + write_index,
+                        overlay_vector_name(vector, name),
+                    )
+                    for case_index, name in enumerate(case_names)
+                ]
+            )
+    return groups
+
+
+def overlay_is_ac_only(overlay: Path) -> bool:
+    """Return whether every dataset in a SPICE3 raw overlay is an AC plot."""
+    plot_names = [name.strip().lower() for name in RAW_PLOT_NAME.findall(overlay.read_bytes())]
+    return bool(plot_names) and all(name.startswith(b"ac") for name in plot_names)
+
+
+def open_gaw_overlay(
+    gaw: str,
+    overlay: Path,
+    groups: list[list[tuple[int, str]]],
+    *,
+    logarithmic_x: bool = False,
+) -> None:
+    """Open an overlay in GAW and automatically place each comparison group.
+
+    GAW's built-in localhost command interface lets us select a raw dataset and
+    copy its case-labelled vectors onto a panel without fragile GUI automation.
+    """
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as port_socket:
+        port_socket.bind(("127.0.0.1", 0))
+        port = port_socket.getsockname()[1]
+
+    process = subprocess.Popen(
+        [gaw, "-p", str(port)], cwd=overlay.parent, start_new_session=True
+    )
+    deadline = time.monotonic() + 10
+    connection: socket.socket | None = None
+    while time.monotonic() < deadline:
+        if process.poll() is not None:
+            raise RuntimeError(f"GAW exited before its control socket opened (exit {process.returncode})")
+        try:
+            connection = socket.create_connection(("127.0.0.1", port), timeout=0.25)
+            break
+        except OSError:
+            time.sleep(0.05)
+    if connection is None:
+        raise RuntimeError("timed out waiting for GAW's control socket")
+
+    panel_count = max(2, len(groups))
+    with connection:
+        connection.settimeout(5)
+        stream = connection.makefile("rwb")
+
+        def send(command: str) -> None:
+            stream.write(command.encode("utf-8") + b"\n")
+            stream.flush()
+            response = stream.readline()
+            if not response:
+                status = process.poll()
+                detail = f" (GAW exit {status})" if status is not None else ""
+                raise RuntimeError(f"GAW closed its control connection after {command!r}{detail}")
+            if response.strip():
+                raise RuntimeError(f"GAW rejected {command!r}: {response.decode(errors='replace').strip()}")
+
+        send(f"load {overlay.name} spice3raw")
+        if logarithmic_x:
+            send("logx on")
+        send(f"panel {panel_count}")
+        for panel_index, group in enumerate(groups):
+            for dataset_index, vector in group:
+                send(f"dataset {dataset_index}")
+                send(f"copyvar {vector} p{panel_index}")
+        stream.close()
+
+
 def run() -> int:
     script_dir = Path(__file__).resolve().parent
     parser = argparse.ArgumentParser(
@@ -415,8 +521,18 @@ def run() -> int:
             if not shutil.which(args.gaw) and not Path(args.gaw).exists():
                 print(f"warning: GAW executable {args.gaw!r} not found; raw files were retained", file=sys.stderr)
             else:
-                targets = [overlay] if overlay else raw_paths
-                subprocess.Popen([args.gaw, *(str(path) for path in targets)])
+                if overlay:
+                    try:
+                        open_gaw_overlay(
+                            args.gaw,
+                            overlay,
+                            gaw_plot_groups(template, case_names),
+                            logarithmic_x=overlay_is_ac_only(overlay),
+                        )
+                    except (OSError, RuntimeError) as exc:
+                        print(f"warning: could not configure GAW comparison plots: {exc}", file=sys.stderr)
+                else:
+                    subprocess.Popen([args.gaw, *(str(path) for path in raw_paths)])
         print(f"PVT results: {output}")
         return 0
     except (OSError, KeyError, ValueError, RuntimeError, json.JSONDecodeError) as exc:

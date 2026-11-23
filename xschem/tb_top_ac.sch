@@ -24,15 +24,15 @@ N -100 -410 -100 -390 {lab=#net1}
 N -100 -380 -100 -290 {lab=#net1}
 N 30 -510 30 -480 {lab=PSUP_LV}
 N -30 -480 -10 -480 {lab=g}
-N 30 -450 30 -430 {lab=#net1}
-N 30 -430 30 -410 {lab=#net1}
+N 30 -450 30 -430 {lab=#net2}
+N 30 -430 30 -410 {lab=#net2}
 N 30 -530 30 -510 {lab=PSUP_LV}
-N 30 -390 30 -380 {lab=#net1}
-N 30 -410 30 -390 {lab=#net1}
-N 30 -380 30 -290 {lab=#net1}
+N 30 -390 30 -380 {lab=#net2}
+N 30 -410 30 -390 {lab=#net2}
+N 30 -380 30 -290 {lab=#net2}
 N -100 -530 30 -530 {lab=PSUP_LV}
-N -20 -290 -20 -200 {lab=#net1}
-N -20 -290 30 -290 {lab=#net1}
+N -20 -290 -20 -200 {lab=#net2}
+N -20 -290 30 -290 {lab=#net2}
 N -40 -290 -40 -200 {lab=#net1}
 N -100 -290 -40 -290 {lab=#net1}
 N -420 -140 -420 -120 {lab=VCM}
@@ -115,7 +115,6 @@ C {lab_pin.sym} 20 -530 2 0 {name=p24 sig_type=std_logic lab=PSUP_LV}
 C {isource.sym} -220 -380 0 0 {name=I1 value=1u}
 C {lab_pin.sym} -220 -320 2 0 {name=p25 sig_type=std_logic lab=0}
 C {lab_pin.sym} -160 -440 2 0 {name=p26 sig_type=std_logic lab=g}
-C {top.sym} 20 0 0 0 {name=x1}
 C {lab_pin.sym} 0 -200 2 0 {name=p1 sig_type=std_logic lab=PSUP_LV}
 C {symbols/pfet_03v3.sym} 10 -480 0 0 {name=M2
 L=4u
@@ -132,7 +131,7 @@ model=pfet_03v3
 spiceprefix=X
 }
 C {lab_pin.sym} -20 -480 2 1 {name=p2 sig_type=std_logic lab=g}
-C {lab_pin.sym} -20 200 2 0 {name=p3 sig_type=std_logic lab=0}
+C {lab_pin.sym} 0 200 2 0 {name=p3 sig_type=std_logic lab=0}
 C {lab_pin.sym} -440 -140 0 0 {name=p13 sig_type=std_logic lab=VCM}
 C {vsource.sym} -380 -90 2 1 {name=VDM2 value="DC 0 AC 0.5" savecurrent=false}
 C {vsource.sym} -420 -90 0 1 {name=VDM1 value="DC 0 AC 0.5" savecurrent=false}
@@ -203,21 +202,21 @@ C {lab_wire.sym} -660 180 0 1 {name=p22 sig_type=std_logic lab=CONF1}
 C {lab_wire.sym} -450 180 0 1 {name=p28 sig_type=std_logic lab=CONF0}
 C {lab_wire.sym} -660 280 0 1 {name=p29 sig_type=std_logic lab=0}
 C {lab_wire.sym} -450 280 0 1 {name=p30 sig_type=std_logic lab=0}
-C {vsource.sym} -680 230 0 0 {name=CBIT1 value="\{cbit1 * 3.3\}" savecurrent=false
+C {vsource.sym} -680 230 0 0 {name=VBIT1 value="\{cbit1 * 3.3\}" savecurrent=false
 }
-C {vsource.sym} -470 230 0 0 {name=CBIT0 value="\{cbit0 * 3.3\}" savecurrent=false
+C {vsource.sym} -470 230 0 0 {name=VBIT0 value="\{cbit0 * 3.3\}" savecurrent=false
 }
 C {lab_wire.sym} -1060 180 0 1 {name=p10 sig_type=std_logic lab=CONF3}
 C {lab_wire.sym} -850 180 0 1 {name=p12 sig_type=std_logic lab=CONF2}
 C {lab_wire.sym} -1060 280 0 1 {name=p14 sig_type=std_logic lab=0}
 C {lab_wire.sym} -850 280 0 1 {name=p15 sig_type=std_logic lab=0}
-C {vsource.sym} -1080 230 0 0 {name=CBIT2 value="\{cbit3 * 3.3\}" savecurrent=false
+C {vsource.sym} -1080 230 0 0 {name=VBIT2 value="\{cbit3 * 3.3\}" savecurrent=false
 }
-C {vsource.sym} -870 230 0 0 {name=CBIT3 value="\{cbit2 * 3.3\}" savecurrent=false
+C {vsource.sym} -870 230 0 0 {name=VBIT3 value="\{cbit2 * 3.3\}" savecurrent=false
 }
 C {lab_wire.sym} -1260 180 0 1 {name=p16 sig_type=std_logic lab=CONF4}
 C {lab_wire.sym} -1260 280 0 1 {name=p17 sig_type=std_logic lab=0}
-C {vsource.sym} -1280 230 0 0 {name=CBIT4 value="\{cbit4 * 3.3\}" savecurrent=false
+C {vsource.sym} -1280 230 0 0 {name=VBIT4 value="\{cbit4 * 3.3\}" savecurrent=false
 }
 C {vsource.sym} -1200 0 0 0 {name=VDD1 value=\{vdd\} savecurrent=false}
 C {lab_pin.sym} -1180 50 2 0 {name=p18 sig_type=std_logic lab=0}
@@ -230,3 +229,6 @@ C {lab_wire.sym} -130 90 0 0 {name=p27 sig_type=std_logic lab=CONF1}
 C {lab_wire.sym} -130 110 0 0 {name=p31 sig_type=std_logic lab=CONF2}
 C {lab_wire.sym} -130 -90 0 0 {name=p32 sig_type=std_logic lab=CONF3}
 C {lab_wire.sym} -130 -70 0 0 {name=p33 sig_type=std_logic lab=CONF4}
+C {top.sym} 20 0 0 0 {name=x1}
+C {lab_pin.sym} -20 200 2 0 {name=p34 sig_type=std_logic lab=0}
+C {lab_pin.sym} -40 200 2 0 {name=p35 sig_type=std_logic lab=0}

@@ -188,6 +188,35 @@ print v(out)
         self.assertEqual(later.count("set appendwrite"), 2)
         self.assertIn("v_out__ff", later)
 
+    def test_gaw_plot_groups_match_outputs_across_cases_and_analyses(self) -> None:
+        deck = """.control
+write ac.raw gain_db phase_deg
+write tran.raw time v(out) i(vdd)
+.endc
+"""
+        groups = pvt_sweep.gaw_plot_groups(deck, ["ss", "ff"])
+        self.assertEqual(
+            groups,
+            [
+                [(0, "gain_db__ss"), (2, "gain_db__ff")],
+                [(0, "phase_deg__ss"), (2, "phase_deg__ff")],
+                [(1, "v_out__ss"), (3, "v_out__ff")],
+                [(1, "i_vdd__ss"), (3, "i_vdd__ff")],
+            ],
+        )
+
+    def test_ac_only_overlay_uses_logarithmic_x_but_mixed_overlay_does_not(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            overlay = Path(temp) / "comparison.raw"
+            overlay.write_text("Plotname: AC Analysis\nValues:\n", encoding="ascii")
+            self.assertTrue(pvt_sweep.overlay_is_ac_only(overlay))
+            overlay.write_text(
+                "Plotname: AC Analysis\nValues:\n"
+                "Plotname: Transient Analysis\nValues:\n",
+                encoding="ascii",
+            )
+            self.assertFalse(pvt_sweep.overlay_is_ac_only(overlay))
+
     def test_relative_includes_are_anchored_to_deck_directory(self) -> None:
         with tempfile.TemporaryDirectory() as temp:
             base = Path(temp)
